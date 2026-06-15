@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  TODO: Replace every instance of https://YOUR_USERNAME.github.io
+  with your real GitHub Pages URL, e.g. https://sephylon09.github.io
+  If you use a custom domain later, replace with that domain instead.
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <url>
+    <loc>https://YOUR_USERNAME.github.io/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <url>
+    <loc>https://YOUR_USERNAME.github.io/privacy.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://YOUR_USERNAME.github.io/support.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+</urlset>

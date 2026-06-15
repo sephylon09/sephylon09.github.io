@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#090B10">
+
+  <title>Mini Forge Dev — Small Apps. Carefully Forged.</title>
+  <meta name="description" content="Mini Forge Dev creates focused Android applications designed to be useful, responsive and enjoyable to use. Featured app: AnimePulse.">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+
+  <!-- TODO: Replace YOUR_USERNAME with your actual GitHub username in the lines below -->
+  <link rel="canonical" href="https://YOUR_USERNAME.github.io/">
+
+  <!-- Open Graph -->
+  <meta property="og:type"        content="website">
+  <meta property="og:title"       content="Mini Forge Dev — Small Apps. Carefully Forged.">
+  <meta property="og:description" content="Mini Forge Dev creates focused Android applications designed to be useful, responsive and enjoyable to use.">
+  <meta property="og:url"         content="https://YOUR_USERNAME.github.io/">
+  <!-- og:image: Add a real image URL here once you have one -->
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Skip link for keyboard / screen-reader users -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- ══════════════════ HEADER ══════════════════ -->
+  <header class="site-header" id="site-header">
+    <div class="header-inner">
+      <a href="/" class="logo-link" aria-label="Mini Forge Dev — home">
+        <img src="assets/logo.svg" alt="Mini Forge Dev" width="210" height="44">
+      </a>
+
+      <button
+        class="nav-toggle"
+        id="nav-toggle"
+        aria-controls="main-nav"
+        aria-expanded="false"
+        aria-label="Toggle navigation menu"
+      >
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+      </button>
+
+      <nav id="main-nav" class="main-nav" aria-label="Main navigation">
+        <ul class="nav-list">
+          <li><a href="/"           class="nav-link" aria-current="page">Home</a></li>
+          <li><a href="#apps"       class="nav-link">Apps</a></li>
+          <li><a href="privacy.html" class="nav-link">Privacy</a></li>
+          <li><a href="support.html" class="nav-link">Support</a></li>
+          <li><a href="#contact"    class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ══════════════════ MAIN ══════════════════ -->
+  <main id="main-content">
+
+    <!-- ── Hero ─────────────────────────────── -->
+    <section class="hero-section" aria-labelledby="hero-heading">
+      <div class="container hero-inner">
+
+        <div class="hero-content">
+          <p class="eyebrow">Small apps. Carefully forged.</p>
+          <h1 id="hero-heading">
+            Useful mobile experiences,<br>forged one detail at a time.
+          </h1>
+          <p class="hero-desc">
+            Mini Forge Dev creates focused Android applications designed to be
+            useful, responsive and enjoyable to use.
+          </p>
+          <div class="hero-cta">
+            <a href="#apps"    class="btn btn-primary">Explore our apps</a>
+            <a href="#contact" class="btn btn-secondary">Contact support</a>
+          </div>
+        </div>
+
+        <!-- Original CSS/SVG forge visual — decorative -->
+        <div class="hero-visual" aria-hidden="true">
+          <div class="hero-forge">
+            <div class="hf-sparks">
+              <span class="hf-spark hf-spark-1"></span>
+              <span class="hf-spark hf-spark-2"></span>
+              <span class="hf-spark hf-spark-3"></span>
+              <span class="hf-spark hf-spark-4"></span>
+              <span class="hf-spark hf-spark-5"></span>
+              <span class="hf-spark hf-spark-6"></span>
+            </div>
+
+            <!-- Phone mockup -->
+            <div class="hf-phone">
+              <div class="hf-notch"></div>
+              <div class="hf-screen">
+                <div class="hf-screen-header">
+                  <span class="hf-screen-title">AnimePulse</span>
+                </div>
+                <div class="hf-screen-body">
+                  <div class="hf-cards">
+                    <div class="hf-card hf-card-a"></div>
+                    <div class="hf-card hf-card-b"></div>
+                    <div class="hf-card hf-card-c"></div>
+                  </div>
+                  <div class="hf-cal-label">Airing This Week</div>
+                  <div class="hf-cal-rows">
+                    <div class="hf-cal-row">
+                      <span class="hf-cal-dot hf-cal-dot--purple"></span>
+                      <span class="hf-cal-bar"></span>
+                    </div>
+                    <div class="hf-cal-row">
+                      <span class="hf-cal-dot hf-cal-dot--teal"></span>
+                      <span class="hf-cal-bar"></span>
+                    </div>
+                    <div class="hf-cal-row">
+                      <span class="hf-cal-dot hf-cal-dot--amber"></span>
+                      <span class="hf-cal-bar"></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Anvil platform -->
+            <div class="hf-platform">
+              <div class="hf-glow"></div>
+              <svg class="hf-anvil-svg" viewBox="0 0 180 70" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <defs>
+                  <linearGradient id="hav-top" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="#FFB35C"/>
+                    <stop offset="100%" stop-color="#CC5A14"/>
+                  </linearGradient>
+                  <linearGradient id="hav-body" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="#B84E14"/>
+                    <stop offset="100%" stop-color="#7A3210"/>
+                  </linearGradient>
+                  <radialGradient id="hav-glow" cx="50%" cy="100%" r="70%">
+                    <stop offset="0%" stop-color="#FF8A3D" stop-opacity="0.5"/>
+                    <stop offset="100%" stop-color="#FF8A3D" stop-opacity="0"/>
+                  </radialGradient>
+                </defs>
+                <!-- Glow -->
+                <ellipse cx="90" cy="65" rx="80" ry="20" fill="url(#hav-glow)" opacity="0.7"/>
+                <!-- Top face -->
+                <rect x="20" y="10" width="140" height="22" rx="5" fill="url(#hav-top)"/>
+                <!-- Horn -->
+                <path d="M155 13 L175 21 L155 29" fill="#FFB35C"/>
+                <!-- Waist -->
+                <rect x="40" y="32" width="90" height="14" rx="3" fill="url(#hav-body)"/>
+                <!-- Base -->
+                <rect x="28" y="46" width="116" height="12" rx="4" fill="#5C2008"/>
+                <!-- Code bracket -->
+                <text x="26" y="26" font-family="'Courier New',monospace" font-size="14" font-weight="900" fill="#090B10" opacity="0.7">&lt;/&gt;</text>
+              </svg>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── Values ───────────────────────────── -->
+    <section class="values-section section" id="about" aria-labelledby="values-heading">
+      <div class="container">
+        <div class="section-header">
+          <p class="eyebrow">How we build</p>
+          <h2 class="section-title" id="values-heading">Studio Values</h2>
+          <p class="section-desc">
+            Principles that guide every decision from first sketch to final release.
+          </p>
+        </div>
+        <div class="values-grid">
+
+          <div class="value-card">
+            <div class="value-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="9"/>
+                <circle cx="12" cy="12" r="4"/>
+                <line x1="12" y1="2"  x2="12" y2="5"/>
+                <line x1="12" y1="19" x2="12" y2="22"/>
+                <line x1="2"  y1="12" x2="5"  y2="12"/>
+                <line x1="19" y1="12" x2="22" y2="12"/>
+              </svg>
+            </div>
+            <h3>Crafted with purpose</h3>
+            <p>Every feature should solve a real problem rather than add unnecessary complexity.</p>
+          </div>
+
+          <div class="value-card">
+            <div class="value-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                <circle cx="12" cy="12" r="3"/>
+              </svg>
+            </div>
+            <h3>Built for clarity</h3>
+            <p>Interfaces are designed to remain understandable, responsive and easy to navigate.</p>
+          </div>
+
+          <div class="value-card">
+            <div class="value-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="23 4 23 10 17 10"/>
+                <polyline points="1 20 1 14 7 14"/>
+                <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/>
+              </svg>
+            </div>
+            <h3>Improved continuously</h3>
+            <p>Apps are refined through testing, feedback and regular updates.</p>
+          </div>
+
+          <div class="value-card">
+            <div class="value-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
+            </div>
+            <h3>Privacy considered</h3>
+            <p>Data collection is kept limited and users are given clear privacy choices.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Apps ─────────────────────────────── -->
+    <section class="apps-section" id="apps" aria-labelledby="apps-heading">
+      <div class="container">
+        <div class="section-header">
+          <p class="eyebrow">Applications</p>
+          <h2 class="section-title" id="apps-heading">What we're building</h2>
+          <p class="section-desc">
+            Focused Android apps designed around real everyday needs.
+          </p>
+        </div>
+
+        <!-- AnimePulse card -->
+        <article class="app-card" aria-labelledby="ap-name">
+          <div class="app-card-content">
+            <div class="app-card-header">
+              <div class="status-badge">Coming soon to Google Play</div>
+              <h3 class="app-name" id="ap-name">AnimePulse</h3>
+              <p class="app-tagline">
+                Discover anime, follow release schedules and keep up with your favourites.
+              </p>
+            </div>
+
+            <div class="app-features">
+              <h4>Features</h4>
+              <ul>
+                <li>Browse trending, popular and upcoming anime</li>
+                <li>Weekly airing calendar in the device's local timezone</li>
+                <li>Save favourites locally on your device</li>
+                <li>My Week personalised release schedule</li>
+                <li>Optional episode reminders</li>
+                <li>English, Romaji and Native title preferences</li>
+              </ul>
+            </div>
+
+            <!-- TODO: Replace the href value below with the real Google Play URL when available.
+                 Example: href="https://play.google.com/store/apps/details?id=com.miniforgedev.animepulse"
+                 Then change the class from "btn btn-disabled" to "btn btn-primary" and remove aria-disabled. -->
+            <a
+              href="#apps"
+              class="btn btn-disabled"
+              aria-disabled="true"
+              tabindex="-1"
+            >
+              Google Play listing coming soon
+            </a>
+          </div>
+
+          <div class="app-card-visual">
+            <img
+              src="assets/animepulse-placeholder.svg"
+              alt="AnimePulse app preview illustration showing a mock anime list, trending cards and an airing schedule"
+              class="app-preview-img"
+              width="220"
+              height="408"
+              loading="lazy"
+            >
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ── Future Apps ───────────────────────── -->
+    <section class="future-section" aria-labelledby="future-heading">
+      <div class="container">
+        <div class="future-inner">
+          <div class="future-icon" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <line x1="12" y1="8"  x2="12" y2="12"/>
+              <line x1="12" y1="16" x2="12.01" y2="16"/>
+            </svg>
+          </div>
+          <div class="future-text">
+            <h2 id="future-heading">More apps in the forge</h2>
+            <p>
+              More small and focused Android tools are currently being forged.
+              Follow this page for updates when new applications are released.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Contact ───────────────────────────── -->
+    <section class="contact-section" id="contact" aria-labelledby="contact-heading">
+      <div class="container">
+        <div class="section-header center">
+          <p class="eyebrow">Get in touch</p>
+          <h2 class="section-title" id="contact-heading">Contact</h2>
+          <p class="section-desc">
+            Reach Mini Forge Dev for support, privacy queries, bug reports or general feedback.
+          </p>
+        </div>
+
+        <div class="contact-card">
+          <div class="contact-reasons">
+            <p>You can contact us for any of the following:</p>
+            <ul>
+              <li>Technical support</li>
+              <li>Privacy questions</li>
+              <li>Bug reports</li>
+              <li>General feedback</li>
+            </ul>
+          </div>
+          <div class="contact-email-wrap">
+            <p class="contact-email-label">Email</p>
+            <a href="mailto:miniforgedev@gmail.com" class="contact-email">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="2" y="4" width="20" height="16" rx="2"/>
+                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+              </svg>
+              miniforgedev@gmail.com
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ══════════════════ FOOTER ══════════════════ -->
+  <footer class="site-footer" aria-label="Site footer">
+    <div class="container">
+      <div class="footer-main">
+        <div class="footer-brand">
+          <a href="/" class="footer-logo-link">Mini Forge Dev</a>
+          <p class="footer-tagline">Small apps. Carefully forged.</p>
+        </div>
+        <nav class="footer-nav" aria-label="Footer navigation">
+          <div class="footer-col">
+            <h2 class="footer-col-title">Apps</h2>
+            <ul>
+              <li><a href="#apps">AnimePulse</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h2 class="footer-col-title">Legal</h2>
+            <ul>
+              <li><a href="privacy.html">Privacy Policy</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h2 class="footer-col-title">Help</h2>
+            <ul>
+              <li><a href="support.html">Support</a></li>
+              <li><a href="mailto:miniforgedev@gmail.com">Contact</a></li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">
+          &copy; <span id="footer-year"></span> Mini Forge Dev. All rights reserved.
+        </p>
+        <p class="footer-disclaimer">
+          AnimePulse is an independent application and is not endorsed by or affiliated with
+          AniList or any anime publisher.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

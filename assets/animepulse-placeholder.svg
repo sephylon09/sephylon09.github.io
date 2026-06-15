@@ -1,0 +1,174 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 270 490" width="270" height="490" role="img" aria-label="AnimePulse app preview illustration">
+  <defs>
+    <linearGradient id="ap-screen" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#090B14"/>
+      <stop offset="100%" stop-color="#0E1428"/>
+    </linearGradient>
+    <linearGradient id="ap-header" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#13082E"/>
+      <stop offset="100%" stop-color="#091428"/>
+    </linearGradient>
+    <linearGradient id="ap-title" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#A78BFA"/>
+      <stop offset="100%" stop-color="#6FD3FF"/>
+    </linearGradient>
+    <linearGradient id="card-a" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1A0F40"/>
+      <stop offset="100%" stop-color="#0C1E52"/>
+    </linearGradient>
+    <linearGradient id="card-b" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1E0A34"/>
+      <stop offset="100%" stop-color="#380C60"/>
+    </linearGradient>
+    <linearGradient id="card-c" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#091A34"/>
+      <stop offset="100%" stop-color="#0E2E58"/>
+    </linearGradient>
+    <linearGradient id="ap-nav" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0C0F1A"/>
+      <stop offset="100%" stop-color="#090B13"/>
+    </linearGradient>
+    <clipPath id="screen-clip">
+      <rect x="18" y="18" width="234" height="454" rx="24"/>
+    </clipPath>
+  </defs>
+
+  <!-- Phone body -->
+  <rect x="8" y="8" width="254" height="474" rx="32" fill="#111827" stroke="#1E293B" stroke-width="2"/>
+  <!-- Side buttons -->
+  <rect x="5"   y="100" width="4" height="28" rx="2" fill="#0D1117"/>
+  <rect x="5"   y="138" width="4" height="28" rx="2" fill="#0D1117"/>
+  <rect x="261" y="115" width="4" height="36" rx="2" fill="#0D1117"/>
+
+  <!-- Screen -->
+  <rect x="18" y="18" width="234" height="454" rx="24" fill="url(#ap-screen)"/>
+
+  <!-- All screen content clipped to screen area -->
+  <g clip-path="url(#screen-clip)">
+
+    <!-- Status bar -->
+    <rect x="18" y="18" width="234" height="30" fill="#08090F" opacity="0.9"/>
+    <!-- Camera pill -->
+    <rect x="105" y="24" width="60" height="10" rx="5" fill="#06070C"/>
+    <!-- Status icons placeholder -->
+    <rect x="190" y="27" width="30" height="5" rx="2" fill="#AAB3C5" opacity="0.3"/>
+
+    <!-- App header -->
+    <rect x="18" y="48" width="234" height="54" fill="url(#ap-header)"/>
+    <!-- AnimePulse title (gradient text via linearGradient fill) -->
+    <text x="36" y="82" font-family="Inter,ui-sans-serif,system-ui,sans-serif" font-size="21" font-weight="800" fill="url(#ap-title)" letter-spacing="-0.5">AnimePulse</text>
+    <!-- Search icon -->
+    <circle cx="214" cy="75" r="8"  fill="none" stroke="#AAB3C5" stroke-width="1.8"/>
+    <line   x1="219" y1="80" x2="225" y2="86" stroke="#AAB3C5" stroke-width="1.8" stroke-linecap="round"/>
+    <!-- Notification icon -->
+    <path d="M194 68 Q194 61 200 61 Q206 61 206 68 L206 76 Q209 76 209 79 L191 79 Q191 76 194 76 Z" fill="none" stroke="#AAB3C5" stroke-width="1.5"/>
+    <line x1="197" y1="79" x2="203" y2="82" stroke="#AAB3C5" stroke-width="1.5"/>
+
+    <!-- Tab row -->
+    <rect x="18" y="102" width="234" height="34" fill="#0C0F1A"/>
+    <text x="36"  y="124" font-family="Inter,ui-sans-serif,system-ui,sans-serif" font-size="12" font-weight="700" fill="#A78BFA">Trending</text>
+    <text x="107" y="124" font-family="Inter,ui-sans-serif,system-ui,sans-serif" font-size="12" fill="#4A5568">Popular</text>
+    <text x="165" y="124" font-family="Inter,ui-sans-serif,system-ui,sans-serif" font-size="12" fill="#4A5568">Upcoming</text>
+    <!-- Active tab underline -->
+    <rect x="36" y="133" width="57" height="2" rx="1" fill="#A78BFA"/>
+
+    <!-- Section label -->
+    <text x="26" y="157" font-family="Inter,ui-sans-serif,system-ui,sans-serif" font-size="13" font-weight="600" fill="#F7F8FC">Trending Now</text>
+    <text x="202" y="157" font-family="Inter,ui-sans-serif,system-ui,sans-serif" font-size="11" fill="#6FD3FF">See all</text>
+
+    <!-- Card 1 -->
+    <rect x="26"  y="165" width="86" height="126" rx="10" fill="url(#card-a)"/>
+    <rect x="32"  y="171" width="74" height="88"  rx="6"  fill="#1A1040" opacity="0.8"/>
+    <!-- Generic shape representing artwork placeholder -->
+    <rect x="38"  y="177" width="62" height="76"  rx="4"  fill="#2D1870" opacity="0.6"/>
+    <rect x="42"  y="186" width="28" height="4"   rx="2"  fill="#A78BFA" opacity="0.4"/>
+    <rect x="42"  y="194" width="42" height="4"   rx="2"  fill="#AAB3C5" opacity="0.25"/>
+    <rect x="42"  y="202" width="34" height="4"   rx="2"  fill="#AAB3C5" opacity="0.2"/>
+    <!-- Score badge -->
+    <rect x="26"  y="165" width="38" height="17"  rx="4"  fill="#7B5CF0" opacity="0.92"/>
+    <text x="32"  y="177" font-family="Inter,ui-sans-serif,sans-serif" font-size="9" font-weight="700" fill="#F7F8FC">★ 9.2</text>
+    <!-- Title lines -->
+    <rect x="28"  y="262" width="58" height="6"   rx="3"  fill="#AAB3C5" opacity="0.5"/>
+    <rect x="28"  y="272" width="40" height="5"   rx="2"  fill="#AAB3C5" opacity="0.3"/>
+
+    <!-- Card 2 -->
+    <rect x="120" y="165" width="86" height="126" rx="10" fill="url(#card-b)"/>
+    <rect x="126" y="171" width="74" height="88"  rx="6"  fill="#220840" opacity="0.8"/>
+    <rect x="132" y="177" width="62" height="76"  rx="4"  fill="#4A1078" opacity="0.6"/>
+    <rect x="136" y="186" width="36" height="4"   rx="2"  fill="#C084FC" opacity="0.4"/>
+    <rect x="136" y="194" width="50" height="4"   rx="2"  fill="#AAB3C5" opacity="0.25"/>
+    <rect x="136" y="202" width="38" height="4"   rx="2"  fill="#AAB3C5" opacity="0.2"/>
+    <rect x="120" y="165" width="38" height="17"  rx="4"  fill="#9333EA" opacity="0.92"/>
+    <text x="126" y="177" font-family="Inter,ui-sans-serif,sans-serif" font-size="9" font-weight="700" fill="#F7F8FC">★ 8.7</text>
+    <rect x="122" y="262" width="58" height="6"   rx="3"  fill="#AAB3C5" opacity="0.5"/>
+    <rect x="122" y="272" width="44" height="5"   rx="2"  fill="#AAB3C5" opacity="0.3"/>
+
+    <!-- Card 3 (partial, suggesting horizontal scroll) -->
+    <rect x="214" y="165" width="38" height="126" rx="10" fill="url(#card-c)"/>
+    <rect x="220" y="171" width="26" height="88"  rx="6"  fill="#081828" opacity="0.8"/>
+
+    <!-- Airing section -->
+    <text x="26" y="306" font-family="Inter,ui-sans-serif,system-ui,sans-serif" font-size="13" font-weight="600" fill="#F7F8FC">Airing This Week</text>
+
+    <!-- Day tabs -->
+    <text x="26"  y="326" font-family="Inter,ui-sans-serif,system-ui,sans-serif" font-size="10" font-weight="700" fill="#6FD3FF">MON</text>
+    <text x="62"  y="326" font-family="Inter,ui-sans-serif,system-ui,sans-serif" font-size="10" fill="#4A5568">TUE</text>
+    <text x="98"  y="326" font-family="Inter,ui-sans-serif,system-ui,sans-serif" font-size="10" fill="#4A5568">WED</text>
+    <text x="134" y="326" font-family="Inter,ui-sans-serif,system-ui,sans-serif" font-size="10" fill="#4A5568">THU</text>
+    <text x="170" y="326" font-family="Inter,ui-sans-serif,system-ui,sans-serif" font-size="10" fill="#4A5568">FRI</text>
+    <text x="206" y="326" font-family="Inter,ui-sans-serif,system-ui,sans-serif" font-size="10" fill="#4A5568">SAT</text>
+    <!-- Day underline active -->
+    <rect x="26" y="329" width="26" height="2" rx="1" fill="#6FD3FF"/>
+
+    <!-- Schedule row 1 -->
+    <rect x="26" y="340" width="216" height="28" rx="6" fill="#0F1628"/>
+    <circle cx="40" cy="354" r="5" fill="#7B5CF0"/>
+    <rect x="52" y="349" width="100" height="5" rx="2" fill="#AAB3C5" opacity="0.35"/>
+    <rect x="52" y="358" width="60"  height="4" rx="2" fill="#AAB3C5" opacity="0.2"/>
+    <text x="195" y="356" font-family="Inter,ui-sans-serif,sans-serif" font-size="9" fill="#AAB3C5" text-anchor="end">08:30</text>
+
+    <!-- Schedule row 2 -->
+    <rect x="26" y="374" width="216" height="28" rx="6" fill="#0F1628"/>
+    <circle cx="40" cy="388" r="5" fill="#4DD0E1"/>
+    <rect x="52" y="383" width="120" height="5" rx="2" fill="#AAB3C5" opacity="0.35"/>
+    <rect x="52" y="392" width="80"  height="4" rx="2" fill="#AAB3C5" opacity="0.2"/>
+    <text x="195" y="390" font-family="Inter,ui-sans-serif,sans-serif" font-size="9" fill="#AAB3C5" text-anchor="end">21:00</text>
+
+    <!-- Schedule row 3 -->
+    <rect x="26" y="408" width="216" height="28" rx="6" fill="#0F1628"/>
+    <circle cx="40" cy="422" r="5" fill="#F59E0B"/>
+    <rect x="52" y="417" width="90"  height="5" rx="2" fill="#AAB3C5" opacity="0.35"/>
+    <rect x="52" y="426" width="55"  height="4" rx="2" fill="#AAB3C5" opacity="0.2"/>
+    <text x="195" y="424" font-family="Inter,ui-sans-serif,sans-serif" font-size="9" fill="#AAB3C5" text-anchor="end">14:00</text>
+
+    <!-- Bottom nav bar -->
+    <rect x="18" y="440" width="234" height="56" fill="url(#ap-nav)"/>
+    <rect x="18" y="440" width="234" height="1"  fill="#FFFFFF" opacity="0.06"/>
+
+    <!-- Nav: Home (active) -->
+    <path d="M62 458 L70 450 L78 458 L78 468 L74 468 L74 463 L66 463 L66 468 L62 468 Z" fill="none" stroke="#A78BFA" stroke-width="1.8" stroke-linejoin="round"/>
+    <text x="63" y="479" font-family="Inter,ui-sans-serif,sans-serif" font-size="8" fill="#A78BFA" font-weight="600">Home</text>
+
+    <!-- Nav: Search -->
+    <circle cx="113" cy="459" r="7" fill="none" stroke="#4A5568" stroke-width="1.8"/>
+    <line x1="118" y1="464" x2="122" y2="468" stroke="#4A5568" stroke-width="1.8" stroke-linecap="round"/>
+    <text x="104" y="479" font-family="Inter,ui-sans-serif,sans-serif" font-size="8" fill="#4A5568">Search</text>
+
+    <!-- Nav: Schedule -->
+    <rect x="149" y="451" width="14" height="14" rx="2" fill="none" stroke="#4A5568" stroke-width="1.8"/>
+    <line x1="152" y1="451" x2="152" y2="449" stroke="#4A5568" stroke-width="1.8" stroke-linecap="round"/>
+    <line x1="160" y1="451" x2="160" y2="449" stroke="#4A5568" stroke-width="1.8" stroke-linecap="round"/>
+    <line x1="149" y1="456" x2="163" y2="456" stroke="#4A5568" stroke-width="1.2"/>
+    <text x="145" y="479" font-family="Inter,ui-sans-serif,sans-serif" font-size="8" fill="#4A5568">Schedule</text>
+
+    <!-- Nav: Profile -->
+    <circle cx="205" cy="455" r="5" fill="none" stroke="#4A5568" stroke-width="1.8"/>
+    <path d="M197 468 Q197 462 205 462 Q213 462 213 468" fill="none" stroke="#4A5568" stroke-width="1.8"/>
+    <text x="196" y="479" font-family="Inter,ui-sans-serif,sans-serif" font-size="8" fill="#4A5568">Profile</text>
+
+  </g>
+
+  <!-- Phone notch overlay (on top of screen clip) -->
+  <rect x="95" y="18" width="80" height="14" rx="0" fill="#111827"/>
+  <rect x="98" y="22" width="74" height="10" rx="5" fill="#06070C"/>
+</svg>
