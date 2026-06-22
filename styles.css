@@ -976,47 +976,55 @@ h1, h2, h3, h4 { line-height: 1.25; font-weight: 700; }
 .policy-section p + ol { margin-top: 0.5rem; }
 
 /* ══════════════════════════════════════════════════════
-   APP SELECTOR (privacy-policy.html)
+   APP SWITCHER  (shared: privacy-policy.html, support.html)
    ══════════════════════════════════════════════════════ */
-.app-selector {
+.app-switcher {
   display: flex;
-  gap: 1.25rem;
+  gap: 1rem;
   flex-wrap: wrap;
   justify-content: center;
-  margin-bottom: 2.5rem;
+  margin-bottom: 2rem;
 }
 
-.app-selector-card {
+.app-tab {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.75rem;
-  padding: 1.5rem 2.5rem;
+  gap: 0.65rem;
+  padding: 1.25rem 2rem;
   background: var(--card);
   border: 2px solid var(--border);
   border-radius: var(--radius-l);
   cursor: pointer;
-  transition: border-color var(--trans), box-shadow var(--trans), transform var(--trans), color var(--trans);
-  text-decoration: none;
+  font-family: var(--font);
+  font-size: 0.9rem;
+  font-weight: 700;
   color: var(--text-muted);
   flex: 1;
-  max-width: 260px;
-  min-width: 150px;
+  max-width: 240px;
+  min-width: 130px;
+  transition: border-color var(--trans), box-shadow var(--trans), transform var(--trans), color var(--trans);
 }
 
-.app-selector-card:hover {
+.app-tab:hover {
   border-color: rgba(255, 138, 61, 0.4);
   transform: translateY(-2px);
   color: var(--text);
 }
 
-.app-selector-card.is-active {
-  border-color: var(--orange);
-  color: var(--text);
-  box-shadow: 0 0 0 1px rgba(255, 138, 61, 0.25), 0 8px 32px rgba(255, 138, 61, 0.12);
+.app-tab:focus-visible {
+  outline: 2px solid var(--orange);
+  outline-offset: 3px;
+  border-radius: var(--radius-l);
 }
 
-.app-selector-logo {
+.app-tab.active {
+  border-color: var(--orange);
+  color: var(--text);
+  box-shadow: 0 0 0 1px rgba(255, 138, 61, 0.2), 0 6px 24px rgba(255, 138, 61, 0.12);
+}
+
+.app-tab-logo {
   width: 72px;
   height: 72px;
   object-fit: contain;
@@ -1024,18 +1032,22 @@ h1, h2, h3, h4 { line-height: 1.25; font-weight: 700; }
   display: block;
 }
 
-.app-selector-name {
-  font-size: 0.95rem;
-  font-weight: 700;
-  text-align: center;
+/* Panel visibility
+   Without JS (.switcher-ready absent): all panels visible, stacked
+   With JS: only .active panel shown */
+.app-switcher-container .app-policy           { display: block; }
+.switcher-ready .app-policy                   { display: none; }
+.switcher-ready .app-policy.active            { display: block; }
+
+/* No-JS: add a visual separator between stacked panels */
+.app-switcher-container:not(.switcher-ready) .app-policy + .app-policy {
+  margin-top: 3rem;
+  padding-top: 2.5rem;
+  border-top: 2px solid var(--border);
 }
 
-/* Panel visibility — JS adds .tabs-ready to body to hide non-active panels */
-.tabs-ready .app-policy-panel          { display: none; }
-.tabs-ready .app-policy-panel.is-active { display: block; }
-
-/* Policy panel app header */
-.policy-app-header {
+/* Panel inner header (logo + name + date) */
+.policy-panel-header {
   display: flex;
   align-items: center;
   gap: 1rem;
@@ -1044,7 +1056,7 @@ h1, h2, h3, h4 { line-height: 1.25; font-weight: 700; }
   border-bottom: 1px solid var(--border);
 }
 
-.policy-app-logo {
+.policy-panel-logo {
   width: 56px;
   height: 56px;
   object-fit: contain;
@@ -1052,22 +1064,23 @@ h1, h2, h3, h4 { line-height: 1.25; font-weight: 700; }
   flex-shrink: 0;
 }
 
-.policy-app-name {
-  font-size: 1.3rem;
+.policy-panel-name {
+  font-size: 1.25rem;
   font-weight: 800;
   color: var(--text);
   line-height: 1.2;
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.2rem;
 }
 
-.policy-app-meta {
+.policy-panel-meta {
   font-size: 0.85rem;
   color: var(--text-muted);
 }
 
 @media (max-width: 479px) {
-  .app-selector { gap: 0.75rem; }
-  .app-selector-card { padding: 1.25rem 1.5rem; max-width: 100%; }
+  .app-switcher  { gap: 0.75rem; }
+  .app-tab       { padding: 1rem 1.25rem; max-width: 100%; min-width: 0; flex: 1 1 calc(50% - 0.375rem); }
+  .app-tab-logo  { width: 56px; height: 56px; }
 }
 
 /* ══════════════════════════════════════════════════════
@@ -1081,6 +1094,9 @@ h1, h2, h3, h4 { line-height: 1.25; font-weight: 700; }
   gap: 3rem;
   align-items: start;
 }
+
+/* Wraps the app-policy panels in the support two-column layout */
+.support-faq-col { min-width: 0; }
 
 .support-faq { display: flex; flex-direction: column; gap: 1.5rem; }
 

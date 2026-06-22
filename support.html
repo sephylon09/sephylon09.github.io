@@ -5,18 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#090B10">
 
-  <title>AnimePulse Support — Mini Forge Dev</title>
-  <meta name="description" content="Support and troubleshooting for AnimePulse by Mini Forge Dev. Find answers to common questions about anime data, notifications, My Week and local data.">
+  <title>Support — Mini Forge Dev</title>
+  <meta name="description" content="Support and troubleshooting for Anime Pulse and Letter Rise by Mini Forge Dev. Select your app to find answers.">
 
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
-
-  <!-- TODO: Replace YOUR_USERNAME with your actual GitHub username -->
-  <link rel="canonical" href="https://YOUR_USERNAME.github.io/support.html">
+  <link rel="canonical" href="https://sephylon09.github.io/support.html">
 
   <meta property="og:type"        content="website">
-  <meta property="og:title"       content="AnimePulse Support — Mini Forge Dev">
-  <meta property="og:description" content="Support and troubleshooting for the AnimePulse Android app.">
-  <meta property="og:url"         content="https://YOUR_USERNAME.github.io/support.html">
+  <meta property="og:title"       content="Support — Mini Forge Dev">
+  <meta property="og:description" content="Support and troubleshooting for Anime Pulse and Letter Rise by Mini Forge Dev.">
+  <meta property="og:url"         content="https://sephylon09.github.io/support.html">
 
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -42,11 +40,11 @@
       </button>
       <nav id="main-nav" class="main-nav" aria-label="Main navigation">
         <ul class="nav-list">
-          <li><a href="/"            class="nav-link">Home</a></li>
-          <li><a href="/#apps"       class="nav-link">Apps</a></li>
+          <li><a href="/"                   class="nav-link">Home</a></li>
+          <li><a href="/#apps"              class="nav-link">Apps</a></li>
           <li><a href="privacy-policy.html" class="nav-link">Privacy</a></li>
-          <li><a href="support.html" class="nav-link" aria-current="page">Support</a></li>
-          <li><a href="/#contact"    class="nav-link">Contact</a></li>
+          <li><a href="support.html"        class="nav-link" aria-current="page">Support</a></li>
+          <li><a href="/#contact"           class="nav-link">Contact</a></li>
         </ul>
       </nav>
     </div>
@@ -56,187 +54,302 @@
 
     <div class="page-hero">
       <div class="container">
-        <p class="eyebrow">AnimePulse</p>
+        <p class="eyebrow">Mini Forge Dev</p>
         <h1>Support</h1>
-        <p class="page-meta">Common questions and troubleshooting steps</p>
+        <p class="page-meta">Select your app to find answers and troubleshooting steps.</p>
       </div>
     </div>
 
     <div class="support-body">
       <div class="container">
-        <div class="support-layout">
 
-          <!-- ── FAQ ── -->
-          <div class="support-faq">
+        <div class="app-switcher-container">
 
-            <!-- Anime data not loading -->
-            <div class="support-card" id="faq-data">
-              <h2>
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/>
-                </svg>
-                Anime data is not loading
-              </h2>
-              <p>If AnimePulse is not loading anime information, try the following steps:</p>
-              <ul>
-                <li>Check that your internet connection is active.</li>
-                <li>Pull down on the main screen to refresh the data.</li>
-                <li>Close AnimePulse fully and reopen it.</li>
-                <li>Confirm that the AniList service is reachable by visiting AniList in a browser on the same network.</li>
-                <li>If you are offline, cached data from your last successful connection may still appear.</li>
-              </ul>
-            </div>
+          <!-- App tab selector -->
+          <div class="app-switcher" role="tablist" aria-label="Select app for support">
+            <button
+              class="app-tab active"
+              data-app="anime-pulse"
+              role="tab"
+              aria-selected="true"
+              tabindex="0"
+            >
+              <img src="assets/animepulse_logo.png" alt="" class="app-tab-logo" width="72" height="72" aria-hidden="true">
+              <span>Anime Pulse</span>
+            </button>
+            <button
+              class="app-tab"
+              data-app="letter-rise"
+              role="tab"
+              aria-selected="false"
+              tabindex="-1"
+            >
+              <img src="assets/letterrise_logo.jpeg" alt="" class="app-tab-logo" width="72" height="72" aria-hidden="true">
+              <span>Letter Rise</span>
+            </button>
+          </div>
 
-            <!-- Images not loading -->
-            <div class="support-card" id="faq-images">
-              <h2>
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/>
-                </svg>
-                Images are not loading
-              </h2>
-              <p>Anime cover images are loaded from external servers. If images are not appearing:</p>
-              <ul>
-                <li>Check that your internet connection is active.</li>
-                <li>
-                  If images remain broken after reconnecting, try clearing the app cache:
-                  go to <strong>Android Settings &rarr; Apps &rarr; AnimePulse &rarr;
-                  Storage &rarr; Clear cache</strong>.
-                </li>
-                <li>
-                  Avoid clearing <strong>App data</strong> unless necessary, as this will
-                  remove your favourites and preferences.
-                </li>
-              </ul>
-            </div>
+          <div class="support-layout">
 
-            <!-- Notifications not arriving -->
-            <div class="support-card" id="faq-notifications">
-              <h2>
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/>
-                </svg>
-                Episode notifications are not arriving
-              </h2>
-              <p>If you are not receiving episode reminder notifications, check all of the following:</p>
-              <ul>
-                <li>
-                  Ensure AnimePulse has notification permission granted in
-                  <strong>Android Settings &rarr; Apps &rarr; AnimePulse &rarr;
-                  Notifications</strong>.
-                </li>
-                <li>
-                  Ensure the <strong>Episode Reminders</strong> notification channel
-                  is enabled within those settings.
-                </li>
-                <li>
-                  Check that your device's battery optimisation or power-saving mode is not
-                  preventing AnimePulse from scheduling background tasks. You may need to
-                  disable battery restrictions for AnimePulse specifically.
-                </li>
-                <li>
-                  Confirm that the anime title you expect a reminder for has a confirmed
-                  future airing date and time. If the airing schedule is not yet confirmed
-                  by the data provider, a reminder cannot be scheduled.
-                </li>
-                <li>
-                  Confirm that episode reminders are enabled in AnimePulse's own settings
-                  screen.
-                </li>
-              </ul>
-            </div>
+            <!-- ── FAQ panels ── -->
+            <div class="support-faq-col">
 
-            <!-- My Week -->
-            <div class="support-card" id="faq-my-week">
-              <h2>
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
-                </svg>
-                My Week does not show all my favourites
-              </h2>
-              <p>
-                My Week only displays favourite anime that have a confirmed episode
-                scheduled to air during the selected week. If a series you have saved as a
-                favourite is not appearing in My Week, it may be because:
-              </p>
-              <ul>
-                <li>The series has finished airing and has no upcoming episodes.</li>
-                <li>The next episode airing date has not yet been confirmed by the data provider.</li>
-                <li>The episode falls outside the currently selected week.</li>
-              </ul>
-              <p>
-                Anime with a confirmed future airing date will appear automatically in the
-                correct week once the schedule is published.
-              </p>
-            </div>
+              <!-- ════════════════════════
+                   ANIME PULSE SUPPORT
+                   ════════════════════════ -->
+              <section class="app-policy active" data-app-panel="anime-pulse" aria-label="Anime Pulse support">
+                <div class="support-faq">
 
-            <!-- Delete local data -->
-            <div class="support-card" id="faq-delete">
-              <h2>
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/><path d="M9 6V4h6v2"/>
-                </svg>
-                How to delete local data
-              </h2>
-              <p>
-                All data stored by AnimePulse is kept locally on your device. To remove it:
-              </p>
-              <ul>
-                <li>
-                  <strong>Clear app data:</strong> go to
-                  <strong>Android Settings &rarr; Apps &rarr; AnimePulse &rarr;
-                  Storage &rarr; Clear data</strong>. This removes your favourites, episode
-                  status, preferences and cached content.
-                </li>
-                <li>
-                  <strong>Uninstall the app:</strong> uninstalling AnimePulse removes all
-                  locally stored data from your device.
-                </li>
-              </ul>
-              <p>
-                Mini Forge Dev does not store your personal data on external servers, so no
-                remote deletion request is required.
-              </p>
-            </div>
+                  <div class="support-card" id="ap-faq-data">
+                    <h2>
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/>
+                      </svg>
+                      Anime data is not loading
+                    </h2>
+                    <p>If Anime Pulse is not loading anime information, try the following steps:</p>
+                    <ul>
+                      <li>Check that your internet connection is active.</li>
+                      <li>Pull down on the main screen to refresh the data.</li>
+                      <li>Close Anime Pulse fully and reopen it.</li>
+                      <li>Confirm that the AniList service is reachable by visiting AniList in a browser on the same network.</li>
+                      <li>If you are offline, cached data from your last successful connection may still appear.</li>
+                    </ul>
+                  </div>
 
-          </div><!-- /.support-faq -->
+                  <div class="support-card" id="ap-faq-images">
+                    <h2>
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/>
+                      </svg>
+                      Images are not loading
+                    </h2>
+                    <p>Anime cover images are loaded from external servers. If images are not appearing:</p>
+                    <ul>
+                      <li>Check that your internet connection is active.</li>
+                      <li>
+                        If images remain broken after reconnecting, try clearing the app cache:
+                        go to <strong>Android Settings &rarr; Apps &rarr; Anime Pulse &rarr;
+                        Storage &rarr; Clear cache</strong>.
+                      </li>
+                      <li>
+                        Avoid clearing <strong>App data</strong> unless necessary, as this will
+                        remove your favourites and preferences.
+                      </li>
+                    </ul>
+                  </div>
 
-          <!-- ── Sidebar ── -->
-          <aside class="support-sidebar" aria-label="Contact support">
-            <div class="sidebar-card">
-              <h2>Still need help?</h2>
-              <p>
-                If your issue is not covered above, or if you have found a bug, please send
-                an email and describe what happened.
-              </p>
-              <a
-                href="mailto:miniforgedev@gmail.com?subject=AnimePulse%20Support%20Request"
-                class="sidebar-email"
-                aria-label="Email Mini Forge Dev support at miniforgedev@gmail.com"
-              >
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <rect x="2" y="4" width="20" height="16" rx="2"/>
-                  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
-                </svg>
-                miniforgedev@gmail.com
-              </a>
-              <p style="margin-top: 1rem; font-size: 0.82rem; color: var(--text-muted); opacity: 0.75;">
-                Please include your Android version and a brief description of the issue
-                in your message.
-              </p>
-            </div>
+                  <div class="support-card" id="ap-faq-notifications">
+                    <h2>
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+                      </svg>
+                      Episode notifications are not arriving
+                    </h2>
+                    <p>If you are not receiving episode reminder notifications, check all of the following:</p>
+                    <ul>
+                      <li>
+                        Ensure Anime Pulse has notification permission granted in
+                        <strong>Android Settings &rarr; Apps &rarr; Anime Pulse &rarr;
+                        Notifications</strong>.
+                      </li>
+                      <li>
+                        Ensure the <strong>Episode Reminders</strong> notification channel
+                        is enabled within those settings.
+                      </li>
+                      <li>
+                        Check that your device's battery optimisation or power-saving mode is not
+                        preventing Anime Pulse from scheduling background tasks. You may need to
+                        disable battery restrictions for Anime Pulse specifically.
+                      </li>
+                      <li>
+                        Confirm that the anime title you expect a reminder for has a confirmed
+                        future airing date and time. If the airing schedule is not yet confirmed
+                        by the data provider, a reminder cannot be scheduled.
+                      </li>
+                      <li>Confirm that episode reminders are enabled in Anime Pulse's own settings screen.</li>
+                    </ul>
+                  </div>
 
-            <div class="sidebar-card" style="margin-top: 1rem;">
-              <h2>Privacy questions</h2>
-              <p>
-                For questions about how AnimePulse handles your data, read the
-                <a href="privacy-policy.html" style="color: var(--accent);">Privacy Policy</a>
-                or contact us at the same email address.
-              </p>
-            </div>
-          </aside>
+                  <div class="support-card" id="ap-faq-my-week">
+                    <h2>
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
+                      </svg>
+                      My Week does not show all my favourites
+                    </h2>
+                    <p>
+                      My Week only displays favourite anime that have a confirmed episode
+                      scheduled to air during the selected week. If a series you have saved as a
+                      favourite is not appearing in My Week, it may be because:
+                    </p>
+                    <ul>
+                      <li>The series has finished airing and has no upcoming episodes.</li>
+                      <li>The next episode airing date has not yet been confirmed by the data provider.</li>
+                      <li>The episode falls outside the currently selected week.</li>
+                    </ul>
+                    <p>
+                      Anime with a confirmed future airing date will appear automatically in the
+                      correct week once the schedule is published.
+                    </p>
+                  </div>
 
-        </div>
+                  <div class="support-card" id="ap-faq-delete">
+                    <h2>
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/><path d="M9 6V4h6v2"/>
+                      </svg>
+                      How to delete local data
+                    </h2>
+                    <p>All data stored by Anime Pulse is kept locally on your device. To remove it:</p>
+                    <ul>
+                      <li>
+                        <strong>Clear app data:</strong> go to
+                        <strong>Android Settings &rarr; Apps &rarr; Anime Pulse &rarr;
+                        Storage &rarr; Clear data</strong>. This removes your favourites, episode
+                        status, preferences and cached content.
+                      </li>
+                      <li>
+                        <strong>Uninstall the app:</strong> uninstalling Anime Pulse removes all
+                        locally stored data from your device.
+                      </li>
+                    </ul>
+                    <p>
+                      Mini Forge Dev does not store your personal data on external servers, so no
+                      remote deletion request is required.
+                    </p>
+                  </div>
+
+                </div>
+              </section><!-- /anime-pulse -->
+
+              <!-- ════════════════════════
+                   LETTER RISE SUPPORT
+                   ════════════════════════ -->
+              <section class="app-policy" data-app-panel="letter-rise" aria-label="Letter Rise support">
+                <div class="support-faq">
+
+                  <div class="support-card" id="lr-faq-themes">
+                    <h2>
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                      </svg>
+                      How do I unlock themes?
+                    </h2>
+                    <p>
+                      Themes in Letter Rise are unlocked by watching optional rewarded video ads.
+                      When a locked theme is shown, tap the unlock button and watch the ad to the
+                      end to unlock it permanently on your device.
+                    </p>
+                    <p>
+                      Rewarded ads require an active internet connection. If no ad is available,
+                      try again after a short wait — ad availability can vary by region and time.
+                    </p>
+                  </div>
+
+                  <div class="support-card" id="lr-faq-ads">
+                    <h2>
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>
+                      </svg>
+                      Rewarded or interstitial ads are not appearing
+                    </h2>
+                    <p>Letter Rise uses Google AdMob to serve ads. If ads are not loading:</p>
+                    <ul>
+                      <li>Check that your internet connection is active.</li>
+                      <li>Some ad types may not be available in your region at all times. This is normal and controlled by ad networks, not by the app.</li>
+                      <li>For rewarded ads, wait a short time and try again — ad fill rates can vary.</li>
+                      <li>Restarting the app may help refresh the ad connection.</li>
+                    </ul>
+                  </div>
+
+                  <div class="support-card" id="lr-faq-progress">
+                    <h2>
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/>
+                      </svg>
+                      The game is not saving my progress
+                    </h2>
+                    <p>
+                      Letter Rise saves all game progress — including high score, unlocked themes,
+                      and settings — locally on your device. If progress appears lost:
+                    </p>
+                    <ul>
+                      <li>Check that you have not recently cleared Letter Rise's app storage data in Android Settings.</li>
+                      <li>Uninstalling and reinstalling the app will remove all locally saved data, as it is not backed up to a cloud server.</li>
+                    </ul>
+                  </div>
+
+                  <div class="support-card" id="lr-faq-delete">
+                    <h2>
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/><path d="M9 6V4h6v2"/>
+                      </svg>
+                      How to delete saved data
+                    </h2>
+                    <p>All data stored by Letter Rise is kept locally on your device. To remove it:</p>
+                    <ul>
+                      <li>
+                        <strong>Clear app data:</strong> go to
+                        <strong>Android Settings &rarr; Apps &rarr; Letter Rise &rarr;
+                        Storage &rarr; Clear data</strong>. This removes all saved progress,
+                        settings, and unlocked themes.
+                      </li>
+                      <li>
+                        <strong>Uninstall the app:</strong> uninstalling Letter Rise removes all
+                        locally stored data from your device.
+                      </li>
+                    </ul>
+                    <p>
+                      Sephylon does not store your game data on external servers, so no remote
+                      deletion request is required.
+                    </p>
+                  </div>
+
+                </div>
+              </section><!-- /letter-rise -->
+
+            </div><!-- /.support-faq-col -->
+
+            <!-- ── Shared sidebar ── -->
+            <aside class="support-sidebar" aria-label="Contact support">
+              <div class="sidebar-card">
+                <h2>Still need help?</h2>
+                <p>
+                  If your issue is not covered above, or if you have found a bug, please send
+                  an email and describe what happened.
+                </p>
+                <a
+                  href="mailto:miniforgedev@gmail.com?subject=Support%20Request"
+                  class="sidebar-email"
+                  aria-label="Email Mini Forge Dev support"
+                >
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <rect x="2" y="4" width="20" height="16" rx="2"/>
+                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                  </svg>
+                  miniforgedev@gmail.com
+                </a>
+                <p style="margin-top: 1rem; font-size: 0.82rem; color: var(--text-muted); opacity: 0.75;">
+                  Please include your Android version, app name, and a brief description of the
+                  issue in your message.
+                </p>
+              </div>
+
+              <div class="sidebar-card" style="margin-top: 1rem;">
+                <h2>Privacy questions</h2>
+                <p>
+                  For questions about how an app handles your data, read the
+                  <a href="privacy-policy.html" style="color: var(--accent);">Privacy Policy</a>
+                  or contact us at the same email address.
+                </p>
+              </div>
+            </aside>
+
+          </div><!-- /.support-layout -->
+
+        </div><!-- /.app-switcher-container -->
+
       </div>
     </div>
 
@@ -252,7 +365,10 @@
         <nav class="footer-nav" aria-label="Footer navigation">
           <div class="footer-col">
             <h2 class="footer-col-title">Apps</h2>
-            <ul><li><a href="/#apps">AnimePulse</a></li></ul>
+            <ul>
+              <li><a href="/#apps">Anime Pulse</a></li>
+              <li><a href="/#apps">Letter Rise</a></li>
+            </ul>
           </div>
           <div class="footer-col">
             <h2 class="footer-col-title">Legal</h2>
@@ -269,11 +385,13 @@
       </div>
       <div class="footer-bottom">
         <p class="footer-copy">&copy; <span id="footer-year"></span> Mini Forge Dev. All rights reserved.</p>
-        <p class="footer-disclaimer">AnimePulse is an independent application and is not endorsed by or affiliated with AniList or any anime publisher.</p>
+        <p class="footer-disclaimer">Anime Pulse is an independent application and is not endorsed by or affiliated with AniList or any anime publisher.</p>
       </div>
     </div>
   </footer>
 
   <script src="script.js"></script>
+  <script src="assets/app-switcher.js"></script>
+
 </body>
 </html>
