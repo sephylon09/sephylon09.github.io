@@ -225,108 +225,69 @@
         </div>
       </div>
 
-      <div class="container">
-        <section class="app-carousel" aria-label="Featured apps">
+      <div class="coverflow-outer">
+        <div class="coverflow-carousel" aria-label="Featured apps" role="region" aria-roledescription="carousel">
 
-          <div class="carousel-inner">
-            <button class="carousel-arrow carousel-prev" aria-label="Previous app">&#8249;</button>
+          <div class="carousel-viewport">
 
-            <div class="carousel-track">
-
-              <!-- Anime Pulse slide -->
-              <article class="app-slide active" data-app="anime-pulse" aria-label="Anime Pulse">
-                <div class="app-slide-inner">
-                  <img
-                    src="assets/animepulse_logo.png"
-                    alt="Anime Pulse"
-                    class="app-slide-logo"
-                    width="96"
-                    height="96"
-                    loading="lazy"
-                  >
-                  <div class="app-slide-meta">
-                    <span class="app-slide-category">Anime schedule &amp; discovery</span>
-                    <h3 class="app-slide-title">Anime Pulse</h3>
-                    <p class="app-slide-desc">
-                      Track anime releases, explore shows, and keep up with what is airing.
-                      Save favourites, view your personalised weekly schedule and set optional episode reminders.
-                    </p>
-                    <div class="app-slide-actions">
-                      <a href="privacy-policy.html#anime-pulse" class="btn btn-secondary">Privacy</a>
-                      <a href="support.html#anime-pulse"        class="btn btn-secondary">Support</a>
-                      <span class="btn btn-disabled" aria-disabled="true" tabindex="-1">Coming soon to Play</span>
-                    </div>
-                  </div>
+            <!-- Anime Pulse -->
+            <article class="carousel-card" role="group" aria-roledescription="slide" aria-label="Anime Pulse">
+              <img src="assets/animepulse_logo.png" alt="Anime Pulse" class="carousel-card-logo" width="96" height="96" loading="lazy">
+              <div class="carousel-card-meta">
+                <span class="carousel-card-category">Anime schedule &amp; discovery</span>
+                <h3 class="carousel-card-title">Anime Pulse</h3>
+                <p class="carousel-card-desc">Track anime releases, explore shows, and keep up with what is airing. Save favourites, view your weekly schedule and set optional episode reminders.</p>
+                <div class="carousel-card-actions">
+                  <a href="privacy-policy.html#anime-pulse" class="btn btn-secondary">Privacy</a>
+                  <a href="support.html#anime-pulse"        class="btn btn-secondary">Support</a>
+                  <span class="btn btn-disabled" aria-disabled="true" tabindex="-1">Coming soon to Play</span>
                 </div>
-              </article>
+              </div>
+            </article>
 
-              <!-- Letter Rise slide -->
-              <article class="app-slide" data-app="letter-rise" aria-label="Letter Rise">
-                <div class="app-slide-inner">
-                  <img
-                    src="assets/letterrise_logo.jpeg"
-                    alt="Letter Rise"
-                    class="app-slide-logo"
-                    width="96"
-                    height="96"
-                    loading="lazy"
-                  >
-                  <div class="app-slide-meta">
-                    <span class="app-slide-category">Word puzzle game</span>
-                    <h3 class="app-slide-title">Letter Rise</h3>
-                    <p class="app-slide-desc">
-                      Swipe connected letters, build words, use smart hints, and keep the board from rising.
-                      Unlock themes and challenge your high score.
-                    </p>
-                    <div class="app-slide-actions">
-                      <a href="privacy-policy.html#letter-rise" class="btn btn-secondary">Privacy</a>
-                      <a href="support.html#letter-rise"        class="btn btn-secondary">Support</a>
-                      <span class="btn btn-disabled" aria-disabled="true" tabindex="-1">Coming soon to Play</span>
-                    </div>
-                  </div>
+            <!-- Letter Rise -->
+            <article class="carousel-card" role="group" aria-roledescription="slide" aria-label="Letter Rise">
+              <img src="assets/letterrise_logo.jpeg" alt="Letter Rise" class="carousel-card-logo" width="96" height="96" loading="lazy">
+              <div class="carousel-card-meta">
+                <span class="carousel-card-category">Word puzzle game</span>
+                <h3 class="carousel-card-title">Letter Rise</h3>
+                <p class="carousel-card-desc">Swipe connected letters, build words, use smart hints, and keep the board from rising. Unlock themes and challenge your high score.</p>
+                <div class="carousel-card-actions">
+                  <a href="privacy-policy.html#letter-rise" class="btn btn-secondary">Privacy</a>
+                  <a href="support.html#letter-rise"        class="btn btn-secondary">Support</a>
+                  <span class="btn btn-disabled" aria-disabled="true" tabindex="-1">Coming soon to Play</span>
                 </div>
-              </article>
+              </div>
+            </article>
 
-              <!-- LetterForge slide -->
-              <article class="app-slide" data-app="letterforge" aria-label="LetterForge">
-                <div class="app-slide-inner">
-                  <img
-                    src="assets/letterforge_logo.png"
-                    alt="LetterForge"
-                    class="app-slide-logo"
-                    width="96"
-                    height="96"
-                    loading="lazy"
-                  >
-                  <div class="app-slide-meta">
-                    <span class="app-slide-category">Daily word puzzles</span>
-                    <h3 class="app-slide-title">LetterForge</h3>
-                    <p class="app-slide-desc">
-                      Daily word puzzles forged for quick play.
-                      Guess words, complete daily challenges, play endless puzzles, earn hints, and track your progress offline.
-                    </p>
-                    <div class="app-slide-actions">
-                      <a href="letterforge-privacy.html" class="btn btn-secondary">Privacy</a>
-                      <a href="support.html#letterforge"  class="btn btn-secondary">Support</a>
-                      <span class="btn btn-disabled" aria-disabled="true" tabindex="-1">Coming soon on Google Play</span>
-                    </div>
-                  </div>
+            <!-- LetterForge -->
+            <article class="carousel-card" role="group" aria-roledescription="slide" aria-label="LetterForge">
+              <img src="assets/letterforge_logo.png" alt="LetterForge" class="carousel-card-logo" width="96" height="96" loading="lazy">
+              <div class="carousel-card-meta">
+                <span class="carousel-card-category">Word puzzle game</span>
+                <h3 class="carousel-card-title">LetterForge</h3>
+                <p class="carousel-card-desc">Forge words, complete daily challenges, play endless puzzles, and track your progress offline.</p>
+                <div class="carousel-card-actions">
+                  <a href="privacy-policy.html#letterforge" class="btn btn-secondary">Privacy</a>
+                  <a href="support.html#letterforge"        class="btn btn-secondary">Support</a>
+                  <span class="btn btn-disabled" aria-disabled="true" tabindex="-1">Coming soon to Play</span>
                 </div>
-              </article>
+              </div>
+            </article>
 
-            </div><!-- /.carousel-track -->
+          </div><!-- /.carousel-viewport -->
 
-            <button class="carousel-arrow carousel-next" aria-label="Next app">&#8250;</button>
-          </div><!-- /.carousel-inner -->
+          <button class="carousel-prev" aria-label="Previous app">&#8249;</button>
+          <button class="carousel-next" aria-label="Next app">&#8250;</button>
 
-          <div class="carousel-dots" role="tablist" aria-label="Select app">
-            <button class="carousel-dot active" data-slide="0" role="tab" aria-selected="true"  aria-label="Anime Pulse"  tabindex="0"></button>
-            <button class="carousel-dot"        data-slide="1" role="tab" aria-selected="false" aria-label="Letter Rise"  tabindex="-1"></button>
-            <button class="carousel-dot"        data-slide="2" role="tab" aria-selected="false" aria-label="LetterForge"  tabindex="-1"></button>
+          <div class="carousel-dots" role="tablist" aria-label="App navigation">
+            <button class="carousel-dot" data-slide="0" role="tab" aria-selected="true"  aria-label="Go to Anime Pulse"  tabindex="0"></button>
+            <button class="carousel-dot" data-slide="1" role="tab" aria-selected="false" aria-label="Go to Letter Rise"  tabindex="-1"></button>
+            <button class="carousel-dot" data-slide="2" role="tab" aria-selected="false" aria-label="Go to LetterForge"  tabindex="-1"></button>
           </div>
 
-        </section>
-      </div>
+        </div><!-- /.coverflow-carousel -->
+      </div><!-- /.coverflow-outer -->
     </section>
 
     <!-- ── All Apps grid ─────────────────────── -->
@@ -366,9 +327,9 @@
             <img src="assets/letterforge_logo.png" alt="LetterForge" class="app-mini-logo" width="56" height="56" loading="lazy">
             <div class="app-mini-body">
               <div class="app-mini-name">LetterForge</div>
-              <p class="app-mini-desc">Daily word puzzles forged for quick play — challenges, endless mode, offline progress.</p>
+              <p class="app-mini-desc">Daily word puzzles, quick challenges, endless play, hints, achievements and offline progress.</p>
               <div class="app-mini-links">
-                <a href="letterforge-privacy.html"  class="app-mini-link">Privacy</a>
+                <a href="privacy-policy.html#letterforge" class="app-mini-link">Privacy</a>
                 <a href="support.html#letterforge"  class="app-mini-link">Support</a>
               </div>
             </div>
