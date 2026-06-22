@@ -976,6 +976,101 @@ h1, h2, h3, h4 { line-height: 1.25; font-weight: 700; }
 .policy-section p + ol { margin-top: 0.5rem; }
 
 /* ══════════════════════════════════════════════════════
+   APP SELECTOR (privacy-policy.html)
+   ══════════════════════════════════════════════════════ */
+.app-selector {
+  display: flex;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 2.5rem;
+}
+
+.app-selector-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1.5rem 2.5rem;
+  background: var(--card);
+  border: 2px solid var(--border);
+  border-radius: var(--radius-l);
+  cursor: pointer;
+  transition: border-color var(--trans), box-shadow var(--trans), transform var(--trans), color var(--trans);
+  text-decoration: none;
+  color: var(--text-muted);
+  flex: 1;
+  max-width: 260px;
+  min-width: 150px;
+}
+
+.app-selector-card:hover {
+  border-color: rgba(255, 138, 61, 0.4);
+  transform: translateY(-2px);
+  color: var(--text);
+}
+
+.app-selector-card.is-active {
+  border-color: var(--orange);
+  color: var(--text);
+  box-shadow: 0 0 0 1px rgba(255, 138, 61, 0.25), 0 8px 32px rgba(255, 138, 61, 0.12);
+}
+
+.app-selector-logo {
+  width: 72px;
+  height: 72px;
+  object-fit: contain;
+  border-radius: var(--radius-m);
+  display: block;
+}
+
+.app-selector-name {
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+/* Panel visibility — JS adds .tabs-ready to body to hide non-active panels */
+.tabs-ready .app-policy-panel          { display: none; }
+.tabs-ready .app-policy-panel.is-active { display: block; }
+
+/* Policy panel app header */
+.policy-app-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.75rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.policy-app-logo {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+  border-radius: var(--radius-m);
+  flex-shrink: 0;
+}
+
+.policy-app-name {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--text);
+  line-height: 1.2;
+  margin-bottom: 0.25rem;
+}
+
+.policy-app-meta {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+@media (max-width: 479px) {
+  .app-selector { gap: 0.75rem; }
+  .app-selector-card { padding: 1.25rem 1.5rem; max-width: 100%; }
+}
+
+/* ══════════════════════════════════════════════════════
    SUPPORT CONTENT
    ══════════════════════════════════════════════════════ */
 .support-body { padding-block: clamp(2.5rem, 6vw, 5rem); }
