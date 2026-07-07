@@ -6,14 +6,14 @@
   <meta name="theme-color" content="#090B10">
 
   <title>Support — Mini Forge Dev</title>
-  <meta name="description" content="Support and troubleshooting for Anime Pulse, Letter Rise, and LetterForge by Mini Forge Dev. Select your app to find answers.">
+  <meta name="description" content="Support and troubleshooting for Anime Pulse, Letter Rise, LetterForge, and Emoji Guess by Mini Forge Dev. Select your app to find answers.">
 
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
   <link rel="canonical" href="https://sephylon09.github.io/support.html">
 
   <meta property="og:type"        content="website">
   <meta property="og:title"       content="Support — Mini Forge Dev">
-  <meta property="og:description" content="Support and troubleshooting for Anime Pulse, Letter Rise, and LetterForge by Mini Forge Dev.">
+  <meta property="og:description" content="Support and troubleshooting for Anime Pulse, Letter Rise, LetterForge, and Emoji Guess by Mini Forge Dev.">
   <meta property="og:url"         content="https://sephylon09.github.io/support.html">
 
   <link rel="stylesheet" href="styles.css">
@@ -96,6 +96,16 @@
             >
               <img src="assets/letterforge_logo.png" alt="" class="app-tab-logo" width="72" height="72" aria-hidden="true">
               <span>LetterForge</span>
+            </button>
+            <button
+              class="app-tab"
+              data-app="emoji-guess"
+              role="tab"
+              aria-selected="false"
+              tabindex="-1"
+            >
+              <img src="assets/emoji_guess_logo.png" alt="" class="app-tab-logo" width="72" height="72" aria-hidden="true">
+              <span>Emoji Guess</span>
             </button>
           </div>
 
@@ -446,6 +456,88 @@
                 </div>
               </section><!-- /letterforge -->
 
+              <!-- ════════════════════════
+                   EMOJI GUESS SUPPORT
+                   ════════════════════════ -->
+              <section class="app-policy" data-app-panel="emoji-guess" aria-label="Emoji Guess support">
+                <div class="support-faq">
+
+                  <div class="support-card" id="eg-faq-answer">
+                    <h2>
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/>
+                      </svg>
+                      Puzzle answer is not accepted
+                    </h2>
+                    <p>
+                      If you are sure of the answer but the puzzle will not accept it, check
+                      the following:
+                    </p>
+                    <ul>
+                      <li>Double-check the spelling — the answer must match exactly.</li>
+                      <li>Build the answer using only the letters available on the letter tiles.</li>
+                      <li>Answers currently avoid numbers and hyphens — try the spelled-out or unhyphenated form instead.</li>
+                      <li>If you are stuck, use a hint to reveal a letter or remove incorrect letters.</li>
+                    </ul>
+                    <p>
+                      If you believe an answer is genuinely wrong or misspelled in the game,
+                      please report it by email so it can be reviewed.
+                    </p>
+                  </div>
+
+                  <div class="support-card" id="eg-faq-progress">
+                    <h2>
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/>
+                      </svg>
+                      Progress, coins, or hints look wrong
+                    </h2>
+                    <p>
+                      Emoji Guess stores all progress — unlocked stages, coins, and hints —
+                      locally on your device. If something looks wrong:
+                    </p>
+                    <ul>
+                      <li>Close Emoji Guess fully and reopen it — this refreshes the saved state.</li>
+                      <li>Check that you have not recently cleared Emoji Guess's app storage data in Android Settings, as this removes all saved progress.</li>
+                      <li>Uninstalling and reinstalling the app will remove all locally saved data, as progress is not backed up to a cloud server.</li>
+                    </ul>
+                  </div>
+
+                  <div class="support-card" id="eg-faq-sound">
+                    <h2>
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+                      </svg>
+                      Sound or haptics are not working
+                    </h2>
+                    <p>If sound effects or vibration feedback are not working:</p>
+                    <ul>
+                      <li>Open the in-app settings and check that sound and haptics are enabled.</li>
+                      <li>Check that your device is not in silent or Do Not Disturb mode.</li>
+                      <li>Check your device's media volume — game sounds use the media channel.</li>
+                      <li>For haptics, confirm that vibration is enabled in your device's sound and vibration settings.</li>
+                    </ul>
+                  </div>
+
+                  <div class="support-card" id="eg-faq-ads">
+                    <h2>
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>
+                      </svg>
+                      Ads or rewarded hints are not loading
+                    </h2>
+                    <p>Emoji Guess may use Google AdMob to serve ads. If ads or rewarded hints are not loading:</p>
+                    <ul>
+                      <li>Check that your internet connection is active — ads require a network connection.</li>
+                      <li>Wait a short time and try again — ad fill rates can vary.</li>
+                      <li>Ad availability can vary by region and time of day. This is normal and controlled by ad networks, not by the app.</li>
+                      <li>Restarting the app may help refresh the ad connection.</li>
+                    </ul>
+                  </div>
+
+                </div>
+              </section><!-- /emoji-guess -->
+
             </div><!-- /.support-faq-col -->
 
             <!-- ── Shared sidebar ── -->
@@ -506,6 +598,7 @@
               <li><a href="/#apps">Anime Pulse</a></li>
               <li><a href="/#apps">Letter Rise</a></li>
               <li><a href="/#apps">LetterForge</a></li>
+              <li><a href="/#apps">Emoji Guess</a></li>
             </ul>
           </div>
           <div class="footer-col">
