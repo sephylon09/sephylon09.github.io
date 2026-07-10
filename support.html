@@ -6,14 +6,14 @@
   <meta name="theme-color" content="#090B10">
 
   <title>Support — Mini Forge Dev</title>
-  <meta name="description" content="Support and troubleshooting for Anime Pulse, Letter Rise, LetterForge, and Emoji Guess by Mini Forge Dev. Select your app to find answers.">
+  <meta name="description" content="Support and troubleshooting for Anime Pulse, Letter Rise, LetterForge, Emoji Guess, and FoodFit Scan by Mini Forge Dev. Select your app to find answers.">
 
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
   <link rel="canonical" href="https://sephylon09.github.io/support.html">
 
   <meta property="og:type"        content="website">
   <meta property="og:title"       content="Support — Mini Forge Dev">
-  <meta property="og:description" content="Support and troubleshooting for Anime Pulse, Letter Rise, LetterForge, and Emoji Guess by Mini Forge Dev.">
+  <meta property="og:description" content="Support and troubleshooting for Anime Pulse, Letter Rise, LetterForge, Emoji Guess, and FoodFit Scan by Mini Forge Dev.">
   <meta property="og:url"         content="https://sephylon09.github.io/support.html">
 
   <link rel="stylesheet" href="styles.css">
@@ -106,6 +106,16 @@
             >
               <img src="assets/emoji_guess_logo.png" alt="" class="app-tab-logo" width="72" height="72" aria-hidden="true">
               <span>Emoji Guess</span>
+            </button>
+            <button
+              class="app-tab"
+              data-app="foodfit-scan"
+              role="tab"
+              aria-selected="false"
+              tabindex="-1"
+            >
+              <img src="assets/foodfit_logo.png" alt="" class="app-tab-logo" width="72" height="72" aria-hidden="true">
+              <span>FoodFit Scan</span>
             </button>
           </div>
 
@@ -538,6 +548,135 @@
                 </div>
               </section><!-- /emoji-guess -->
 
+              <!-- ════════════════════════
+                   FOODFIT SCAN SUPPORT
+                   ════════════════════════ -->
+              <section class="app-policy" data-app-panel="foodfit-scan" aria-label="FoodFit Scan support">
+                <div class="support-faq">
+
+                  <div class="support-card" id="ff-faq-scanner">
+                    <h2>
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/>
+                      </svg>
+                      Barcode scanner is not working
+                    </h2>
+                    <p>If the camera view does not open or barcodes are not being detected:</p>
+                    <ul>
+                      <li>
+                        Ensure FoodFit Scan has camera permission granted in
+                        <strong>Android Settings &rarr; Apps &rarr; FoodFit Scan &rarr;
+                        Permissions</strong>. The camera is used only for barcode scanning.
+                      </li>
+                      <li>Clean the camera lens and make sure the barcode is well lit.</li>
+                      <li>Hold the phone steady and move it closer or further away until the barcode comes into focus.</li>
+                      <li>Flatten curved or wrinkled packaging as much as possible so the full barcode is visible.</li>
+                      <li>If the barcode still cannot be read, use the search feature to find the product by name instead.</li>
+                    </ul>
+                  </div>
+
+                  <div class="support-card" id="ff-faq-not-found">
+                    <h2>
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                      </svg>
+                      Product cannot be found
+                    </h2>
+                    <p>If a scanned barcode does not return a product:</p>
+                    <ul>
+                      <li>Check that your internet connection is active — product lookups require a network connection.</li>
+                      <li>Compare the digits shown in the app with the number printed under the barcode to confirm it scanned correctly.</li>
+                      <li>Try searching for the product by name or brand instead.</li>
+                      <li>
+                        Not every product exists in the database. FoodFit Scan looks up products
+                        in Open Food Facts and the app's product search index, and coverage
+                        varies by country and brand — new or regional products may be missing.
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div class="support-card" id="ff-faq-search">
+                    <h2>
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/>
+                      </svg>
+                      Search results are missing or incomplete
+                    </h2>
+                    <p>If searching does not show the products you expect:</p>
+                    <ul>
+                      <li>Check that your internet connection is active and try the search again.</li>
+                      <li>Use shorter or simpler keywords — for example the brand name plus one product word.</li>
+                      <li>Try an alternative spelling or the product's local-language name.</li>
+                      <li>
+                        Some products in the database have partial data, so a result may appear
+                        with missing nutrition values, images, or ingredient details. This
+                        reflects the source data rather than an app error.
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div class="support-card" id="ff-faq-rating">
+                    <h2>
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+                      </svg>
+                      Nutrition rating looks wrong or unclear
+                    </h2>
+                    <p>
+                      Nutrition ratings and goal-fit indicators are calculated from the product
+                      data available for that item, combined with the nutrition goals and
+                      allergen or additive preferences you have set. If a rating looks wrong:
+                    </p>
+                    <ul>
+                      <li>Open the product details and check whether nutrition values are missing or incomplete — missing data can affect the rating.</li>
+                      <li>Review your nutrition goals and allergen or additive preferences in the app settings, as these change how suitability is assessed.</li>
+                      <li>
+                        Remember that nutrition suitability is provided for general information
+                        only and is not medical advice. Always check the physical product label,
+                        especially for allergens.
+                      </li>
+                      <li>If you believe the underlying product data is incorrect, please report it by email so it can be reviewed.</li>
+                    </ul>
+                  </div>
+
+                  <div class="support-card" id="ff-faq-data">
+                    <h2>
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/>
+                      </svg>
+                      History or settings look wrong
+                    </h2>
+                    <p>
+                      FoodFit Scan stores your food history, cached products, nutrition goals,
+                      and preferences locally on your device. If something looks wrong:
+                    </p>
+                    <ul>
+                      <li>Close FoodFit Scan fully and reopen it — this refreshes the saved state.</li>
+                      <li>Check that you have not recently cleared FoodFit Scan's app storage data in Android Settings, as this removes history, goals, and preferences.</li>
+                      <li>Deleting your history in the app removes those entries permanently.</li>
+                      <li>Uninstalling and reinstalling the app will remove all locally saved data, as it is not backed up to a cloud server.</li>
+                    </ul>
+                  </div>
+
+                  <div class="support-card" id="ff-faq-ads">
+                    <h2>
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>
+                      </svg>
+                      Ads are not loading
+                    </h2>
+                    <p>FoodFit Scan may use Google AdMob to serve ads if ads are enabled. If ads are not loading:</p>
+                    <ul>
+                      <li>Check that your internet connection is active — ads require a network connection.</li>
+                      <li>Wait a short time and try again — ad fill rates can vary.</li>
+                      <li>Ad availability can vary by region and time of day. This is normal and controlled by ad networks, not by the app.</li>
+                      <li>Restarting the app may help refresh the ad connection.</li>
+                    </ul>
+                  </div>
+
+                </div>
+              </section><!-- /foodfit-scan -->
+
             </div><!-- /.support-faq-col -->
 
             <!-- ── Shared sidebar ── -->
@@ -599,6 +738,7 @@
               <li><a href="/#apps">Letter Rise</a></li>
               <li><a href="/#apps">LetterForge</a></li>
               <li><a href="/#apps">Emoji Guess</a></li>
+              <li><a href="/#apps">FoodFit Scan</a></li>
             </ul>
           </div>
           <div class="footer-col">
