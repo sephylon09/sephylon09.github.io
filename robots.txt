@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
 
-# TODO: Replace YOUR_USERNAME with your actual GitHub username
-Sitemap: https://YOUR_USERNAME.github.io/sitemap.xml
+Sitemap: https://sephylon09.github.io/sitemap.xml

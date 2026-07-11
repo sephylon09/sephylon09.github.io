@@ -1,9 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#090B10">
+  <script>
+    /* Apply the saved theme before CSS paints (dark is the default). */
+    (function () {
+      var t = "dark";
+      try { if (localStorage.getItem("mfd-theme") === "light") t = "light"; } catch (e) {}
+      document.documentElement.setAttribute("data-theme", t);
+    })();
+  </script>
+  <meta name="theme-color" content="#0C0E13">
 
   <title>Support — Mini Forge Dev</title>
   <meta name="description" content="Support and troubleshooting for Anime Pulse, Letter Rise, LetterForge, Emoji Guess, Guess The Time, and FoodFit Scan by Mini Forge Dev. Select your app to find answers.">
@@ -22,22 +30,21 @@
 
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
+  <!-- ══════════════════ HEADER ══════════════════ -->
   <header class="site-header" id="site-header">
     <div class="header-inner">
-      <a href="/" class="logo-link" aria-label="Mini Forge Dev — home">
-        <img src="assets/logo.svg" alt="Mini Forge Dev" width="210" height="44">
+
+      <a href="/" class="brand" aria-label="Mini Forge Dev — home">
+        <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+          <path fill="var(--accent)" d="M5.2 10.5 H21 C25.6 10.5 28.6 12.4 29.8 15.4 C27.1 16.9 23.9 17.5 20.8 17.5 H5.2 Q3 17.5 3 15.3 V12.7 Q3 10.5 5.2 10.5 Z"/>
+          <path fill="var(--accent)" opacity="0.82" d="M11.8 17.5 H18.6 L17.8 22 H12.6 Z"/>
+          <rect fill="var(--accent)" opacity="0.55" x="8" y="22" width="14.5" height="4.3" rx="1.7"/>
+          <path fill="var(--ember)" d="M25.8 1.4 L26.9 3.8 L29.3 4.9 L26.9 6 L25.8 8.4 L24.7 6 L22.3 4.9 L24.7 3.8 Z"/>
+          <circle fill="var(--ember)" opacity="0.85" cx="7.2" cy="6.4" r="1.4"/>
+        </svg>
+        <span class="brand-name">Mini Forge <em>Dev</em></span>
       </a>
-      <button
-        class="nav-toggle"
-        id="nav-toggle"
-        aria-controls="main-nav"
-        aria-expanded="false"
-        aria-label="Toggle navigation menu"
-      >
-        <span class="nav-toggle-bar"></span>
-        <span class="nav-toggle-bar"></span>
-        <span class="nav-toggle-bar"></span>
-      </button>
+
       <nav id="main-nav" class="main-nav" aria-label="Main navigation">
         <ul class="nav-list">
           <li><a href="/"                   class="nav-link">Home</a></li>
@@ -47,829 +54,780 @@
           <li><a href="/#contact"           class="nav-link">Contact</a></li>
         </ul>
       </nav>
+
+      <div class="header-controls">
+        <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to light theme">
+          <svg class="theme-toggle-icon theme-toggle-icon--moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+          <svg class="theme-toggle-icon theme-toggle-icon--sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"/>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+          </svg>
+          <span class="theme-toggle-thumb" aria-hidden="true"></span>
+        </button>
+
+        <button
+          class="nav-toggle"
+          id="nav-toggle"
+          aria-controls="main-nav"
+          aria-expanded="false"
+          aria-label="Toggle navigation menu"
+        >
+          <span class="nav-toggle-bar"></span>
+          <span class="nav-toggle-bar"></span>
+          <span class="nav-toggle-bar"></span>
+        </button>
+      </div>
+
     </div>
   </header>
 
   <main id="main-content">
 
     <div class="page-hero">
-      <div class="container">
+      <div class="container container-narrow">
         <p class="eyebrow">Mini Forge Dev</p>
         <h1>Support</h1>
-        <p class="page-meta">Select your app to find answers and troubleshooting steps.</p>
+        <p class="page-meta">
+          Select your app for quick fixes and troubleshooting, or email
+          <a href="mailto:miniforgedev@gmail.com">miniforgedev@gmail.com</a> any time.
+        </p>
       </div>
     </div>
 
     <div class="support-body">
-      <div class="container">
+      <div class="container container-narrow">
 
-        <div class="app-switcher-container">
+        <div data-switcher>
 
-          <!-- App tab selector -->
-          <div class="app-switcher" role="tablist" aria-label="Select app for support">
-            <button
-              class="app-tab active"
-              data-app="anime-pulse"
-              role="tab"
-              aria-selected="true"
-              tabindex="0"
-            >
-              <img src="assets/animepulse_logo.png" alt="" class="app-tab-logo" width="72" height="72" aria-hidden="true">
-              <span>Anime Pulse</span>
-            </button>
-            <button
-              class="app-tab"
-              data-app="letter-rise"
-              role="tab"
-              aria-selected="false"
-              tabindex="-1"
-            >
-              <img src="assets/letterrise_logo.jpeg" alt="" class="app-tab-logo" width="72" height="72" aria-hidden="true">
-              <span>Letter Rise</span>
-            </button>
-            <button
-              class="app-tab"
-              data-app="letterforge"
-              role="tab"
-              aria-selected="false"
-              tabindex="-1"
-            >
-              <img src="assets/letterforge_logo.png" alt="" class="app-tab-logo" width="72" height="72" aria-hidden="true">
-              <span>LetterForge</span>
-            </button>
-            <button
-              class="app-tab"
-              data-app="emoji-guess"
-              role="tab"
-              aria-selected="false"
-              tabindex="-1"
-            >
-              <img src="assets/emoji_guess_logo.png" alt="" class="app-tab-logo" width="72" height="72" aria-hidden="true">
-              <span>Emoji Guess</span>
-            </button>
-            <button
-              class="app-tab"
-              data-app="guess-the-time"
-              role="tab"
-              aria-selected="false"
-              tabindex="-1"
-            >
-              <img src="assets/guessthetime_logo.png" alt="" class="app-tab-logo" width="72" height="72" aria-hidden="true">
-              <span>Guess The Time</span>
-            </button>
-            <button
-              class="app-tab"
-              data-app="foodfit-scan"
-              role="tab"
-              aria-selected="false"
-              tabindex="-1"
-            >
-              <img src="assets/foodfit_logo.png" alt="" class="app-tab-logo" width="72" height="72" aria-hidden="true">
-              <span>FoodFit Scan</span>
-            </button>
+          <!-- App selector — tabs are rendered from assets/apps-data.js.
+               Without JavaScript, every FAQ below is shown stacked. -->
+          <div class="app-select-wrap">
+            <div class="app-select" data-app-selector aria-label="Select an app for support"></div>
           </div>
 
-          <div class="support-layout">
+          <!-- ════════════════════════
+               ANIME PULSE SUPPORT
+               ════════════════════════ -->
+          <section class="app-policy" id="anime-pulse" data-app-panel="anime-pulse" aria-label="Anime Pulse support">
 
-            <!-- ── FAQ panels ── -->
-            <div class="support-faq-col">
+            <div class="panel-header">
+              <img src="assets/app-icons/animepulse.webp" alt="" class="panel-logo" width="52" height="52">
+              <div>
+                <h2 class="panel-name">Anime Pulse</h2>
+                <p class="panel-meta">Support &amp; troubleshooting</p>
+              </div>
+            </div>
 
-              <!-- ════════════════════════
-                   ANIME PULSE SUPPORT
-                   ════════════════════════ -->
-              <section class="app-policy active" data-app-panel="anime-pulse" aria-label="Anime Pulse support">
-                <div class="support-faq">
+            <details class="accordion" id="ap-faq-data" open>
+              <summary>Anime data is not loading</summary>
+              <div class="accordion-body">
+                <p>If Anime Pulse is not loading anime information, try the following steps:</p>
+                <ol>
+                  <li>Check that your internet connection is active.</li>
+                  <li>Pull down on the main screen to refresh the data.</li>
+                  <li>Close Anime Pulse fully and reopen it.</li>
+                  <li>Confirm that the AniList service is reachable by visiting AniList in a browser on the same network.</li>
+                </ol>
+                <p>If you are offline, cached data from your last successful connection may still appear.</p>
+              </div>
+            </details>
 
-                  <div class="support-card" id="ap-faq-data">
-                    <h2>
-                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                        <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/>
-                      </svg>
-                      Anime data is not loading
-                    </h2>
-                    <p>If Anime Pulse is not loading anime information, try the following steps:</p>
-                    <ul>
-                      <li>Check that your internet connection is active.</li>
-                      <li>Pull down on the main screen to refresh the data.</li>
-                      <li>Close Anime Pulse fully and reopen it.</li>
-                      <li>Confirm that the AniList service is reachable by visiting AniList in a browser on the same network.</li>
-                      <li>If you are offline, cached data from your last successful connection may still appear.</li>
-                    </ul>
-                  </div>
-
-                  <div class="support-card" id="ap-faq-images">
-                    <h2>
-                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                        <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/>
-                      </svg>
-                      Images are not loading
-                    </h2>
-                    <p>Anime cover images are loaded from external servers. If images are not appearing:</p>
-                    <ul>
-                      <li>Check that your internet connection is active.</li>
-                      <li>
-                        If images remain broken after reconnecting, try clearing the app cache:
-                        go to <strong>Android Settings &rarr; Apps &rarr; Anime Pulse &rarr;
-                        Storage &rarr; Clear cache</strong>.
-                      </li>
-                      <li>
-                        Avoid clearing <strong>App data</strong> unless necessary, as this will
-                        remove your favourites and preferences.
-                      </li>
-                    </ul>
-                  </div>
-
-                  <div class="support-card" id="ap-faq-notifications">
-                    <h2>
-                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                        <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/>
-                      </svg>
-                      Episode notifications are not arriving
-                    </h2>
-                    <p>If you are not receiving episode reminder notifications, check all of the following:</p>
-                    <ul>
-                      <li>
-                        Ensure Anime Pulse has notification permission granted in
-                        <strong>Android Settings &rarr; Apps &rarr; Anime Pulse &rarr;
-                        Notifications</strong>.
-                      </li>
-                      <li>
-                        Ensure the <strong>Episode Reminders</strong> notification channel
-                        is enabled within those settings.
-                      </li>
-                      <li>
-                        Check that your device's battery optimisation or power-saving mode is not
-                        preventing Anime Pulse from scheduling background tasks. You may need to
-                        disable battery restrictions for Anime Pulse specifically.
-                      </li>
-                      <li>
-                        Confirm that the anime title you expect a reminder for has a confirmed
-                        future airing date and time. If the airing schedule is not yet confirmed
-                        by the data provider, a reminder cannot be scheduled.
-                      </li>
-                      <li>Confirm that episode reminders are enabled in Anime Pulse's own settings screen.</li>
-                    </ul>
-                  </div>
-
-                  <div class="support-card" id="ap-faq-my-week">
-                    <h2>
-                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                        <rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
-                      </svg>
-                      My Week does not show all my favourites
-                    </h2>
-                    <p>
-                      My Week only displays favourite anime that have a confirmed episode
-                      scheduled to air during the selected week. If a series you have saved as a
-                      favourite is not appearing in My Week, it may be because:
-                    </p>
-                    <ul>
-                      <li>The series has finished airing and has no upcoming episodes.</li>
-                      <li>The next episode airing date has not yet been confirmed by the data provider.</li>
-                      <li>The episode falls outside the currently selected week.</li>
-                    </ul>
-                    <p>
-                      Anime with a confirmed future airing date will appear automatically in the
-                      correct week once the schedule is published.
-                    </p>
-                  </div>
-
-                  <div class="support-card" id="ap-faq-delete">
-                    <h2>
-                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                        <polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/><path d="M9 6V4h6v2"/>
-                      </svg>
-                      How to delete local data
-                    </h2>
-                    <p>All data stored by Anime Pulse is kept locally on your device. To remove it:</p>
-                    <ul>
-                      <li>
-                        <strong>Clear app data:</strong> go to
-                        <strong>Android Settings &rarr; Apps &rarr; Anime Pulse &rarr;
-                        Storage &rarr; Clear data</strong>. This removes your favourites, episode
-                        status, preferences and cached content.
-                      </li>
-                      <li>
-                        <strong>Uninstall the app:</strong> uninstalling Anime Pulse removes all
-                        locally stored data from your device.
-                      </li>
-                    </ul>
-                    <p>
-                      Mini Forge Dev does not store your personal data on external servers, so no
-                      remote deletion request is required.
-                    </p>
-                  </div>
-
-                </div>
-              </section><!-- /anime-pulse -->
-
-              <!-- ════════════════════════
-                   LETTER RISE SUPPORT
-                   ════════════════════════ -->
-              <section class="app-policy" data-app-panel="letter-rise" aria-label="Letter Rise support">
-                <div class="support-faq">
-
-                  <div class="support-card" id="lr-faq-themes">
-                    <h2>
-                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                        <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
-                      </svg>
-                      How do I unlock themes?
-                    </h2>
-                    <p>
-                      Themes in Letter Rise are unlocked by watching optional rewarded video ads.
-                      When a locked theme is shown, tap the unlock button and watch the ad to the
-                      end to unlock it permanently on your device.
-                    </p>
-                    <p>
-                      Rewarded ads require an active internet connection. If no ad is available,
-                      try again after a short wait — ad availability can vary by region and time.
-                    </p>
-                  </div>
-
-                  <div class="support-card" id="lr-faq-ads">
-                    <h2>
-                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                        <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>
-                      </svg>
-                      Rewarded or interstitial ads are not appearing
-                    </h2>
-                    <p>Letter Rise uses Google AdMob to serve ads. If ads are not loading:</p>
-                    <ul>
-                      <li>Check that your internet connection is active.</li>
-                      <li>Some ad types may not be available in your region at all times. This is normal and controlled by ad networks, not by the app.</li>
-                      <li>For rewarded ads, wait a short time and try again — ad fill rates can vary.</li>
-                      <li>Restarting the app may help refresh the ad connection.</li>
-                    </ul>
-                  </div>
-
-                  <div class="support-card" id="lr-faq-progress">
-                    <h2>
-                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/>
-                      </svg>
-                      The game is not saving my progress
-                    </h2>
-                    <p>
-                      Letter Rise saves all game progress — including high score, unlocked themes,
-                      and settings — locally on your device. If progress appears lost:
-                    </p>
-                    <ul>
-                      <li>Check that you have not recently cleared Letter Rise's app storage data in Android Settings.</li>
-                      <li>Uninstalling and reinstalling the app will remove all locally saved data, as it is not backed up to a cloud server.</li>
-                    </ul>
-                  </div>
-
-                  <div class="support-card" id="lr-faq-delete">
-                    <h2>
-                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                        <polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/><path d="M9 6V4h6v2"/>
-                      </svg>
-                      How to delete saved data
-                    </h2>
-                    <p>All data stored by Letter Rise is kept locally on your device. To remove it:</p>
-                    <ul>
-                      <li>
-                        <strong>Clear app data:</strong> go to
-                        <strong>Android Settings &rarr; Apps &rarr; Letter Rise &rarr;
-                        Storage &rarr; Clear data</strong>. This removes all saved progress,
-                        settings, and unlocked themes.
-                      </li>
-                      <li>
-                        <strong>Uninstall the app:</strong> uninstalling Letter Rise removes all
-                        locally stored data from your device.
-                      </li>
-                    </ul>
-                    <p>
-                      Sephylon does not store your game data on external servers, so no remote
-                      deletion request is required.
-                    </p>
-                  </div>
-
-                </div>
-              </section><!-- /letter-rise -->
-
-              <!-- ════════════════════════
-                   LETTERFORGE SUPPORT
-                   ════════════════════════ -->
-              <section class="app-policy" data-app-panel="letterforge" id="letterforge" aria-label="LetterForge support">
-                <div class="support-faq">
-
-                  <div class="support-card" id="lf-faq-ads">
-                    <h2>
-                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                        <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>
-                      </svg>
-                      Ads are not loading
-                    </h2>
-                    <p>LetterForge uses Google AdMob to serve ads. If ads are not loading:</p>
-                    <ul>
-                      <li>Check that your internet connection is active — ads require a network connection.</li>
-                      <li>Ad availability can vary by region and time of day. This is normal and controlled by ad networks, not by the app.</li>
-                      <li>Restarting the app may help refresh the ad connection.</li>
-                      <li>If the issue persists, try again after a short wait.</li>
-                    </ul>
-                  </div>
-
-                  <div class="support-card" id="lf-faq-rewarded">
-                    <h2>
-                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                        <circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/>
-                      </svg>
-                      Rewarded ad did not grant my hint
-                    </h2>
-                    <p>
-                      The hint reward is granted only after the rewarded ad has been watched
-                      to completion and the reward has been successfully confirmed by the ad network.
-                      If you did not receive the hint:
-                    </p>
-                    <ul>
-                      <li>Ensure the ad played through to the end — closing it early cancels the reward.</li>
-                      <li>Check that your internet connection remained active throughout the ad.</li>
-                      <li>If the reward was confirmed but no hint appeared, restart the app and try again.</li>
-                    </ul>
-                  </div>
-
-                  <div class="support-card" id="lf-faq-daily">
-                    <h2>
-                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                        <rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
-                      </svg>
-                      Daily challenge says already completed
-                    </h2>
-                    <p>
-                      Each daily challenge can only be completed once per calendar day. If the
-                      challenge shows as already completed:
-                    </p>
-                    <ul>
-                      <li>This is by design — a new daily challenge becomes available each day.</li>
-                      <li>While waiting, you can play Endless mode for unlimited puzzles.</li>
-                      <li>If you believe this is an error, check that your device's date and time are set correctly.</li>
-                    </ul>
-                  </div>
-
-                  <div class="support-card" id="lf-faq-progress">
-                    <h2>
-                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/>
-                      </svg>
-                      Progress reset after reinstall or clearing app data
-                    </h2>
-                    <p>
-                      LetterForge stores all progress — coins, XP, achievements, statistics, and
-                      game history — locally on your device. Progress is not backed up to a cloud
-                      server. If progress has been lost:
-                    </p>
-                    <ul>
-                      <li>
-                        Reinstalling the app or clearing app data in Android Settings removes all
-                        locally stored data. This cannot be undone.
-                      </li>
-                      <li>
-                        LetterForge does not currently provide cloud backup or account-based
-                        save syncing.
-                      </li>
-                    </ul>
-                  </div>
-
-                  <div class="support-card" id="lf-faq-offline">
-                    <h2>
-                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                        <line x1="1" y1="1" x2="23" y2="23"/><path d="M16.72 11.06A10.94 10.94 0 0 1 19 12.55"/><path d="M5 12.55a10.94 10.94 0 0 1 5.17-2.39"/><path d="M10.71 5.05A16 16 0 0 1 22.56 9"/><path d="M1.42 9a15.91 15.91 0 0 1 4.7-2.88"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/>
-                      </svg>
-                      Does LetterForge work offline?
-                    </h2>
-                    <p>
-                      Yes — core gameplay in LetterForge (word puzzles, Endless mode, custom
-                      word length games) works without an internet connection. Your progress is
-                      saved locally. The following features may require connectivity:
-                    </p>
-                    <ul>
-                      <li>Rewarded and interstitial ads — ads need a network connection to load.</li>
-                      <li>Daily challenge — the puzzle itself is available offline, but daily reset timing uses your device clock.</li>
-                    </ul>
-                  </div>
-
-                  <div class="support-card" id="lf-faq-word">
-                    <h2>
-                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                        <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
-                      </svg>
-                      Reporting a word issue or bug
-                    </h2>
-                    <p>
-                      If you encounter a word that should be accepted but isn't, a word that
-                      shouldn't be valid, or any other bug, please contact us by email with:
-                    </p>
-                    <ul>
-                      <li>The app name: LetterForge</li>
-                      <li>Your Android version</li>
-                      <li>A description of the issue, including the word or puzzle in question</li>
-                    </ul>
-                    <p>
-                      For support, bug reports, privacy questions, or word-list issues related
-                      to LetterForge, please contact us at:
-                      <a href="mailto:miniforgedev@gmail.com?subject=LetterForge%20Support">miniforgedev@gmail.com</a>.
-                    </p>
-                  </div>
-
-                </div>
-              </section><!-- /letterforge -->
-
-              <!-- ════════════════════════
-                   EMOJI GUESS SUPPORT
-                   ════════════════════════ -->
-              <section class="app-policy" data-app-panel="emoji-guess" aria-label="Emoji Guess support">
-                <div class="support-faq">
-
-                  <div class="support-card" id="eg-faq-answer">
-                    <h2>
-                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                        <circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/>
-                      </svg>
-                      Puzzle answer is not accepted
-                    </h2>
-                    <p>
-                      If you are sure of the answer but the puzzle will not accept it, check
-                      the following:
-                    </p>
-                    <ul>
-                      <li>Double-check the spelling — the answer must match exactly.</li>
-                      <li>Build the answer using only the letters available on the letter tiles.</li>
-                      <li>Answers currently avoid numbers and hyphens — try the spelled-out or unhyphenated form instead.</li>
-                      <li>If you are stuck, use a hint to reveal a letter or remove incorrect letters.</li>
-                    </ul>
-                    <p>
-                      If you believe an answer is genuinely wrong or misspelled in the game,
-                      please report it by email so it can be reviewed.
-                    </p>
-                  </div>
-
-                  <div class="support-card" id="eg-faq-progress">
-                    <h2>
-                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/>
-                      </svg>
-                      Progress, coins, or hints look wrong
-                    </h2>
-                    <p>
-                      Emoji Guess stores all progress — unlocked stages, coins, and hints —
-                      locally on your device. If something looks wrong:
-                    </p>
-                    <ul>
-                      <li>Close Emoji Guess fully and reopen it — this refreshes the saved state.</li>
-                      <li>Check that you have not recently cleared Emoji Guess's app storage data in Android Settings, as this removes all saved progress.</li>
-                      <li>Uninstalling and reinstalling the app will remove all locally saved data, as progress is not backed up to a cloud server.</li>
-                    </ul>
-                  </div>
-
-                  <div class="support-card" id="eg-faq-sound">
-                    <h2>
-                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
-                      </svg>
-                      Sound or haptics are not working
-                    </h2>
-                    <p>If sound effects or vibration feedback are not working:</p>
-                    <ul>
-                      <li>Open the in-app settings and check that sound and haptics are enabled.</li>
-                      <li>Check that your device is not in silent or Do Not Disturb mode.</li>
-                      <li>Check your device's media volume — game sounds use the media channel.</li>
-                      <li>For haptics, confirm that vibration is enabled in your device's sound and vibration settings.</li>
-                    </ul>
-                  </div>
-
-                  <div class="support-card" id="eg-faq-ads">
-                    <h2>
-                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                        <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>
-                      </svg>
-                      Ads or rewarded hints are not loading
-                    </h2>
-                    <p>Emoji Guess may use Google AdMob to serve ads. If ads or rewarded hints are not loading:</p>
-                    <ul>
-                      <li>Check that your internet connection is active — ads require a network connection.</li>
-                      <li>Wait a short time and try again — ad fill rates can vary.</li>
-                      <li>Ad availability can vary by region and time of day. This is normal and controlled by ad networks, not by the app.</li>
-                      <li>Restarting the app may help refresh the ad connection.</li>
-                    </ul>
-                  </div>
-
-                </div>
-              </section><!-- /emoji-guess -->
-
-              <!-- ════════════════════════
-                   GUESS THE TIME SUPPORT
-                   ════════════════════════ -->
-              <section class="app-policy" data-app-panel="guess-the-time" aria-label="Guess The Time support">
-                <div class="support-faq">
-
-                  <div class="support-card" id="gt-faq-join">
-                    <h2>
-                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-                      </svg>
-                      Cannot join a room
-                    </h2>
-                    <p>If you cannot create or join a room, check the following:</p>
-                    <ul>
-                      <li>Check that your internet connection is active — multiplayer rooms require a network connection.</li>
-                      <li>Double-check the room code and re-enter it exactly, including any letters or numbers.</li>
-                      <li>Make sure the room still exists and has not been closed by the host or already finished its game.</li>
-                      <li>Check that the room is not already full and that the round has not already started.</li>
-                      <li>Close Guess The Time fully and reopen it, then try joining again.</li>
-                    </ul>
-                  </div>
-
-                  <div class="support-card" id="gt-faq-invite">
-                    <h2>
-                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                        <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
-                      </svg>
-                      Invite link is not working
-                    </h2>
-                    <p>If an invite link or room code will not open the game or join the room:</p>
-                    <ul>
-                      <li>Make sure Guess The Time is installed and up to date on the device opening the link.</li>
-                      <li>Try joining manually by entering the room code shown in the app instead of the link.</li>
-                      <li>Confirm the person who shared the link is still in the room and the room is still open.</li>
-                      <li>Some messaging apps modify or shorten links — ask for the room code to be sent as plain text.</li>
-                      <li>Check that both players have an active internet connection.</li>
-                    </ul>
-                  </div>
-
-                  <div class="support-card" id="gt-faq-scores">
-                    <h2>
-                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                        <line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/>
-                      </svg>
-                      Scores or round results look wrong
-                    </h2>
-                    <p>
-                      Scores are calculated from how close each guess is to the hidden time in
-                      every round. If scores or round results look wrong:
-                    </p>
-                    <ul>
-                      <li>Give the round a moment to finish — results update once all players have guessed or the round timer ends.</li>
-                      <li>A brief connection drop can delay updates; scores refresh once your device reconnects.</li>
-                      <li>Close and reopen the app, then rejoin the room to resync the latest scores.</li>
-                      <li>If you believe a result is genuinely incorrect, please report it by email with the details.</li>
-                    </ul>
-                  </div>
-
-                  <div class="support-card" id="gt-faq-ads">
-                    <h2>
-                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                        <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>
-                      </svg>
-                      Ads are not loading
-                    </h2>
-                    <p>Guess The Time may use Google AdMob to serve ads. If ads or rewarded items are not loading:</p>
-                    <ul>
-                      <li>Check that your internet connection is active — ads require a network connection.</li>
-                      <li>Wait a short time and try again — ad fill rates can vary.</li>
-                      <li>Ad availability can vary by region and time of day. This is normal and controlled by ad networks, not by the app.</li>
-                      <li>Restarting the app may help refresh the ad connection.</li>
-                    </ul>
-                  </div>
-
-                  <div class="support-card" id="gt-faq-sound">
-                    <h2>
-                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
-                      </svg>
-                      Sound or haptics are not working
-                    </h2>
-                    <p>If sound effects or vibration feedback are not working:</p>
-                    <ul>
-                      <li>Open the in-app settings and check that sound and haptics are enabled.</li>
-                      <li>Check that your device is not in silent or Do Not Disturb mode.</li>
-                      <li>Check your device's media volume — game sounds use the media channel.</li>
-                      <li>For haptics, confirm that vibration is enabled in your device's sound and vibration settings.</li>
-                    </ul>
-                  </div>
-
-                </div>
-              </section><!-- /guess-the-time -->
-
-              <!-- ════════════════════════
-                   FOODFIT SCAN SUPPORT
-                   ════════════════════════ -->
-              <section class="app-policy" data-app-panel="foodfit-scan" aria-label="FoodFit Scan support">
-                <div class="support-faq">
-
-                  <div class="support-card" id="ff-faq-scanner">
-                    <h2>
-                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                        <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/>
-                      </svg>
-                      Barcode scanner is not working
-                    </h2>
-                    <p>If the camera view does not open or barcodes are not being detected:</p>
-                    <ul>
-                      <li>
-                        Ensure FoodFit Scan has camera permission granted in
-                        <strong>Android Settings &rarr; Apps &rarr; FoodFit Scan &rarr;
-                        Permissions</strong>. The camera is used only for barcode scanning.
-                      </li>
-                      <li>Clean the camera lens and make sure the barcode is well lit.</li>
-                      <li>Hold the phone steady and move it closer or further away until the barcode comes into focus.</li>
-                      <li>Flatten curved or wrinkled packaging as much as possible so the full barcode is visible.</li>
-                      <li>If the barcode still cannot be read, use the search feature to find the product by name instead.</li>
-                    </ul>
-                  </div>
-
-                  <div class="support-card" id="ff-faq-not-found">
-                    <h2>
-                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                        <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
-                      </svg>
-                      Product cannot be found
-                    </h2>
-                    <p>If a scanned barcode does not return a product:</p>
-                    <ul>
-                      <li>Check that your internet connection is active — product lookups require a network connection.</li>
-                      <li>Compare the digits shown in the app with the number printed under the barcode to confirm it scanned correctly.</li>
-                      <li>Try searching for the product by name or brand instead.</li>
-                      <li>
-                        Not every product exists in the database. FoodFit Scan looks up products
-                        in Open Food Facts and the app's product search index, and coverage
-                        varies by country and brand — new or regional products may be missing.
-                      </li>
-                    </ul>
-                  </div>
-
-                  <div class="support-card" id="ff-faq-search">
-                    <h2>
-                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                        <line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/>
-                      </svg>
-                      Search results are missing or incomplete
-                    </h2>
-                    <p>If searching does not show the products you expect:</p>
-                    <ul>
-                      <li>Check that your internet connection is active and try the search again.</li>
-                      <li>Use shorter or simpler keywords — for example the brand name plus one product word.</li>
-                      <li>Try an alternative spelling or the product's local-language name.</li>
-                      <li>
-                        Some products in the database have partial data, so a result may appear
-                        with missing nutrition values, images, or ingredient details. This
-                        reflects the source data rather than an app error.
-                      </li>
-                    </ul>
-                  </div>
-
-                  <div class="support-card" id="ff-faq-rating">
-                    <h2>
-                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                        <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
-                      </svg>
-                      Nutrition rating looks wrong or unclear
-                    </h2>
-                    <p>
-                      Nutrition ratings and goal-fit indicators are calculated from the product
-                      data available for that item, combined with the nutrition goals and
-                      allergen or additive preferences you have set. If a rating looks wrong:
-                    </p>
-                    <ul>
-                      <li>Open the product details and check whether nutrition values are missing or incomplete — missing data can affect the rating.</li>
-                      <li>Review your nutrition goals and allergen or additive preferences in the app settings, as these change how suitability is assessed.</li>
-                      <li>
-                        Remember that nutrition suitability is provided for general information
-                        only and is not medical advice. Always check the physical product label,
-                        especially for allergens.
-                      </li>
-                      <li>If you believe the underlying product data is incorrect, please report it by email so it can be reviewed.</li>
-                    </ul>
-                  </div>
-
-                  <div class="support-card" id="ff-faq-data">
-                    <h2>
-                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/>
-                      </svg>
-                      History or settings look wrong
-                    </h2>
-                    <p>
-                      FoodFit Scan stores your food history, cached products, nutrition goals,
-                      and preferences locally on your device. If something looks wrong:
-                    </p>
-                    <ul>
-                      <li>Close FoodFit Scan fully and reopen it — this refreshes the saved state.</li>
-                      <li>Check that you have not recently cleared FoodFit Scan's app storage data in Android Settings, as this removes history, goals, and preferences.</li>
-                      <li>Deleting your history in the app removes those entries permanently.</li>
-                      <li>Uninstalling and reinstalling the app will remove all locally saved data, as it is not backed up to a cloud server.</li>
-                    </ul>
-                  </div>
-
-                  <div class="support-card" id="ff-faq-ads">
-                    <h2>
-                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                        <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>
-                      </svg>
-                      Ads are not loading
-                    </h2>
-                    <p>FoodFit Scan may use Google AdMob to serve ads if ads are enabled. If ads are not loading:</p>
-                    <ul>
-                      <li>Check that your internet connection is active — ads require a network connection.</li>
-                      <li>Wait a short time and try again — ad fill rates can vary.</li>
-                      <li>Ad availability can vary by region and time of day. This is normal and controlled by ad networks, not by the app.</li>
-                      <li>Restarting the app may help refresh the ad connection.</li>
-                    </ul>
-                  </div>
-
-                </div>
-              </section><!-- /foodfit-scan -->
-
-            </div><!-- /.support-faq-col -->
-
-            <!-- ── Shared sidebar ── -->
-            <aside class="support-sidebar" aria-label="Contact support">
-              <div class="sidebar-card">
-                <h2>Still need help?</h2>
+            <details class="accordion" id="ap-faq-images">
+              <summary>Images are not loading</summary>
+              <div class="accordion-body">
+                <p>Anime cover images are loaded from external servers. If images are not appearing:</p>
+                <ol>
+                  <li>Check that your internet connection is active.</li>
+                  <li>
+                    If images remain broken after reconnecting, clear the app cache:
+                    go to <strong>Android Settings &rarr; Apps &rarr; Anime Pulse &rarr;
+                    Storage &rarr; Clear cache</strong>.
+                  </li>
+                </ol>
                 <p>
-                  If your issue is not covered above, or if you have found a bug, please send
-                  an email and describe what happened.
-                </p>
-                <a
-                  href="mailto:miniforgedev@gmail.com?subject=Support%20Request"
-                  class="sidebar-email"
-                  aria-label="Email Mini Forge Dev support"
-                >
-                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <rect x="2" y="4" width="20" height="16" rx="2"/>
-                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
-                  </svg>
-                  miniforgedev@gmail.com
-                </a>
-                <p style="margin-top: 1rem; font-size: 0.82rem; color: var(--text-muted); opacity: 0.75;">
-                  Please include your Android version, app name, and a brief description of the
-                  issue in your message.
+                  Avoid clearing <strong>App data</strong> unless necessary, as this will
+                  remove your favourites and preferences.
                 </p>
               </div>
+            </details>
 
-              <div class="sidebar-card" style="margin-top: 1rem;">
-                <h2>Privacy questions</h2>
+            <details class="accordion" id="ap-faq-notifications">
+              <summary>Episode notifications are not arriving</summary>
+              <div class="accordion-body">
+                <p>If you are not receiving episode reminder notifications, check all of the following:</p>
+                <ol>
+                  <li>
+                    Ensure Anime Pulse has notification permission granted in
+                    <strong>Android Settings &rarr; Apps &rarr; Anime Pulse &rarr; Notifications</strong>.
+                  </li>
+                  <li>Ensure the <strong>Episode Reminders</strong> notification channel is enabled within those settings.</li>
+                  <li>
+                    Check that your device's battery optimisation or power-saving mode is not
+                    preventing Anime Pulse from scheduling background tasks. You may need to
+                    disable battery restrictions for Anime Pulse specifically.
+                  </li>
+                  <li>Confirm that episode reminders are enabled in Anime Pulse's own settings screen.</li>
+                  <li>
+                    Confirm that the anime title you expect a reminder for has a confirmed
+                    future airing date and time. If the airing schedule is not yet confirmed
+                    by the data provider, a reminder cannot be scheduled.
+                  </li>
+                </ol>
+              </div>
+            </details>
+
+            <details class="accordion" id="ap-faq-my-week">
+              <summary>My Week does not show all my favourites</summary>
+              <div class="accordion-body">
                 <p>
-                  For questions about how an app handles your data, read the
-                  <a href="privacy-policy.html" style="color: var(--accent);">Privacy Policy</a>
-                  or contact us at the same email address.
+                  My Week only displays favourite anime that have a confirmed episode
+                  scheduled to air during the selected week. If a series you have saved as a
+                  favourite is not appearing in My Week, it may be because:
+                </p>
+                <ul>
+                  <li>The series has finished airing and has no upcoming episodes.</li>
+                  <li>The next episode airing date has not yet been confirmed by the data provider.</li>
+                  <li>The episode falls outside the currently selected week.</li>
+                </ul>
+                <p>
+                  Anime with a confirmed future airing date will appear automatically in the
+                  correct week once the schedule is published.
                 </p>
               </div>
-            </aside>
+            </details>
 
-          </div><!-- /.support-layout -->
+            <details class="accordion" id="ap-faq-delete">
+              <summary>How to delete local data</summary>
+              <div class="accordion-body">
+                <p>All data stored by Anime Pulse is kept locally on your device. To remove it:</p>
+                <ul>
+                  <li>
+                    <strong>Clear app data:</strong> go to
+                    <strong>Android Settings &rarr; Apps &rarr; Anime Pulse &rarr;
+                    Storage &rarr; Clear data</strong>. This removes your favourites, episode
+                    status, preferences and cached content.
+                  </li>
+                  <li>
+                    <strong>Uninstall the app:</strong> uninstalling Anime Pulse removes all
+                    locally stored data from your device.
+                  </li>
+                </ul>
+                <p>
+                  Mini Forge Dev does not store your personal data on external servers, so no
+                  remote deletion request is required.
+                </p>
+              </div>
+            </details>
 
-        </div><!-- /.app-switcher-container -->
+          </section><!-- /anime-pulse -->
+
+          <!-- ════════════════════════
+               LETTER RISE SUPPORT
+               ════════════════════════ -->
+          <section class="app-policy" id="letter-rise" data-app-panel="letter-rise" aria-label="Letter Rise support">
+
+            <div class="panel-header">
+              <img src="assets/app-icons/letterrise.webp" alt="" class="panel-logo" width="52" height="52">
+              <div>
+                <h2 class="panel-name">Letter Rise</h2>
+                <p class="panel-meta">Support &amp; troubleshooting</p>
+              </div>
+            </div>
+
+            <details class="accordion" id="lr-faq-themes" open>
+              <summary>How do I unlock themes?</summary>
+              <div class="accordion-body">
+                <p>
+                  Themes in Letter Rise are unlocked by watching optional rewarded video ads.
+                  When a locked theme is shown, tap the unlock button and watch the ad to the
+                  end to unlock it permanently on your device.
+                </p>
+                <p>
+                  Rewarded ads require an active internet connection. If no ad is available,
+                  try again after a short wait — ad availability can vary by region and time.
+                </p>
+              </div>
+            </details>
+
+            <details class="accordion" id="lr-faq-ads">
+              <summary>Rewarded or interstitial ads are not appearing</summary>
+              <div class="accordion-body">
+                <p>Letter Rise uses Google AdMob to serve ads. If ads are not loading:</p>
+                <ol>
+                  <li>Check that your internet connection is active.</li>
+                  <li>Restart the app to refresh the ad connection.</li>
+                  <li>For rewarded ads, wait a short time and try again — ad fill rates can vary.</li>
+                </ol>
+                <p>
+                  Some ad types may not be available in your region at all times. This is
+                  normal and controlled by ad networks, not by the app.
+                </p>
+              </div>
+            </details>
+
+            <details class="accordion" id="lr-faq-progress">
+              <summary>The game is not saving my progress</summary>
+              <div class="accordion-body">
+                <p>
+                  Letter Rise saves all game progress — including high score, unlocked themes,
+                  and settings — locally on your device. If progress appears lost:
+                </p>
+                <ul>
+                  <li>Check that you have not recently cleared Letter Rise's app storage data in Android Settings.</li>
+                  <li>Uninstalling and reinstalling the app will remove all locally saved data, as it is not backed up to a cloud server.</li>
+                </ul>
+              </div>
+            </details>
+
+            <details class="accordion" id="lr-faq-delete">
+              <summary>How to delete saved data</summary>
+              <div class="accordion-body">
+                <p>All data stored by Letter Rise is kept locally on your device. To remove it:</p>
+                <ul>
+                  <li>
+                    <strong>Clear app data:</strong> go to
+                    <strong>Android Settings &rarr; Apps &rarr; Letter Rise &rarr;
+                    Storage &rarr; Clear data</strong>. This removes all saved progress,
+                    settings, and unlocked themes.
+                  </li>
+                  <li>
+                    <strong>Uninstall the app:</strong> uninstalling Letter Rise removes all
+                    locally stored data from your device.
+                  </li>
+                </ul>
+                <p>
+                  Mini Forge Dev does not store your game data on external servers, so no remote
+                  deletion request is required.
+                </p>
+              </div>
+            </details>
+
+          </section><!-- /letter-rise -->
+
+          <!-- ════════════════════════
+               LETTERFORGE SUPPORT
+               ════════════════════════ -->
+          <section class="app-policy" id="letterforge" data-app-panel="letterforge" aria-label="LetterForge support">
+
+            <div class="panel-header">
+              <img src="assets/app-icons/letterforge.webp" alt="" class="panel-logo" width="52" height="52">
+              <div>
+                <h2 class="panel-name">LetterForge</h2>
+                <p class="panel-meta">Support &amp; troubleshooting</p>
+              </div>
+            </div>
+
+            <details class="accordion" id="lf-faq-ads" open>
+              <summary>Ads are not loading</summary>
+              <div class="accordion-body">
+                <p>LetterForge uses Google AdMob to serve ads. If ads are not loading:</p>
+                <ol>
+                  <li>Check that your internet connection is active — ads require a network connection.</li>
+                  <li>Restart the app to refresh the ad connection.</li>
+                  <li>If the issue persists, try again after a short wait.</li>
+                </ol>
+                <p>
+                  Ad availability can vary by region and time of day. This is normal and
+                  controlled by ad networks, not by the app.
+                </p>
+              </div>
+            </details>
+
+            <details class="accordion" id="lf-faq-rewarded">
+              <summary>Rewarded ad did not grant my hint</summary>
+              <div class="accordion-body">
+                <p>
+                  The hint reward is granted only after the rewarded ad has been watched
+                  to completion and the reward has been successfully confirmed by the ad network.
+                  If you did not receive the hint:
+                </p>
+                <ol>
+                  <li>Ensure the ad played through to the end — closing it early cancels the reward.</li>
+                  <li>Check that your internet connection remained active throughout the ad.</li>
+                  <li>If the reward was confirmed but no hint appeared, restart the app and try again.</li>
+                </ol>
+              </div>
+            </details>
+
+            <details class="accordion" id="lf-faq-daily">
+              <summary>Daily challenge says already completed</summary>
+              <div class="accordion-body">
+                <p>
+                  Each daily challenge can only be completed once per calendar day. If the
+                  challenge shows as already completed:
+                </p>
+                <ul>
+                  <li>This is by design — a new daily challenge becomes available each day.</li>
+                  <li>While waiting, you can play Endless mode for unlimited puzzles.</li>
+                  <li>If you believe this is an error, check that your device's date and time are set correctly.</li>
+                </ul>
+              </div>
+            </details>
+
+            <details class="accordion" id="lf-faq-progress">
+              <summary>Progress reset after reinstall or clearing app data</summary>
+              <div class="accordion-body">
+                <p>
+                  LetterForge stores all progress — coins, XP, achievements, statistics, and
+                  game history — locally on your device. Progress is not backed up to a cloud
+                  server. If progress has been lost:
+                </p>
+                <ul>
+                  <li>
+                    Reinstalling the app or clearing app data in Android Settings removes all
+                    locally stored data. This cannot be undone.
+                  </li>
+                  <li>
+                    LetterForge does not currently provide cloud backup or account-based
+                    save syncing.
+                  </li>
+                </ul>
+              </div>
+            </details>
+
+            <details class="accordion" id="lf-faq-offline">
+              <summary>Does LetterForge work offline?</summary>
+              <div class="accordion-body">
+                <p>
+                  Yes — core gameplay in LetterForge (word puzzles, Endless mode, custom
+                  word length games) works without an internet connection. Your progress is
+                  saved locally. The following features may require connectivity:
+                </p>
+                <ul>
+                  <li>Rewarded and interstitial ads — ads need a network connection to load.</li>
+                  <li>Daily challenge — the puzzle itself is available offline, but daily reset timing uses your device clock.</li>
+                </ul>
+              </div>
+            </details>
+
+            <details class="accordion" id="lf-faq-word">
+              <summary>Reporting a word issue or bug</summary>
+              <div class="accordion-body">
+                <p>
+                  If you encounter a word that should be accepted but isn't, a word that
+                  shouldn't be valid, or any other bug, please contact us by email with:
+                </p>
+                <ul>
+                  <li>The app name: LetterForge</li>
+                  <li>Your Android version</li>
+                  <li>A description of the issue, including the word or puzzle in question</li>
+                </ul>
+                <p>
+                  For support, bug reports, privacy questions, or word-list issues related
+                  to LetterForge, please contact us at:
+                  <a href="mailto:miniforgedev@gmail.com?subject=LetterForge%20Support">miniforgedev@gmail.com</a>.
+                </p>
+              </div>
+            </details>
+
+          </section><!-- /letterforge -->
+
+          <!-- ════════════════════════
+               EMOJI GUESS SUPPORT
+               ════════════════════════ -->
+          <section class="app-policy" id="emoji-guess" data-app-panel="emoji-guess" aria-label="Emoji Guess support">
+
+            <div class="panel-header">
+              <img src="assets/app-icons/emojiguess.webp" alt="" class="panel-logo" width="52" height="52">
+              <div>
+                <h2 class="panel-name">Emoji Guess</h2>
+                <p class="panel-meta">Support &amp; troubleshooting</p>
+              </div>
+            </div>
+
+            <details class="accordion" id="eg-faq-answer" open>
+              <summary>Puzzle answer is not accepted</summary>
+              <div class="accordion-body">
+                <p>
+                  If you are sure of the answer but the puzzle will not accept it, check
+                  the following:
+                </p>
+                <ol>
+                  <li>Double-check the spelling — the answer must match exactly.</li>
+                  <li>Build the answer using only the letters available on the letter tiles.</li>
+                  <li>Answers currently avoid numbers and hyphens — try the spelled-out or unhyphenated form instead.</li>
+                  <li>If you are stuck, use a hint to reveal a letter or remove incorrect letters.</li>
+                </ol>
+                <p>
+                  If you believe an answer is genuinely wrong or misspelled in the game,
+                  please report it by email so it can be reviewed.
+                </p>
+              </div>
+            </details>
+
+            <details class="accordion" id="eg-faq-progress">
+              <summary>Progress, coins, or hints look wrong</summary>
+              <div class="accordion-body">
+                <p>
+                  Emoji Guess stores all progress — unlocked stages, coins, and hints —
+                  locally on your device. If something looks wrong:
+                </p>
+                <ol>
+                  <li>Close Emoji Guess fully and reopen it — this refreshes the saved state.</li>
+                  <li>Check that you have not recently cleared Emoji Guess's app storage data in Android Settings, as this removes all saved progress.</li>
+                </ol>
+                <p>
+                  Uninstalling and reinstalling the app will remove all locally saved data,
+                  as progress is not backed up to a cloud server.
+                </p>
+              </div>
+            </details>
+
+            <details class="accordion" id="eg-faq-sound">
+              <summary>Sound or haptics are not working</summary>
+              <div class="accordion-body">
+                <p>If sound effects or vibration feedback are not working:</p>
+                <ol>
+                  <li>Open the in-app settings and check that sound and haptics are enabled.</li>
+                  <li>Check that your device is not in silent or Do Not Disturb mode.</li>
+                  <li>Check your device's media volume — game sounds use the media channel.</li>
+                  <li>For haptics, confirm that vibration is enabled in your device's sound and vibration settings.</li>
+                </ol>
+              </div>
+            </details>
+
+            <details class="accordion" id="eg-faq-ads">
+              <summary>Ads or rewarded hints are not loading</summary>
+              <div class="accordion-body">
+                <p>Emoji Guess may use Google AdMob to serve ads. If ads or rewarded hints are not loading:</p>
+                <ol>
+                  <li>Check that your internet connection is active — ads require a network connection.</li>
+                  <li>Wait a short time and try again — ad fill rates can vary.</li>
+                  <li>Restart the app to refresh the ad connection.</li>
+                </ol>
+                <p>
+                  Ad availability can vary by region and time of day. This is normal and
+                  controlled by ad networks, not by the app.
+                </p>
+              </div>
+            </details>
+
+          </section><!-- /emoji-guess -->
+
+          <!-- ════════════════════════
+               GUESS THE TIME SUPPORT
+               ════════════════════════ -->
+          <section class="app-policy" id="guess-the-time" data-app-panel="guess-the-time" aria-label="Guess The Time support">
+
+            <div class="panel-header">
+              <img src="assets/app-icons/guessthetime.webp" alt="" class="panel-logo" width="52" height="52">
+              <div>
+                <h2 class="panel-name">Guess The Time</h2>
+                <p class="panel-meta">Support &amp; troubleshooting</p>
+              </div>
+            </div>
+
+            <details class="accordion" id="gt-faq-join" open>
+              <summary>Cannot create or join a room</summary>
+              <div class="accordion-body">
+                <p>If you cannot create or join a room, check the following:</p>
+                <ol>
+                  <li>Check that your internet connection is active — multiplayer rooms require a network connection.</li>
+                  <li>Double-check the room code and re-enter it exactly, including any letters or numbers.</li>
+                  <li>Make sure the room still exists and has not been closed by the host or already finished its game.</li>
+                  <li>Check that the room is not already full and that the round has not already started.</li>
+                  <li>Close Guess The Time fully and reopen it, then try joining again.</li>
+                </ol>
+              </div>
+            </details>
+
+            <details class="accordion" id="gt-faq-invite" open>
+              <summary>Invite link is not working</summary>
+              <div class="accordion-body">
+                <p>If an invite link or room code will not open the game or join the room:</p>
+                <ol>
+                  <li>Make sure Guess The Time is installed and up to date on the device opening the link.</li>
+                  <li>Try joining manually by entering the room code shown in the app instead of the link.</li>
+                  <li>Confirm the person who shared the link is still in the room and the room is still open.</li>
+                  <li>Some messaging apps modify or shorten links — ask for the room code to be sent as plain text.</li>
+                  <li>Check that both players have an active internet connection.</li>
+                </ol>
+              </div>
+            </details>
+
+            <details class="accordion" id="gt-faq-scores">
+              <summary>Scores or round results look wrong</summary>
+              <div class="accordion-body">
+                <p>
+                  Scores are calculated from how close each guess is to the hidden time in
+                  every round. If scores or round results look wrong:
+                </p>
+                <ol>
+                  <li>Give the round a moment to finish — results update once all players have guessed or the round timer ends.</li>
+                  <li>A brief connection drop can delay updates; scores refresh once your device reconnects.</li>
+                  <li>Close and reopen the app, then rejoin the room to resync the latest scores.</li>
+                </ol>
+                <p>If you believe a result is genuinely incorrect, please report it by email with the details.</p>
+              </div>
+            </details>
+
+            <details class="accordion" id="gt-faq-ads">
+              <summary>Ads are not loading</summary>
+              <div class="accordion-body">
+                <p>Guess The Time may use Google AdMob to serve ads. If ads or rewarded items are not loading:</p>
+                <ol>
+                  <li>Check that your internet connection is active — ads require a network connection.</li>
+                  <li>Wait a short time and try again — ad fill rates can vary.</li>
+                  <li>Restart the app to refresh the ad connection.</li>
+                </ol>
+                <p>
+                  Ad availability can vary by region and time of day. This is normal and
+                  controlled by ad networks, not by the app.
+                </p>
+              </div>
+            </details>
+
+            <details class="accordion" id="gt-faq-sound">
+              <summary>Sound or haptics are not working</summary>
+              <div class="accordion-body">
+                <p>If sound effects or vibration feedback are not working:</p>
+                <ol>
+                  <li>Open the in-app settings and check that sound and haptics are enabled.</li>
+                  <li>Check that your device is not in silent or Do Not Disturb mode.</li>
+                  <li>Check your device's media volume — game sounds use the media channel.</li>
+                  <li>For haptics, confirm that vibration is enabled in your device's sound and vibration settings.</li>
+                </ol>
+              </div>
+            </details>
+
+          </section><!-- /guess-the-time -->
+
+          <!-- ════════════════════════
+               FOODFIT SCAN SUPPORT
+               ════════════════════════ -->
+          <section class="app-policy" id="foodfit-scan" data-app-panel="foodfit-scan" aria-label="FoodFit Scan support">
+
+            <div class="panel-header">
+              <img src="assets/app-icons/foodfit.webp" alt="" class="panel-logo" width="52" height="52">
+              <div>
+                <h2 class="panel-name">FoodFit Scan</h2>
+                <p class="panel-meta">Support &amp; troubleshooting</p>
+              </div>
+            </div>
+
+            <details class="accordion" id="ff-faq-scanner" open>
+              <summary>Barcode scanner is not working</summary>
+              <div class="accordion-body">
+                <p>If the camera view does not open or barcodes are not being detected:</p>
+                <ol>
+                  <li>
+                    Ensure FoodFit Scan has camera permission granted in
+                    <strong>Android Settings &rarr; Apps &rarr; FoodFit Scan &rarr;
+                    Permissions</strong>. The camera is used only for barcode scanning.
+                  </li>
+                  <li>Clean the camera lens and make sure the barcode is well lit.</li>
+                  <li>Hold the phone steady and move it closer or further away until the barcode comes into focus.</li>
+                  <li>Flatten curved or wrinkled packaging as much as possible so the full barcode is visible.</li>
+                  <li>If the barcode still cannot be read, use the search feature to find the product by name instead.</li>
+                </ol>
+              </div>
+            </details>
+
+            <details class="accordion" id="ff-faq-not-found">
+              <summary>Product cannot be found</summary>
+              <div class="accordion-body">
+                <p>If a scanned barcode does not return a product:</p>
+                <ol>
+                  <li>Check that your internet connection is active — product lookups require a network connection.</li>
+                  <li>Compare the digits shown in the app with the number printed under the barcode to confirm it scanned correctly.</li>
+                  <li>Try searching for the product by name or brand instead.</li>
+                </ol>
+                <p>
+                  Not every product exists in the database. FoodFit Scan looks up products
+                  in Open Food Facts and the app's product search index, and coverage
+                  varies by country and brand — new or regional products may be missing.
+                </p>
+              </div>
+            </details>
+
+            <details class="accordion" id="ff-faq-search">
+              <summary>Search results are missing or incomplete</summary>
+              <div class="accordion-body">
+                <p>If searching does not show the products you expect:</p>
+                <ol>
+                  <li>Check that your internet connection is active and try the search again.</li>
+                  <li>Use shorter or simpler keywords — for example the brand name plus one product word.</li>
+                  <li>Try an alternative spelling or the product's local-language name.</li>
+                </ol>
+                <p>
+                  Some products in the database have partial data, so a result may appear
+                  with missing nutrition values, images, or ingredient details. This
+                  reflects the source data rather than an app error.
+                </p>
+              </div>
+            </details>
+
+            <details class="accordion" id="ff-faq-rating">
+              <summary>Nutrition rating looks wrong or unclear</summary>
+              <div class="accordion-body">
+                <p>
+                  Nutrition ratings and goal-fit indicators are calculated from the product
+                  data available for that item, combined with the nutrition goals and
+                  allergen or additive preferences you have set. If a rating looks wrong:
+                </p>
+                <ol>
+                  <li>Open the product details and check whether nutrition values are missing or incomplete — missing data can affect the rating.</li>
+                  <li>Review your nutrition goals and allergen or additive preferences in the app settings, as these change how suitability is assessed.</li>
+                  <li>If you believe the underlying product data is incorrect, please report it by email so it can be reviewed.</li>
+                </ol>
+                <p>
+                  Remember that nutrition suitability is provided for general information
+                  only and is not medical advice. Always check the physical product label,
+                  especially for allergens.
+                </p>
+              </div>
+            </details>
+
+            <details class="accordion" id="ff-faq-data">
+              <summary>History or settings look wrong</summary>
+              <div class="accordion-body">
+                <p>
+                  FoodFit Scan stores your food history, cached products, nutrition goals,
+                  and preferences locally on your device. If something looks wrong:
+                </p>
+                <ol>
+                  <li>Close FoodFit Scan fully and reopen it — this refreshes the saved state.</li>
+                  <li>Check that you have not recently cleared FoodFit Scan's app storage data in Android Settings, as this removes history, goals, and preferences.</li>
+                </ol>
+                <p>
+                  Deleting your history in the app removes those entries permanently.
+                  Uninstalling and reinstalling the app will remove all locally saved data,
+                  as it is not backed up to a cloud server.
+                </p>
+              </div>
+            </details>
+
+            <details class="accordion" id="ff-faq-ads">
+              <summary>Ads are not loading</summary>
+              <div class="accordion-body">
+                <p>FoodFit Scan may use Google AdMob to serve ads if ads are enabled. If ads are not loading:</p>
+                <ol>
+                  <li>Check that your internet connection is active — ads require a network connection.</li>
+                  <li>Wait a short time and try again — ad fill rates can vary.</li>
+                  <li>Restart the app to refresh the ad connection.</li>
+                </ol>
+                <p>
+                  Ad availability can vary by region and time of day. This is normal and
+                  controlled by ad networks, not by the app.
+                </p>
+              </div>
+            </details>
+
+          </section><!-- /foodfit-scan -->
+
+        </div><!-- /data-switcher -->
+
+        <!-- ── Still need help ── -->
+        <div class="support-after">
+          <div class="support-help-card">
+            <h2>Still need help?</h2>
+            <p>
+              If your issue is not covered above, or if you have found a bug, please send
+              an email and describe what happened.
+            </p>
+            <a
+              href="mailto:miniforgedev@gmail.com?subject=Support%20Request"
+              class="panel-contact"
+              aria-label="Email Mini Forge Dev support"
+            >
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="2" y="4" width="20" height="16" rx="2"/>
+                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+              </svg>
+              miniforgedev@gmail.com
+            </a>
+            <p class="policy-footnote">
+              Please include your Android version, app name, and a brief description of the
+              issue in your message.
+            </p>
+          </div>
+
+          <div class="support-help-card">
+            <h2>Privacy questions</h2>
+            <p>
+              For questions about how an app handles your data, read the
+              <a href="privacy-policy.html">Privacy Policy</a>
+              or contact us at the same email address.
+            </p>
+            <p>
+              Each app's policy covers what is stored on your device, external
+              services and advertising, and how to delete your data.
+            </p>
+          </div>
+        </div>
 
       </div>
     </div>
 
   </main>
 
+  <!-- ══════════════════ FOOTER ══════════════════ -->
   <footer class="site-footer" aria-label="Site footer">
     <div class="container">
       <div class="footer-main">
+
         <div class="footer-brand">
-          <a href="/" class="footer-logo-link">Mini Forge Dev</a>
-          <p class="footer-tagline">Small apps. Carefully forged.</p>
+          <a href="/" class="brand" aria-label="Mini Forge Dev — home">
+            <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+              <path fill="var(--accent)" d="M5.2 10.5 H21 C25.6 10.5 28.6 12.4 29.8 15.4 C27.1 16.9 23.9 17.5 20.8 17.5 H5.2 Q3 17.5 3 15.3 V12.7 Q3 10.5 5.2 10.5 Z"/>
+              <path fill="var(--accent)" opacity="0.82" d="M11.8 17.5 H18.6 L17.8 22 H12.6 Z"/>
+              <rect fill="var(--accent)" opacity="0.55" x="8" y="22" width="14.5" height="4.3" rx="1.7"/>
+              <path fill="var(--ember)" d="M25.8 1.4 L26.9 3.8 L29.3 4.9 L26.9 6 L25.8 8.4 L24.7 6 L22.3 4.9 L24.7 3.8 Z"/>
+            </svg>
+            <span class="brand-name">Mini Forge <em>Dev</em></span>
+          </a>
+          <p class="footer-tagline">
+            Small apps, carefully forged. Focused Android games and tools from an independent studio.
+          </p>
         </div>
-        <nav class="footer-nav" aria-label="Footer navigation">
-          <div class="footer-col">
-            <h2 class="footer-col-title">Apps</h2>
-            <ul>
-              <li><a href="/#apps">Anime Pulse</a></li>
-              <li><a href="/#apps">Letter Rise</a></li>
-              <li><a href="/#apps">LetterForge</a></li>
-              <li><a href="/#apps">Emoji Guess</a></li>
-              <li><a href="/#apps">Guess The Time</a></li>
-              <li><a href="/#apps">FoodFit Scan</a></li>
-            </ul>
-          </div>
-          <div class="footer-col">
-            <h2 class="footer-col-title">Legal</h2>
-            <ul>
-              <li><a href="privacy-policy.html">Privacy Policy</a></li>
-            </ul>
-          </div>
-          <div class="footer-col">
-            <h2 class="footer-col-title">Help</h2>
-            <ul>
-              <li><a href="support.html" aria-current="page">Support</a></li>
-              <li><a href="mailto:miniforgedev@gmail.com">Contact</a></li>
-            </ul>
-          </div>
+
+        <nav class="footer-col" aria-label="Apps">
+          <h2 class="footer-col-title">Apps</h2>
+          <ul data-footer-apps>
+            <li><a href="/#app-anime-pulse">Anime Pulse</a></li>
+            <li><a href="/#app-letter-rise">Letter Rise</a></li>
+            <li><a href="/#app-letterforge">LetterForge</a></li>
+            <li><a href="/#app-emoji-guess">Emoji Guess</a></li>
+            <li><a href="/#app-guess-the-time">Guess The Time</a></li>
+            <li><a href="/#app-foodfit-scan">FoodFit Scan</a></li>
+          </ul>
         </nav>
+
+        <nav class="footer-col" aria-label="Legal">
+          <h2 class="footer-col-title">Legal</h2>
+          <ul>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="app-ads.txt">app-ads.txt</a></li>
+          </ul>
+        </nav>
+
+        <nav class="footer-col" aria-label="Help">
+          <h2 class="footer-col-title">Help</h2>
+          <ul>
+            <li><a href="support.html" aria-current="page">Support</a></li>
+            <li><a href="/#contact">Contact</a></li>
+            <li><a href="mailto:miniforgedev@gmail.com">Email us</a></li>
+          </ul>
+        </nav>
+
       </div>
+
       <div class="footer-bottom">
-        <p class="footer-copy">&copy; <span id="footer-year"></span> Mini Forge Dev. All rights reserved.</p>
-        <p class="footer-disclaimer">Anime Pulse is an independent application and is not endorsed by or affiliated with AniList or any anime publisher.</p>
+        <p class="footer-copy">&copy; <span id="footer-year">2026</span> Mini Forge Dev. All rights reserved.</p>
+        <p class="footer-disclaimer">
+          Anime Pulse is an independent application and is not endorsed by or affiliated with
+          AniList or any anime publisher. Google Play is a trademark of Google LLC.
+        </p>
       </div>
     </div>
   </footer>
 
   <script src="script.js"></script>
-  <script src="assets/app-switcher.js"></script>
+  <script src="assets/apps-data.js"></script>
+  <script src="assets/app-renderer.js"></script>
+  <script src="assets/theme.js"></script>
 
 </body>
 </html>

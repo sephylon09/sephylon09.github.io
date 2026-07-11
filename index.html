@@ -1,19 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#090B10">
+  <script>
+    /* Apply the saved theme before CSS paints (dark is the default). */
+    (function () {
+      var t = "dark";
+      try { if (localStorage.getItem("mfd-theme") === "light") t = "light"; } catch (e) {}
+      document.documentElement.setAttribute("data-theme", t);
+    })();
+  </script>
+  <meta name="theme-color" content="#0C0E13">
 
-  <title>Mini Forge Dev — Small Apps by Sephylon</title>
-  <meta name="description" content="Mini Forge Dev creates focused Android mobile apps and games. Discover Anime Pulse, Letter Rise, LetterForge, Emoji Guess, Guess The Time, and FoodFit Scan — simple, polished apps built for everyday fun and utility.">
+  <title>Mini Forge Dev — Small Apps, Carefully Forged</title>
+  <meta name="description" content="Mini Forge Dev is an independent Android studio making focused games and tools: Anime Pulse, Letter Rise, LetterForge, Emoji Guess, Guess The Time, and FoodFit Scan.">
 
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
   <link rel="canonical" href="https://sephylon09.github.io/">
 
   <meta property="og:type"        content="website">
-  <meta property="og:title"       content="Mini Forge Dev — Small Apps by Sephylon">
-  <meta property="og:description" content="Discover Anime Pulse, Letter Rise, LetterForge, Emoji Guess, Guess The Time, and FoodFit Scan — focused Android apps built for everyday fun and utility.">
+  <meta property="og:title"       content="Mini Forge Dev — Small Apps, Carefully Forged">
+  <meta property="og:description" content="Focused Android games and tools from an independent studio: Anime Pulse, Letter Rise, LetterForge, Emoji Guess, Guess The Time, and FoodFit Scan.">
   <meta property="og:url"         content="https://sephylon09.github.io/">
 
   <link rel="stylesheet" href="styles.css">
@@ -25,21 +33,17 @@
   <!-- ══════════════════ HEADER ══════════════════ -->
   <header class="site-header" id="site-header">
     <div class="header-inner">
-      <a href="/" class="logo-link" aria-label="Mini Forge Dev — home">
-        <img src="assets/logo.svg" alt="Mini Forge Dev" width="210" height="44">
-      </a>
 
-      <button
-        class="nav-toggle"
-        id="nav-toggle"
-        aria-controls="main-nav"
-        aria-expanded="false"
-        aria-label="Toggle navigation menu"
-      >
-        <span class="nav-toggle-bar"></span>
-        <span class="nav-toggle-bar"></span>
-        <span class="nav-toggle-bar"></span>
-      </button>
+      <a href="/" class="brand" aria-label="Mini Forge Dev — home">
+        <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+          <path fill="var(--accent)" d="M5.2 10.5 H21 C25.6 10.5 28.6 12.4 29.8 15.4 C27.1 16.9 23.9 17.5 20.8 17.5 H5.2 Q3 17.5 3 15.3 V12.7 Q3 10.5 5.2 10.5 Z"/>
+          <path fill="var(--accent)" opacity="0.82" d="M11.8 17.5 H18.6 L17.8 22 H12.6 Z"/>
+          <rect fill="var(--accent)" opacity="0.55" x="8" y="22" width="14.5" height="4.3" rx="1.7"/>
+          <path fill="var(--ember)" d="M25.8 1.4 L26.9 3.8 L29.3 4.9 L26.9 6 L25.8 8.4 L24.7 6 L22.3 4.9 L24.7 3.8 Z"/>
+          <circle fill="var(--ember)" opacity="0.85" cx="7.2" cy="6.4" r="1.4"/>
+        </svg>
+        <span class="brand-name">Mini Forge <em>Dev</em></span>
+      </a>
 
       <nav id="main-nav" class="main-nav" aria-label="Main navigation">
         <ul class="nav-list">
@@ -50,6 +54,32 @@
           <li><a href="#contact"            class="nav-link">Contact</a></li>
         </ul>
       </nav>
+
+      <div class="header-controls">
+        <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to light theme">
+          <svg class="theme-toggle-icon theme-toggle-icon--moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+          <svg class="theme-toggle-icon theme-toggle-icon--sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"/>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+          </svg>
+          <span class="theme-toggle-thumb" aria-hidden="true"></span>
+        </button>
+
+        <button
+          class="nav-toggle"
+          id="nav-toggle"
+          aria-controls="main-nav"
+          aria-expanded="false"
+          aria-label="Toggle navigation menu"
+        >
+          <span class="nav-toggle-bar"></span>
+          <span class="nav-toggle-bar"></span>
+          <span class="nav-toggle-bar"></span>
+        </button>
+      </div>
+
     </div>
   </header>
 
@@ -61,20 +91,24 @@
       <div class="container hero-inner">
 
         <div class="hero-content">
-          <p class="eyebrow">Mini Forge Dev</p>
-          <h1 id="hero-heading">
-            Small mobile apps,<br>games, and tools.
-          </h1>
+          <p class="eyebrow">Independent Android studio</p>
+          <h1 id="hero-heading">Small apps, <em>carefully forged</em>.</h1>
           <p class="hero-desc">
-            Simple, polished Android apps built for everyday fun and utility — by Sephylon.
+            Mini Forge Dev builds focused Android games and everyday tools —
+            small in scope, polished in the details, and improved with every release.
           </p>
           <div class="hero-cta">
             <a href="#apps"    class="btn btn-primary">Explore our apps</a>
             <a href="#contact" class="btn btn-secondary">Contact support</a>
           </div>
+          <p class="hero-meta">
+            <span><span data-app-count="all">6</span>&nbsp;apps</span>
+            <span><span data-app-count="published">3</span>&nbsp;on Google Play</span>
+            <span>Built for Android</span>
+          </p>
         </div>
 
-        <!-- CSS/SVG forge visual — decorative -->
+        <!-- Decorative forge visual: our real apps on the anvil -->
         <div class="hero-visual" aria-hidden="true">
           <div class="hero-forge">
             <div class="hf-sparks">
@@ -83,65 +117,37 @@
               <span class="hf-spark hf-spark-3"></span>
               <span class="hf-spark hf-spark-4"></span>
               <span class="hf-spark hf-spark-5"></span>
-              <span class="hf-spark hf-spark-6"></span>
             </div>
 
-            <!-- Phone mockup -->
             <div class="hf-phone">
-              <div class="hf-notch"></div>
               <div class="hf-screen">
-                <div class="hf-screen-header">
-                  <span class="hf-screen-title">Mini Forge Dev</span>
+                <div class="hf-screen-title">
+                  <svg viewBox="0 0 32 32" aria-hidden="true">
+                    <path fill="var(--accent)" d="M5.2 10.5 H21 C25.6 10.5 28.6 12.4 29.8 15.4 C27.1 16.9 23.9 17.5 20.8 17.5 H5.2 Q3 17.5 3 15.3 V12.7 Q3 10.5 5.2 10.5 Z"/>
+                    <path fill="var(--accent)" opacity="0.82" d="M11.8 17.5 H18.6 L17.8 22 H12.6 Z"/>
+                    <rect fill="var(--accent)" opacity="0.55" x="8" y="22" width="14.5" height="4.3" rx="1.7"/>
+                    <path fill="var(--ember)" d="M25.8 1.4 L26.9 3.8 L29.3 4.9 L26.9 6 L25.8 8.4 L24.7 6 L22.3 4.9 L24.7 3.8 Z"/>
+                  </svg>
+                  Mini Forge Dev
                 </div>
-                <div class="hf-screen-body">
-                  <div class="hf-cards">
-                    <div class="hf-card hf-card-a"></div>
-                    <div class="hf-card hf-card-b"></div>
-                    <div class="hf-card hf-card-c"></div>
-                  </div>
-                  <div class="hf-cal-label">Our Apps</div>
-                  <div class="hf-cal-rows">
-                    <div class="hf-cal-row">
-                      <span class="hf-cal-dot hf-cal-dot--purple"></span>
-                      <span class="hf-cal-bar"></span>
-                    </div>
-                    <div class="hf-cal-row">
-                      <span class="hf-cal-dot hf-cal-dot--teal"></span>
-                      <span class="hf-cal-bar"></span>
-                    </div>
-                    <div class="hf-cal-row">
-                      <span class="hf-cal-dot hf-cal-dot--amber"></span>
-                      <span class="hf-cal-bar"></span>
-                    </div>
-                  </div>
+                <div class="hf-app-grid">
+                  <div class="hf-app"><img src="assets/app-icons/animepulse.webp"   alt="" width="38" height="38"><span>Anime Pulse</span></div>
+                  <div class="hf-app"><img src="assets/app-icons/letterrise.webp"   alt="" width="38" height="38"><span>Letter Rise</span></div>
+                  <div class="hf-app"><img src="assets/app-icons/letterforge.webp"  alt="" width="38" height="38"><span>LetterForge</span></div>
+                  <div class="hf-app"><img src="assets/app-icons/emojiguess.webp"   alt="" width="38" height="38"><span>Emoji Guess</span></div>
+                  <div class="hf-app"><img src="assets/app-icons/guessthetime.webp" alt="" width="38" height="38"><span>Guess Time</span></div>
+                  <div class="hf-app"><img src="assets/app-icons/foodfit.webp"      alt="" width="38" height="38"><span>FoodFit</span></div>
                 </div>
+                <div class="hf-screen-foot">Forged for Android</div>
               </div>
             </div>
 
-            <!-- Anvil platform -->
             <div class="hf-platform">
               <div class="hf-glow"></div>
-              <svg class="hf-anvil-svg" viewBox="0 0 180 70" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <defs>
-                  <linearGradient id="hav-top" x1="0%" y1="0%" x2="0%" y2="100%">
-                    <stop offset="0%" stop-color="#FFB35C"/>
-                    <stop offset="100%" stop-color="#CC5A14"/>
-                  </linearGradient>
-                  <linearGradient id="hav-body" x1="0%" y1="0%" x2="0%" y2="100%">
-                    <stop offset="0%" stop-color="#B84E14"/>
-                    <stop offset="100%" stop-color="#7A3210"/>
-                  </linearGradient>
-                  <radialGradient id="hav-glow" cx="50%" cy="100%" r="70%">
-                    <stop offset="0%" stop-color="#FF8A3D" stop-opacity="0.5"/>
-                    <stop offset="100%" stop-color="#FF8A3D" stop-opacity="0"/>
-                  </radialGradient>
-                </defs>
-                <ellipse cx="90" cy="65" rx="80" ry="20" fill="url(#hav-glow)" opacity="0.7"/>
-                <rect x="20" y="10" width="140" height="22" rx="5" fill="url(#hav-top)"/>
-                <path d="M155 13 L175 21 L155 29" fill="#FFB35C"/>
-                <rect x="40" y="32" width="90" height="14" rx="3" fill="url(#hav-body)"/>
-                <rect x="28" y="46" width="116" height="12" rx="4" fill="#5C2008"/>
-                <text x="26" y="26" font-family="'Courier New',monospace" font-size="14" font-weight="900" fill="#090B10" opacity="0.7">&lt;/&gt;</text>
+              <svg class="hf-anvil" viewBox="0 0 160 64" fill="currentColor" aria-hidden="true">
+                <path d="M30 6 H98 C120 6 140 10 152 18 C141 26 121 30 99 30 H30 Q21 30 21 21 V15 Q21 6 30 6 Z"/>
+                <path opacity="0.82" d="M58 30 H96 L89 45 H65 Z"/>
+                <path class="anvil-base" opacity="0.55" d="M52 45 H102 L112 55.5 Q113.5 58 109.5 58 H44.5 Q40.5 58 42 55.5 Z"/>
               </svg>
             </div>
           </div>
@@ -150,276 +156,113 @@
       </div>
     </section>
 
-    <!-- ── Values ───────────────────────────── -->
-    <section class="values-section section" id="about" aria-labelledby="values-heading">
-      <div class="container">
-        <div class="section-header">
-          <p class="eyebrow">How we build</p>
-          <h2 class="section-title" id="values-heading">Studio Values</h2>
-          <p class="section-desc">
-            Principles that guide every decision from first sketch to final release.
-          </p>
+    <!-- ── How we build ─────────────────────── -->
+    <section class="values-strip" aria-label="How we build">
+      <div class="container values-row">
+
+        <div class="value-item">
+          <div class="value-icon" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="0.5" fill="currentColor"/>
+            </svg>
+          </div>
+          <div>
+            <h2>Focused by design</h2>
+            <p>Each app does one thing well — no bloat, no feature creep.</p>
+          </div>
         </div>
-        <div class="values-grid">
 
-          <div class="value-card">
-            <div class="value-icon" aria-hidden="true">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/>
-                <line x1="12" y1="2"  x2="12" y2="5"/>
-                <line x1="12" y1="19" x2="12" y2="22"/>
-                <line x1="2"  y1="12" x2="5"  y2="12"/>
-                <line x1="19" y1="12" x2="22" y2="12"/>
-              </svg>
-            </div>
-            <h3>Crafted with purpose</h3>
-            <p>Every feature should solve a real problem rather than add unnecessary complexity.</p>
+        <div class="value-item">
+          <div class="value-icon" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+            </svg>
           </div>
-
-          <div class="value-card">
-            <div class="value-icon" aria-hidden="true">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
-                <circle cx="12" cy="12" r="3"/>
-              </svg>
-            </div>
-            <h3>Built for clarity</h3>
-            <p>Interfaces are designed to remain understandable, responsive and easy to navigate.</p>
+          <div>
+            <h2>Built with care</h2>
+            <p>Small details, clear interfaces, and respect for your privacy.</p>
           </div>
-
-          <div class="value-card">
-            <div class="value-icon" aria-hidden="true">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="23 4 23 10 17 10"/>
-                <polyline points="1 20 1 14 7 14"/>
-                <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/>
-              </svg>
-            </div>
-            <h3>Improved continuously</h3>
-            <p>Apps are refined through testing, feedback and regular updates.</p>
-          </div>
-
-          <div class="value-card">
-            <div class="value-icon" aria-hidden="true">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-              </svg>
-            </div>
-            <h3>Privacy considered</h3>
-            <p>Data collection is kept limited and users are given clear privacy choices.</p>
-          </div>
-
         </div>
+
+        <div class="value-item">
+          <div class="value-icon" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/>
+              <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/>
+            </svg>
+          </div>
+          <div>
+            <h2>Improved continuously</h2>
+            <p>Regular updates shaped by feedback and real use.</p>
+          </div>
+        </div>
+
       </div>
     </section>
 
-    <!-- ── Apps carousel ────────────────────── -->
-    <section id="apps" aria-labelledby="apps-heading">
+    <!-- ── App directory ────────────────────── -->
+    <section class="apps-section" id="apps" aria-labelledby="apps-heading">
       <div class="container">
+
         <div class="section-header">
-          <p class="eyebrow">Applications</p>
+          <p class="eyebrow">App directory</p>
           <h2 class="section-title" id="apps-heading">Our apps</h2>
           <p class="section-desc">
-            Focused Android apps designed around real everyday needs.
+            Focused Android apps — puzzle games, multiplayer fun, and everyday utilities.
           </p>
         </div>
-      </div>
 
-      <div class="coverflow-outer">
-        <div class="coverflow-carousel" aria-label="Featured apps" role="region" aria-roledescription="carousel">
-
-          <div class="carousel-viewport">
-
-            <!-- Anime Pulse -->
-            <article class="carousel-card" role="group" aria-roledescription="slide" aria-label="Anime Pulse">
-              <img src="assets/animepulse_logo.png" alt="Anime Pulse" class="carousel-card-logo" width="96" height="96" loading="lazy">
-              <div class="carousel-card-meta">
-                <span class="carousel-card-category">Anime schedule &amp; discovery</span>
-                <h3 class="carousel-card-title">Anime Pulse</h3>
-                <p class="carousel-card-desc">Track anime releases, explore shows, and keep up with what is airing. Save favourites, view your weekly schedule and set optional episode reminders.</p>
-                <div class="carousel-card-actions">
-                  <a href="privacy-policy.html#anime-pulse" class="btn btn-secondary">Privacy</a>
-                  <a href="support.html#anime-pulse"        class="btn btn-secondary">Support</a>
-                  <span class="btn btn-disabled" aria-disabled="true" tabindex="-1">Coming soon to Play</span>
-                </div>
-              </div>
-            </article>
-
-            <!-- Letter Rise -->
-            <article class="carousel-card" role="group" aria-roledescription="slide" aria-label="Letter Rise">
-              <img src="assets/letterrise_logo.jpeg" alt="Letter Rise" class="carousel-card-logo" width="96" height="96" loading="lazy">
-              <div class="carousel-card-meta">
-                <span class="carousel-card-category">Word puzzle game</span>
-                <h3 class="carousel-card-title">Letter Rise</h3>
-                <p class="carousel-card-desc">Swipe connected letters, build words, use smart hints, and keep the board from rising. Unlock themes and challenge your high score.</p>
-                <div class="carousel-card-actions">
-                  <a href="privacy-policy.html#letter-rise" class="btn btn-secondary">Privacy</a>
-                  <a href="support.html#letter-rise"        class="btn btn-secondary">Support</a>
-                  <span class="btn btn-disabled" aria-disabled="true" tabindex="-1">Coming soon to Play</span>
-                </div>
-              </div>
-            </article>
-
-            <!-- LetterForge -->
-            <article class="carousel-card" role="group" aria-roledescription="slide" aria-label="LetterForge">
-              <img src="assets/letterforge_logo.png" alt="LetterForge" class="carousel-card-logo" width="96" height="96" loading="lazy">
-              <div class="carousel-card-meta">
-                <span class="carousel-card-category">Word puzzle game</span>
-                <h3 class="carousel-card-title">LetterForge</h3>
-                <p class="carousel-card-desc">Forge words, complete daily challenges, play endless puzzles, and track your progress offline.</p>
-                <div class="carousel-card-actions">
-                  <a href="privacy-policy.html#letterforge" class="btn btn-secondary">Privacy</a>
-                  <a href="support.html#letterforge"        class="btn btn-secondary">Support</a>
-                  <span class="btn btn-disabled" aria-disabled="true" tabindex="-1">Coming soon to Play</span>
-                </div>
-              </div>
-            </article>
-
-            <!-- Emoji Guess -->
-            <article class="carousel-card" role="group" aria-roledescription="slide" aria-label="Emoji Guess">
-              <img src="assets/emoji_guess_logo.png" alt="Emoji Guess" class="carousel-card-logo" width="96" height="96" loading="lazy">
-              <div class="carousel-card-meta">
-                <span class="carousel-card-category">Emoji puzzle game</span>
-                <h3 class="carousel-card-title">Emoji Guess</h3>
-                <p class="carousel-card-desc">Guess words, movies, food, countries, and animals from emoji clues. Unlock stages, use hints, earn coins, and track your progress offline.</p>
-                <div class="carousel-card-actions">
-                  <a href="privacy-policy.html#emoji-guess" class="btn btn-secondary">Privacy</a>
-                  <a href="support.html#emoji-guess"        class="btn btn-secondary">Support</a>
-                  <span class="btn btn-disabled" aria-disabled="true" tabindex="-1">Coming soon to Play</span>
-                </div>
-              </div>
-            </article>
-
-            <!-- Guess The Time -->
-            <article class="carousel-card" role="group" aria-roledescription="slide" aria-label="Guess The Time">
-              <img src="assets/guessthetime_logo.png" alt="Guess The Time" class="carousel-card-logo" width="96" height="96" loading="lazy">
-              <div class="carousel-card-meta">
-                <span class="carousel-card-category">Multiplayer guessing game</span>
-                <h3 class="carousel-card-title">Guess The Time</h3>
-                <p class="carousel-card-desc">Create or join a room, invite friends, and guess the hidden time. Play multiple rounds, compare scores, and see who gets closest.</p>
-                <div class="carousel-card-actions">
-                  <a href="privacy-policy.html#guess-the-time" class="btn btn-secondary">Privacy</a>
-                  <a href="support.html#guess-the-time"        class="btn btn-secondary">Support</a>
-                  <span class="btn btn-disabled" aria-disabled="true" tabindex="-1">Coming soon to Play</span>
-                </div>
-              </div>
-            </article>
-
-            <!-- FoodFit Scan -->
-            <article class="carousel-card" role="group" aria-roledescription="slide" aria-label="FoodFit Scan">
-              <img src="assets/foodfit_logo.png" alt="FoodFit Scan" class="carousel-card-logo" width="96" height="96" loading="lazy">
-              <div class="carousel-card-meta">
-                <span class="carousel-card-category">Food barcode &amp; nutrition scanner</span>
-                <h3 class="carousel-card-title">FoodFit Scan</h3>
-                <p class="carousel-card-desc">Scan or search packaged food to check nutrition details, allergens, additives, NOVA group, and how well the product fits your nutrition goals.</p>
-                <div class="carousel-card-actions">
-                  <a href="privacy-policy.html#foodfit-scan" class="btn btn-secondary">Privacy</a>
-                  <a href="support.html#foodfit-scan"        class="btn btn-secondary">Support</a>
-                  <span class="btn btn-disabled" aria-disabled="true" tabindex="-1">Coming soon to Play</span>
-                </div>
-              </div>
-            </article>
-
-          </div><!-- /.carousel-viewport -->
-
-          <button class="carousel-prev" aria-label="Previous app">&#8249;</button>
-          <button class="carousel-next" aria-label="Next app">&#8250;</button>
-
-          <div class="carousel-dots" role="tablist" aria-label="App navigation">
-            <button class="carousel-dot" data-slide="0" role="tab" aria-selected="true"  aria-label="Go to Anime Pulse"  tabindex="0"></button>
-            <button class="carousel-dot" data-slide="1" role="tab" aria-selected="false" aria-label="Go to Letter Rise"  tabindex="-1"></button>
-            <button class="carousel-dot" data-slide="2" role="tab" aria-selected="false" aria-label="Go to LetterForge"  tabindex="-1"></button>
-            <button class="carousel-dot" data-slide="3" role="tab" aria-selected="false" aria-label="Go to Emoji Guess"  tabindex="-1"></button>
-            <button class="carousel-dot" data-slide="4" role="tab" aria-selected="false" aria-label="Go to Guess The Time" tabindex="-1"></button>
-            <button class="carousel-dot" data-slide="5" role="tab" aria-selected="false" aria-label="Go to FoodFit Scan" tabindex="-1"></button>
+        <div class="apps-group" aria-labelledby="apps-published-heading">
+          <div class="apps-group-head">
+            <h3 class="apps-group-title" id="apps-published-heading">Available on Google Play</h3>
+            <span class="apps-group-count" data-app-count="published">3</span>
           </div>
-
-        </div><!-- /.coverflow-carousel -->
-      </div><!-- /.coverflow-outer -->
-    </section>
-
-    <!-- ── All Apps grid ─────────────────────── -->
-    <section class="all-apps-section" aria-labelledby="all-apps-heading">
-      <div class="container">
-        <div class="section-header">
-          <p class="eyebrow">All apps</p>
-          <h2 class="section-title" id="all-apps-heading">Quick reference</h2>
+          <div class="app-grid" data-app-grid="published">
+            <noscript>
+              <div class="apps-noscript">
+                <ul>
+                  <li><strong>Anime Pulse</strong> — Anime Schedule &amp; Discovery.
+                    <a href="https://play.google.com/store/apps/details?id=com.sephylon.animepulse" target="_blank" rel="noopener noreferrer">Google Play</a> ·
+                    <a href="privacy-policy.html#anime-pulse">Privacy</a> ·
+                    <a href="support.html#anime-pulse">Support</a></li>
+                  <li><strong>Letter Rise</strong> — Word Puzzle Game.
+                    <a href="https://play.google.com/store/apps/details?id=com.sephylon.letterrise" target="_blank" rel="noopener noreferrer">Google Play</a> ·
+                    <a href="privacy-policy.html#letter-rise">Privacy</a> ·
+                    <a href="support.html#letter-rise">Support</a></li>
+                  <li><strong>LetterForge</strong> — Word Puzzle Game.
+                    <a href="https://play.google.com/store/apps/details?id=com.sephylon.letterforge" target="_blank" rel="noopener noreferrer">Google Play</a> ·
+                    <a href="privacy-policy.html#letterforge">Privacy</a> ·
+                    <a href="support.html#letterforge">Support</a></li>
+                </ul>
+              </div>
+            </noscript>
+          </div>
         </div>
-        <div class="app-grid">
 
-          <div class="app-mini-card">
-            <img src="assets/animepulse_logo.png" alt="Anime Pulse" class="app-mini-logo" width="56" height="56" loading="lazy">
-            <div class="app-mini-body">
-              <div class="app-mini-name">Anime Pulse</div>
-              <p class="app-mini-desc">Track anime releases, explore shows, and keep up with airing schedules.</p>
-              <div class="app-mini-links">
-                <a href="privacy-policy.html#anime-pulse" class="app-mini-link">Privacy</a>
-                <a href="support.html#anime-pulse"        class="app-mini-link">Support</a>
-              </div>
-            </div>
+        <div class="apps-group" aria-labelledby="apps-soon-heading">
+          <div class="apps-group-head">
+            <h3 class="apps-group-title" id="apps-soon-heading">Coming next</h3>
+            <span class="apps-group-count" data-app-count="coming-soon">3</span>
           </div>
-
-          <div class="app-mini-card">
-            <img src="assets/letterrise_logo.jpeg" alt="Letter Rise" class="app-mini-logo" width="56" height="56" loading="lazy">
-            <div class="app-mini-body">
-              <div class="app-mini-name">Letter Rise</div>
-              <p class="app-mini-desc">Swipe letters, build words, and keep the board from rising in this word puzzle game.</p>
-              <div class="app-mini-links">
-                <a href="privacy-policy.html#letter-rise" class="app-mini-link">Privacy</a>
-                <a href="support.html#letter-rise"        class="app-mini-link">Support</a>
+          <div class="app-grid" data-app-grid="coming-soon">
+            <noscript>
+              <div class="apps-noscript">
+                <ul>
+                  <li><strong>Emoji Guess</strong> — Emoji Puzzle Game (in development).
+                    <a href="privacy-policy.html#emoji-guess">Privacy</a> ·
+                    <a href="support.html#emoji-guess">Support</a></li>
+                  <li><strong>Guess The Time</strong> — Multiplayer Guessing Game (in development).
+                    <a href="privacy-policy.html#guess-the-time">Privacy</a> ·
+                    <a href="support.html#guess-the-time">Support</a></li>
+                  <li><strong>FoodFit Scan</strong> — Food Barcode &amp; Nutrition Scanner (in development).
+                    <a href="privacy-policy.html#foodfit-scan">Privacy</a> ·
+                    <a href="support.html#foodfit-scan">Support</a></li>
+                </ul>
               </div>
-            </div>
+            </noscript>
           </div>
-
-          <div class="app-mini-card">
-            <img src="assets/letterforge_logo.png" alt="LetterForge" class="app-mini-logo" width="56" height="56" loading="lazy">
-            <div class="app-mini-body">
-              <div class="app-mini-name">LetterForge</div>
-              <p class="app-mini-desc">Daily word puzzles, quick challenges, endless play, hints, achievements and offline progress.</p>
-              <div class="app-mini-links">
-                <a href="privacy-policy.html#letterforge" class="app-mini-link">Privacy</a>
-                <a href="support.html#letterforge"  class="app-mini-link">Support</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="app-mini-card">
-            <img src="assets/emoji_guess_logo.png" alt="Emoji Guess" class="app-mini-logo" width="56" height="56" loading="lazy">
-            <div class="app-mini-body">
-              <div class="app-mini-name">Emoji Guess</div>
-              <p class="app-mini-desc">Guess words, movies, food, countries, and animals from emoji clues. Unlock stages, earn coins, and play offline.</p>
-              <div class="app-mini-links">
-                <a href="privacy-policy.html#emoji-guess" class="app-mini-link">Privacy</a>
-                <a href="support.html#emoji-guess"        class="app-mini-link">Support</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="app-mini-card">
-            <img src="assets/guessthetime_logo.png" alt="Guess The Time" class="app-mini-logo" width="56" height="56" loading="lazy">
-            <div class="app-mini-body">
-              <div class="app-mini-name">Guess The Time</div>
-              <p class="app-mini-desc">Create or join a room, invite friends, and guess the hidden time across multiple rounds. Compare scores and see who gets closest.</p>
-              <div class="app-mini-links">
-                <a href="privacy-policy.html#guess-the-time" class="app-mini-link">Privacy</a>
-                <a href="support.html#guess-the-time"        class="app-mini-link">Support</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="app-mini-card">
-            <img src="assets/foodfit_logo.png" alt="FoodFit Scan" class="app-mini-logo" width="56" height="56" loading="lazy">
-            <div class="app-mini-body">
-              <div class="app-mini-name">FoodFit Scan</div>
-              <p class="app-mini-desc">Scan or search packaged food to check nutrition, allergens, additives, NOVA group, and how well products fit your nutrition goals.</p>
-              <div class="app-mini-links">
-                <a href="privacy-policy.html#foodfit-scan" class="app-mini-link">Privacy</a>
-                <a href="support.html#foodfit-scan"        class="app-mini-link">Support</a>
-              </div>
-            </div>
-          </div>
-
         </div>
+
       </div>
     </section>
 
@@ -430,30 +273,59 @@
           <p class="eyebrow">Get in touch</p>
           <h2 class="section-title" id="contact-heading">Contact</h2>
           <p class="section-desc">
-            Reach Mini Forge Dev for support, privacy queries, bug reports or general feedback.
+            One inbox for everything — we read every message.
           </p>
         </div>
 
-        <div class="contact-card">
-          <div class="contact-reasons">
-            <p>You can contact us for any of the following:</p>
-            <ul>
-              <li>Technical support</li>
-              <li>Privacy questions</li>
-              <li>Bug reports</li>
-              <li>General feedback</li>
-            </ul>
-          </div>
-          <div class="contact-email-wrap">
-            <p class="contact-email-label">Email</p>
-            <a href="mailto:miniforgedev@gmail.com" class="contact-email">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <rect x="2" y="4" width="20" height="16" rx="2"/>
-                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+        <div class="contact-grid">
+          <div class="contact-topic">
+            <div class="value-icon" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
               </svg>
-              miniforgedev@gmail.com
-            </a>
+            </div>
+            <h3>Technical support</h3>
+            <p>Something not working? Check the <a href="support.html">support page</a> first, then email us.</p>
           </div>
+          <div class="contact-topic">
+            <div class="value-icon" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
+            </div>
+            <h3>Privacy questions</h3>
+            <p>Data requests or questions about a <a href="privacy-policy.html">privacy policy</a>.</p>
+          </div>
+          <div class="contact-topic">
+            <div class="value-icon" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+                <line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>
+              </svg>
+            </div>
+            <h3>Bug reports</h3>
+            <p>Tell us the app, your Android version, and what happened.</p>
+          </div>
+          <div class="contact-topic">
+            <div class="value-icon" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+              </svg>
+            </div>
+            <h3>Feedback &amp; ideas</h3>
+            <p>Feature ideas and suggestions shape what we build next.</p>
+          </div>
+        </div>
+
+        <div class="contact-email-row">
+          <a href="mailto:miniforgedev@gmail.com" class="contact-email">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="2" y="4" width="20" height="16" rx="2"/>
+              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+            </svg>
+            miniforgedev@gmail.com
+          </a>
+          <p class="contact-email-note">Include the app name and your Android version for faster help.</p>
         </div>
 
       </div>
@@ -465,46 +337,67 @@
   <footer class="site-footer" aria-label="Site footer">
     <div class="container">
       <div class="footer-main">
+
         <div class="footer-brand">
-          <a href="/" class="footer-logo-link">Mini Forge Dev</a>
-          <p class="footer-tagline">Small apps. Carefully forged.</p>
+          <a href="/" class="brand" aria-label="Mini Forge Dev — home">
+            <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+              <path fill="var(--accent)" d="M5.2 10.5 H21 C25.6 10.5 28.6 12.4 29.8 15.4 C27.1 16.9 23.9 17.5 20.8 17.5 H5.2 Q3 17.5 3 15.3 V12.7 Q3 10.5 5.2 10.5 Z"/>
+              <path fill="var(--accent)" opacity="0.82" d="M11.8 17.5 H18.6 L17.8 22 H12.6 Z"/>
+              <rect fill="var(--accent)" opacity="0.55" x="8" y="22" width="14.5" height="4.3" rx="1.7"/>
+              <path fill="var(--ember)" d="M25.8 1.4 L26.9 3.8 L29.3 4.9 L26.9 6 L25.8 8.4 L24.7 6 L22.3 4.9 L24.7 3.8 Z"/>
+            </svg>
+            <span class="brand-name">Mini Forge <em>Dev</em></span>
+          </a>
+          <p class="footer-tagline">
+            Small apps, carefully forged. Focused Android games and tools from an independent studio.
+          </p>
         </div>
-        <nav class="footer-nav" aria-label="Footer navigation">
-          <div class="footer-col">
-            <h2 class="footer-col-title">Apps</h2>
-            <ul>
-              <li><a href="#apps">Anime Pulse</a></li>
-              <li><a href="#apps">Letter Rise</a></li>
-              <li><a href="#apps">LetterForge</a></li>
-              <li><a href="#apps">Emoji Guess</a></li>
-              <li><a href="#apps">Guess The Time</a></li>
-              <li><a href="#apps">FoodFit Scan</a></li>
-            </ul>
-          </div>
-          <div class="footer-col">
-            <h2 class="footer-col-title">Legal</h2>
-            <ul>
-              <li><a href="privacy-policy.html">Privacy Policy</a></li>
-            </ul>
-          </div>
-          <div class="footer-col">
-            <h2 class="footer-col-title">Help</h2>
-            <ul>
-              <li><a href="support.html">Support</a></li>
-              <li><a href="mailto:miniforgedev@gmail.com">Contact</a></li>
-            </ul>
-          </div>
+
+        <nav class="footer-col" aria-label="Apps">
+          <h2 class="footer-col-title">Apps</h2>
+          <ul data-footer-apps>
+            <li><a href="/#app-anime-pulse">Anime Pulse</a></li>
+            <li><a href="/#app-letter-rise">Letter Rise</a></li>
+            <li><a href="/#app-letterforge">LetterForge</a></li>
+            <li><a href="/#app-emoji-guess">Emoji Guess</a></li>
+            <li><a href="/#app-guess-the-time">Guess The Time</a></li>
+            <li><a href="/#app-foodfit-scan">FoodFit Scan</a></li>
+          </ul>
         </nav>
+
+        <nav class="footer-col" aria-label="Legal">
+          <h2 class="footer-col-title">Legal</h2>
+          <ul>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="app-ads.txt">app-ads.txt</a></li>
+          </ul>
+        </nav>
+
+        <nav class="footer-col" aria-label="Help">
+          <h2 class="footer-col-title">Help</h2>
+          <ul>
+            <li><a href="support.html">Support</a></li>
+            <li><a href="/#contact">Contact</a></li>
+            <li><a href="mailto:miniforgedev@gmail.com">Email us</a></li>
+          </ul>
+        </nav>
+
       </div>
+
       <div class="footer-bottom">
-        <p class="footer-copy">&copy; <span id="footer-year"></span> Mini Forge Dev. All rights reserved.</p>
-        <p class="footer-disclaimer">Anime Pulse is an independent application and is not endorsed by or affiliated with AniList or any anime publisher.</p>
+        <p class="footer-copy">&copy; <span id="footer-year">2026</span> Mini Forge Dev. All rights reserved.</p>
+        <p class="footer-disclaimer">
+          Anime Pulse is an independent application and is not endorsed by or affiliated with
+          AniList or any anime publisher. Google Play is a trademark of Google LLC.
+        </p>
       </div>
     </div>
   </footer>
 
   <script src="script.js"></script>
-  <script src="assets/home-carousel.js"></script>
+  <script src="assets/apps-data.js"></script>
+  <script src="assets/app-renderer.js"></script>
+  <script src="assets/theme.js"></script>
 
 </body>
 </html>

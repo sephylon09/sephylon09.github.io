@@ -1,4 +1,5 @@
-/* Mini Forge Dev — script.js */
+/* Mini Forge Dev — script.js
+   Footer year, header scroll state, and the mobile navigation menu. */
 (function () {
   "use strict";
 
@@ -10,53 +11,54 @@
   var header = document.getElementById("site-header");
   if (header) {
     var onScroll = function () {
-      if (window.scrollY > 10) {
-        header.classList.add("scrolled");
-      } else {
-        header.classList.remove("scrolled");
-      }
+      header.classList.toggle("scrolled", window.scrollY > 8);
     };
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
   }
 
-  /* ── Mobile nav toggle ── */
+  /* ── Mobile nav ── */
   var toggle = document.getElementById("nav-toggle");
-  var nav    = document.getElementById("main-nav");
+  var nav = document.getElementById("main-nav");
   if (toggle && nav) {
+    var setOpen = function (open) {
+      toggle.setAttribute("aria-expanded", String(open));
+      nav.classList.toggle("is-open", open);
+      /* Lock page scrolling only while the mobile menu is open */
+      document.body.classList.toggle("nav-open", open);
+    };
+
     toggle.addEventListener("click", function () {
-      var expanded = toggle.getAttribute("aria-expanded") === "true";
-      toggle.setAttribute("aria-expanded", String(!expanded));
-      nav.classList.toggle("is-open", !expanded);
+      setOpen(toggle.getAttribute("aria-expanded") !== "true");
     });
 
-    /* Close nav when a link inside it is clicked */
     nav.addEventListener("click", function (e) {
-      if (e.target.matches("a")) {
-        toggle.setAttribute("aria-expanded", "false");
-        nav.classList.remove("is-open");
-      }
+      if (e.target.closest("a")) setOpen(false);
     });
 
-    /* Close nav on Escape key */
     document.addEventListener("keydown", function (e) {
       if (e.key === "Escape" && nav.classList.contains("is-open")) {
-        toggle.setAttribute("aria-expanded", "false");
-        nav.classList.remove("is-open");
+        setOpen(false);
         toggle.focus();
       }
     });
 
-    /* Close nav when clicking outside */
     document.addEventListener("click", function (e) {
       if (
         nav.classList.contains("is-open") &&
         !nav.contains(e.target) &&
         !toggle.contains(e.target)
       ) {
-        toggle.setAttribute("aria-expanded", "false");
-        nav.classList.remove("is-open");
+        setOpen(false);
       }
     });
+
+    /* If the viewport grows past the mobile breakpoint, reset the menu */
+    var mq = window.matchMedia("(min-width: 768px)");
+    var onChange = function () {
+      if (mq.matches) setOpen(false);
+    };
+    if (mq.addEventListener) mq.addEventListener("change", onChange);
+    else if (mq.addListener) mq.addListener(onChange);
   }
 })();

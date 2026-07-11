@@ -1,237 +1,150 @@
 # Mini Forge Dev — Website
 
-Static developer website for the Mini Forge Dev Google Play developer account,
-hosted on GitHub Pages.
+Static developer website for the **Mini Forge Dev** Google Play developer
+account, hosted on GitHub Pages at **https://sephylon09.github.io/**.
+
+Plain HTML + CSS + vanilla JavaScript. No build step, no frameworks,
+no external fonts or CDNs.
 
 ---
 
-## File structure
+## Project structure
 
 ```
 /
-├── index.html                  Homepage
-├── privacy.html                AnimePulse privacy policy
-├── support.html                AnimePulse support FAQ
-├── 404.html                    Custom 404 error page
-├── app-ads.txt                 AdMob publisher authorisation (must stay at root)
-├── robots.txt                  Search-engine crawl instructions
-├── sitemap.xml                 Sitemap for search engines
-├── styles.css                  All CSS
-├── script.js                   Minimal JavaScript (year, nav, header scroll)
+├── index.html                  Home: hero, values strip, app directory, contact
+├── privacy-policy.html         All app privacy policies (hash-switched panels)
+├── support.html                All app support FAQs (hash-switched panels)
+├── privacy.html                Redirect → privacy-policy.html (keep: old published URL)
+├── letterforge-privacy.html    Redirect → privacy-policy.html#letterforge (keep)
+├── 404.html                    Custom 404 page
+├── google8e191000f52faa2a.html Google Search Console verification (keep)
+├── app-ads.txt                 AdMob authorisation (must stay at root)
+├── robots.txt                  Crawl rules + sitemap URL
+├── sitemap.xml                 Home, privacy-policy, support
+├── styles.css                  Design system + all component styles
+├── script.js                   Header scroll state, mobile nav, footer year
 ├── assets/
-│   ├── logo.svg                Full wordmark logo
-│   ├── favicon.svg             Icon-only favicon
-│   └── animepulse-placeholder.svg  AnimePulse app preview illustration
-└── README.md                   This file
+│   ├── apps-data.js            ★ Single source of truth for app metadata
+│   ├── app-renderer.js         Renders app cards, selector tabs, footer app
+│   │                           links, counts; drives hash navigation
+│   ├── theme.js                Theme toggle behaviour (persistence, meta color)
+│   ├── logo.svg                Brand lockup (mark + wordmark)
+│   ├── logo-original.svg       Previous logo, preserved for reference
+│   ├── favicon.svg             Symbol-only mark on a dark tile
+│   ├── app-icons/              Optimized 256×256 WebP app icons (used by the site)
+│   └── *_logo.png / .jpeg      Original full-size app logos (source assets only)
+└── README.md
 ```
 
 ---
 
-## 1. Preview locally with VS Code Live Server
+## App metadata (`assets/apps-data.js`)
 
-1. Install the **Live Server** extension in VS Code.
-2. Open the `sephylon09.github.io` folder in VS Code.
-3. Right-click `index.html` and choose **Open with Live Server**.
-4. The site opens at `http://127.0.0.1:5500/`.
+Every page reads app identity from `window.MFD_APPS`. Each entry:
 
-Alternatively, if Python is installed:
+| Field           | Meaning                                                    |
+|-----------------|------------------------------------------------------------|
+| `id`            | Kebab-case slug; also the privacy/support hash             |
+| `name`          | Display name (must match Google Play listing)              |
+| `category`      | Short category label shown on cards                        |
+| `kind`          | `game` or `app`                                            |
+| `description`   | 1–2 sentence card description                              |
+| `logo`          | Original full-size logo (source asset)                     |
+| `optimizedLogo` | 256×256 WebP used everywhere on the site                   |
+| `status`        | `published` or `coming-soon`                               |
+| `playUrl`       | Google Play URL, or `null` until published                 |
+| `privacyHash`   | Anchor on privacy-policy.html                              |
+| `supportHash`   | Anchor on support.html                                     |
+| `packageId`     | Android application id, or `null` until known              |
+
+The renderer builds from this data:
+
+- Home app cards (published / coming-soon groups) and live counts
+- Google Play buttons (published apps only, `target="_blank"` +
+  `rel="noopener noreferrer"`)
+- Privacy and Support app selector tabs
+- Footer “Apps” link lists
+
+Long-form policy and FAQ text stays as semantic HTML in
+`privacy-policy.html` / `support.html` for SEO, accessibility, and
+no-JavaScript readability.
+
+---
+
+## Theme system
+
+- Dark is the default for first-time visitors (OS preference is *not* used).
+- A tiny inline script in each page `<head>` applies the saved theme
+  before CSS paints, so there is no flash.
+- The header toggle stores the choice in `localStorage` under `mfd-theme`
+  and updates `<meta name="theme-color">`.
+- All colors are semantic custom properties in `styles.css`
+  (`--page-bg`, `--surface-1..3`, `--text-primary`, `--accent`, …) with a
+  `:root[data-theme="light"]` override block. Style new components with
+  tokens only — never hard-coded colors — and they work in both themes.
+
+---
+
+## Adding a new app
+
+1. Drop the full-size logo into `assets/` (source only, not referenced by pages).
+2. Create a 256×256 WebP copy in `assets/app-icons/` (Pillow one-liner:
+   `python -c "from PIL import Image; Image.open('assets/NEW.png').convert('RGB').resize((256,256), Image.LANCZOS).save('assets/app-icons/NEW.webp','WEBP',quality=88)"` —
+   keep `RGBA` if the logo has transparency).
+3. Add an entry to `assets/apps-data.js` (home cards, selector tabs, footer
+   links, and counts update automatically).
+4. Add a policy panel to `privacy-policy.html`: copy an existing
+   `<section class="app-policy" id="…" data-app-panel="…">`, keep the
+   glance summary + accordion structure, and write accurate content.
+5. Add an FAQ panel to `support.html` the same way.
+6. Update the `<noscript>` fallback lists in `index.html`.
+7. When the app ships: set `status: "published"` and `playUrl` in
+   `apps-data.js` — the Play button appears automatically.
+
+### Privacy/support hash convention
+
+Each app is addressable as `privacy-policy.html#<id>` and
+`support.html#<id>` (e.g. `#letterforge`). Deeper anchors inside a panel
+(e.g. `#lf-advertising`) also work: the renderer activates the right panel
+and opens the enclosing accordion. Do not rename existing ids — they are
+published in Play Store listings.
+
+---
+
+## Local preview
 
 ```powershell
 python -m http.server 5500
 ```
 
-Then visit `http://localhost:5500/`.
+Then open <http://localhost:5500/>. (Or use the VS Code Live Server
+extension.) Check:
 
-Test these URLs:
-
-- `http://localhost:5500/`
-- `http://localhost:5500/privacy.html`
-- `http://localhost:5500/support.html`
-- `http://localhost:5500/app-ads.txt`
-- `http://localhost:5500/404.html`
-
----
-
-## 2. Replace the GitHub username
-
-Search for `YOUR_USERNAME` in these files and replace with your real GitHub username:
-
-| File            | What to change                               |
-|-----------------|----------------------------------------------|
-| `index.html`    | `canonical` and `og:url` meta tags           |
-| `privacy.html`  | `canonical` and `og:url` meta tags           |
-| `support.html`  | `canonical` and `og:url` meta tags           |
-| `robots.txt`    | `Sitemap:` URL                               |
-| `sitemap.xml`   | All `<loc>` URLs                             |
-
-Example: replace `https://YOUR_USERNAME.github.io/` with `https://sephylon09.github.io/`.
+- `/` `/privacy-policy.html` `/support.html` `/404.html` `/app-ads.txt`
+- Hash deep links: `/privacy-policy.html#letterforge`,
+  `/support.html#foodfit-scan`
+- Redirects: `/privacy.html`, `/letterforge-privacy.html`
+- Theme toggle persists across pages and reloads
 
 ---
 
-## 3. Update the support email
+## Deployment
 
-The email `miniforgedev@gmail.com` appears in:
+Pushing to `main` publishes automatically via GitHub Pages
+(Settings → Pages → Deploy from branch → `main` / root).
 
-- `index.html` — contact section and footer
-- `privacy.html` — contact section and footer
-- `support.html` — sidebar contact card and footer
-- `404.html` — (footer not present; no change needed)
+Files that must remain at the repository root:
 
-Search for `miniforgedev@gmail.com` across all HTML files to update it.
-
----
-
-## 4. Add the AnimePulse Play Store link
-
-When AnimePulse is live on Google Play:
-
-1. Open `index.html`.
-2. Find the comment that reads:
-   ```html
-   <!-- TODO: Replace the href value below with the real Google Play URL -->
-   ```
-3. Replace the `href="#apps"` with the real URL, for example:
-   ```html
-   href="https://play.google.com/store/apps/details?id=com.miniforgedev.animepulse"
-   ```
-4. Change `class="btn btn-disabled"` to `class="btn btn-primary"`.
-5. Remove `aria-disabled="true"` and `tabindex="-1"`.
-
----
-
-## 5. Update the privacy policy date
-
-Open `privacy.html` and find:
-
-```html
-<p class="page-meta">Last updated: 15 June 2026</p>
-```
-
-Replace the date whenever the policy content changes.
-
----
-
-## 6. Verify app-ads.txt
-
-The current `app-ads.txt` contains:
-
-```
-google.com, pub-6675028272966387, DIRECT, f08c47fec0942fa0
-```
-
-Before publishing, confirm this line matches the exact personalised line shown
-in your AdMob account under **Apps > App-ads.txt**. Copy it directly from AdMob
-to avoid typos.
-
-The file must:
-- Be plain text with no HTML
-- Contain no comments
-- End with a newline
-- Be accessible at `https://YOUR_USERNAME.github.io/app-ads.txt`
-
----
-
-## 7. Publish with GitHub Pages
-
-```powershell
-git status
-git add .
-git commit -m "Create Mini Forge Dev website"
-git push origin main
-```
-
-Then in the GitHub repository:
-
-1. Go to **Settings > Pages**.
-2. Under **Source**, select **Deploy from a branch**.
-3. Choose `main` branch and `/ (root)` folder.
-4. Click **Save**.
-
-GitHub Pages will publish the site at `https://YOUR_USERNAME.github.io/` within
-a few minutes.
-
----
-
-## 8. Use a custom domain later
-
-1. Buy a domain (e.g. `miniforgedev.com`).
-2. Add a `CNAME` file in the repository root containing your domain:
-   ```
-   miniforgedev.com
-   ```
-3. In your domain registrar's DNS settings, add a CNAME record pointing to
-   `YOUR_USERNAME.github.io`.
-4. In **Settings > Pages**, enter your custom domain.
-5. Enable **Enforce HTTPS** once the certificate is issued.
-6. Update all `YOUR_USERNAME.github.io` references to your new domain.
-
----
-
-## 9. Files that must remain at the website root
-
-These files must be directly accessible at the root URL — do not move them into
-a subdirectory:
-
-- `app-ads.txt` — must be at `/app-ads.txt`
-- `robots.txt` — must be at `/robots.txt`
-- `sitemap.xml` — must be at `/sitemap.xml`
-- `404.html` — GitHub Pages serves this automatically for missing pages
-
----
-
-## 10. Test mobile responsiveness
-
-In Chrome or Edge DevTools (F12):
-
-1. Click the **Toggle device toolbar** icon (Ctrl+Shift+M).
-2. Test at these widths:
-   - 360 px (common Android)
-   - 390 px (common Android)
-   - 768 px (tablet)
-   - 1024 px (laptop)
-   - 1440 px (wide desktop)
-
-Check for:
-- No horizontal scrollbar
-- Navigation collapses to a hamburger menu below 768 px
-- Hero section stacks vertically on mobile
-- App card stacks vertically on mobile
-- Email address wraps without overflow
-- Buttons remain full-width and tappable on small screens
-
----
-
-## 11. Validate HTML
-
-Paste each page into the W3C HTML validator:
-
-https://validator.w3.org/#validate_by_input
-
-Or use the URL form once the site is live:
-
-https://validator.w3.org/
-
----
-
-## 12. Commit and push changes
-
-```powershell
-git status
-git add .
-git commit -m "Create Mini Forge Dev website"
-git push origin main
-```
-
-To push a single file update:
-
-```powershell
-git add privacy.html
-git commit -m "Update privacy policy date"
-git push origin main
-```
+- `app-ads.txt` — AdMob checks `https://sephylon09.github.io/app-ads.txt`
+- `robots.txt`, `sitemap.xml`
+- `404.html` — served by GitHub Pages for missing URLs
+- `google8e191000f52faa2a.html` — Search Console verification
+- `privacy.html`, `letterforge-privacy.html` — redirect pages for URLs
+  already published in app listings
 
 ---
 
 ## Contact
 
-Developer email: miniforgedev@gmail.com
+Publisher: **Mini Forge Dev** · miniforgedev@gmail.com

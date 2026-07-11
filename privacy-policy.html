@@ -1,9 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#090B10">
+  <script>
+    /* Apply the saved theme before CSS paints (dark is the default). */
+    (function () {
+      var t = "dark";
+      try { if (localStorage.getItem("mfd-theme") === "light") t = "light"; } catch (e) {}
+      document.documentElement.setAttribute("data-theme", t);
+    })();
+  </script>
+  <meta name="theme-color" content="#0C0E13">
 
   <title>Privacy Policy — Mini Forge Dev</title>
   <meta name="description" content="Privacy policies for Anime Pulse, Letter Rise, LetterForge, Emoji Guess, Guess The Time, and FoodFit Scan by Mini Forge Dev. Select an app to view its privacy policy.">
@@ -22,22 +30,21 @@
 
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
+  <!-- ══════════════════ HEADER ══════════════════ -->
   <header class="site-header" id="site-header">
     <div class="header-inner">
-      <a href="/" class="logo-link" aria-label="Mini Forge Dev — home">
-        <img src="assets/logo.svg" alt="Mini Forge Dev" width="210" height="44">
+
+      <a href="/" class="brand" aria-label="Mini Forge Dev — home">
+        <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+          <path fill="var(--accent)" d="M5.2 10.5 H21 C25.6 10.5 28.6 12.4 29.8 15.4 C27.1 16.9 23.9 17.5 20.8 17.5 H5.2 Q3 17.5 3 15.3 V12.7 Q3 10.5 5.2 10.5 Z"/>
+          <path fill="var(--accent)" opacity="0.82" d="M11.8 17.5 H18.6 L17.8 22 H12.6 Z"/>
+          <rect fill="var(--accent)" opacity="0.55" x="8" y="22" width="14.5" height="4.3" rx="1.7"/>
+          <path fill="var(--ember)" d="M25.8 1.4 L26.9 3.8 L29.3 4.9 L26.9 6 L25.8 8.4 L24.7 6 L22.3 4.9 L24.7 3.8 Z"/>
+          <circle fill="var(--ember)" opacity="0.85" cx="7.2" cy="6.4" r="1.4"/>
+        </svg>
+        <span class="brand-name">Mini Forge <em>Dev</em></span>
       </a>
-      <button
-        class="nav-toggle"
-        id="nav-toggle"
-        aria-controls="main-nav"
-        aria-expanded="false"
-        aria-label="Toggle navigation menu"
-      >
-        <span class="nav-toggle-bar"></span>
-        <span class="nav-toggle-bar"></span>
-        <span class="nav-toggle-bar"></span>
-      </button>
+
       <nav id="main-nav" class="main-nav" aria-label="Main navigation">
         <ul class="nav-list">
           <li><a href="/"                   class="nav-link">Home</a></li>
@@ -47,1559 +54,1626 @@
           <li><a href="/#contact"           class="nav-link">Contact</a></li>
         </ul>
       </nav>
+
+      <div class="header-controls">
+        <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to light theme">
+          <svg class="theme-toggle-icon theme-toggle-icon--moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+          <svg class="theme-toggle-icon theme-toggle-icon--sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"/>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+          </svg>
+          <span class="theme-toggle-thumb" aria-hidden="true"></span>
+        </button>
+
+        <button
+          class="nav-toggle"
+          id="nav-toggle"
+          aria-controls="main-nav"
+          aria-expanded="false"
+          aria-label="Toggle navigation menu"
+        >
+          <span class="nav-toggle-bar"></span>
+          <span class="nav-toggle-bar"></span>
+          <span class="nav-toggle-bar"></span>
+        </button>
+      </div>
+
     </div>
   </header>
 
   <main id="main-content">
 
     <div class="page-hero">
-      <div class="container">
+      <div class="container container-narrow">
         <p class="eyebrow">Mini Forge Dev</p>
         <h1>Privacy Policy</h1>
-        <p class="page-meta">Select an app below to view its privacy policy.</p>
+        <p class="page-meta">How our apps handle your data. Select an app to view its policy.</p>
       </div>
     </div>
 
     <div class="policy-body">
-      <div class="container" style="max-width: 800px;">
+      <div class="container container-narrow">
 
-        <div class="app-switcher-container">
+        <div data-switcher>
 
-          <!-- App tab selector -->
-          <div class="app-switcher" role="tablist" aria-label="Select app to view privacy policy">
-            <button
-              class="app-tab active"
-              data-app="anime-pulse"
-              role="tab"
-              aria-selected="true"
-              tabindex="0"
-            >
-              <img src="assets/animepulse_logo.png" alt="" class="app-tab-logo" width="72" height="72" aria-hidden="true">
-              <span>Anime Pulse</span>
-            </button>
-            <button
-              class="app-tab"
-              data-app="letter-rise"
-              role="tab"
-              aria-selected="false"
-              tabindex="-1"
-            >
-              <img src="assets/letterrise_logo.jpeg" alt="" class="app-tab-logo" width="72" height="72" aria-hidden="true">
-              <span>Letter Rise</span>
-            </button>
-            <button
-              class="app-tab"
-              data-app="letterforge"
-              role="tab"
-              aria-selected="false"
-              tabindex="-1"
-            >
-              <img src="assets/letterforge_logo.png" alt="" class="app-tab-logo" width="72" height="72" aria-hidden="true">
-              <span>LetterForge</span>
-            </button>
-            <button
-              class="app-tab"
-              data-app="emoji-guess"
-              role="tab"
-              aria-selected="false"
-              tabindex="-1"
-            >
-              <img src="assets/emoji_guess_logo.png" alt="" class="app-tab-logo" width="72" height="72" aria-hidden="true">
-              <span>Emoji Guess</span>
-            </button>
-            <button
-              class="app-tab"
-              data-app="guess-the-time"
-              role="tab"
-              aria-selected="false"
-              tabindex="-1"
-            >
-              <img src="assets/guessthetime_logo.png" alt="" class="app-tab-logo" width="72" height="72" aria-hidden="true">
-              <span>Guess The Time</span>
-            </button>
-            <button
-              class="app-tab"
-              data-app="foodfit-scan"
-              role="tab"
-              aria-selected="false"
-              tabindex="-1"
-            >
-              <img src="assets/foodfit_logo.png" alt="" class="app-tab-logo" width="72" height="72" aria-hidden="true">
-              <span>FoodFit Scan</span>
-            </button>
+          <!-- App selector — tabs are rendered from assets/apps-data.js.
+               Without JavaScript, every policy below is shown stacked. -->
+          <div class="app-select-wrap">
+            <div class="app-select" data-app-selector aria-label="Select an app to view its privacy policy"></div>
           </div>
 
           <!-- ════════════════════════════════════════
-               ANIME PULSE POLICY PANEL
+               ANIME PULSE
                ════════════════════════════════════════ -->
-          <section class="app-policy active" data-app-panel="anime-pulse" aria-label="Anime Pulse privacy policy">
+          <section class="app-policy" id="anime-pulse" data-app-panel="anime-pulse" aria-label="Anime Pulse privacy policy">
 
-            <div class="policy-panel-header">
-              <img src="assets/animepulse_logo.png" alt="Anime Pulse" class="policy-panel-logo" width="56" height="56">
+            <div class="panel-header">
+              <img src="assets/app-icons/animepulse.webp" alt="" class="panel-logo" width="52" height="52">
               <div>
-                <div class="policy-panel-name">Anime Pulse</div>
-                <div class="policy-panel-meta">Last updated: 15 June 2026</div>
+                <h2 class="panel-name">Anime Pulse</h2>
+                <p class="panel-meta">Privacy policy · Last updated 15 June 2026</p>
               </div>
             </div>
 
-            <div class="policy-notice">
-              <strong>Note:</strong> This privacy policy should be reviewed whenever Anime Pulse adds
-              or removes third-party SDKs or data-processing features. This document is provided for
-              informational purposes and does not constitute legal advice.
+            <div class="glance" aria-label="Privacy at a glance">
+              <div class="glance-item">
+                <h3><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>Account</h3>
+                <p>No sign-up or login — Anime Pulse works without creating an account.</p>
+              </div>
+              <div class="glance-item">
+                <h3><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>On your device</h3>
+                <p>Favourites, watched-episode status, reminders, and cached schedules stay local.</p>
+              </div>
+              <div class="glance-item">
+                <h3><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>External services</h3>
+                <p>Anime data comes from AniList; advertising may be served by Google AdMob.</p>
+              </div>
             </div>
 
-            <div class="policy-toc">
-              <h2>Contents</h2>
-              <ol>
-                <li><a href="#ap-overview">Overview</a></li>
-                <li><a href="#ap-local-data">Information stored locally</a></li>
-                <li><a href="#ap-anime-data">Anime data provider</a></li>
-                <li><a href="#ap-advertising">Advertising and Google AdMob</a></li>
-                <li><a href="#ap-consent">Consent and privacy choices</a></li>
-                <li><a href="#ap-notifications">Notifications</a></li>
-                <li><a href="#ap-external-links">External links</a></li>
-                <li><a href="#ap-children">Children and target audience</a></li>
-                <li><a href="#ap-retention">Data retention</a></li>
-                <li><a href="#ap-deletion">Data deletion</a></li>
-                <li><a href="#ap-security">Security</a></li>
-                <li><a href="#ap-changes">Policy changes</a></li>
-                <li><a href="#ap-contact">Contact</a></li>
-              </ol>
-            </div>
+            <details class="accordion" id="ap-overview" open>
+              <summary>Overview</summary>
+              <div class="accordion-body">
+                <p>
+                  Anime Pulse is an Android application developed and published by Mini Forge Dev.
+                  This privacy policy explains what information is stored on your device, what data
+                  third-party services may process, and what choices you have regarding your privacy.
+                </p>
+                <p>
+                  Anime Pulse is designed to minimise data collection. Where third-party services are
+                  used, they are disclosed here along with their purpose.
+                </p>
+              </div>
+            </details>
 
-            <div class="policy-section" id="ap-overview">
-              <h2>1. Overview</h2>
-              <p>
-                Anime Pulse is an Android application developed and published by Mini Forge Dev.
-                This privacy policy explains what information is stored on your device, what data
-                third-party services may process, and what choices you have regarding your privacy.
-              </p>
-              <p>
-                Anime Pulse is designed to minimise data collection. Where third-party services are
-                used, they are disclosed here along with their purpose.
-              </p>
-            </div>
+            <details class="accordion" id="ap-local-data">
+              <summary>Data stored on your device</summary>
+              <div class="accordion-body">
+                <p>
+                  Anime Pulse stores the following types of data locally on your device only. This
+                  information is not transmitted to Mini Forge Dev servers.
+                </p>
+                <ul>
+                  <li>Your saved favourite anime titles</li>
+                  <li>Watched episode status you have marked</li>
+                  <li>Episode reminder preferences and notification settings</li>
+                  <li>Your preferred title language (English, Romaji or Native)</li>
+                  <li>Cached anime details and airing schedules for offline viewing</li>
+                </ul>
+                <p>
+                  Uninstalling Anime Pulse or clearing application data through Android Settings
+                  removes all locally stored data from your device.
+                </p>
+              </div>
+            </details>
 
-            <div class="policy-section" id="ap-local-data">
-              <h2>2. Information stored locally</h2>
-              <p>
-                Anime Pulse stores the following types of data locally on your device only. This
-                information is not transmitted to Mini Forge Dev servers.
-              </p>
-              <ul>
-                <li>Your saved favourite anime titles</li>
-                <li>Watched episode status you have marked</li>
-                <li>Episode reminder preferences and notification settings</li>
-                <li>Your preferred title language (English, Romaji or Native)</li>
-                <li>Cached anime details and airing schedules for offline viewing</li>
-              </ul>
-              <p>
-                Uninstalling Anime Pulse or clearing application data through Android Settings
-                removes all locally stored data from your device.
-              </p>
-            </div>
+            <details class="accordion" id="ap-external">
+              <summary>External services and advertising</summary>
+              <div class="accordion-body">
+                <div class="anchor-topic" id="ap-anime-data">
+                  <h3>Anime data provider (AniList)</h3>
+                  <p>
+                    Anime Pulse obtains anime information — including titles, descriptions, episode
+                    schedules, cover images and related metadata — from AniList or other clearly
+                    disclosed data sources. When the app fetches this information, your device makes
+                    a network request to the data provider's servers. The data provider's own privacy
+                    policy governs how they handle those requests.
+                  </p>
+                  <p>Anime Pulse is not endorsed by or affiliated with AniList.</p>
+                  <p>
+                    The AniList service and its API are subject to their own terms of use and privacy
+                    policy, available at the AniList website.
+                  </p>
+                </div>
+                <div class="anchor-topic" id="ap-advertising">
+                  <h3>Advertising and Google AdMob</h3>
+                  <p>
+                    Anime Pulse may display advertisements served by Google AdMob, a mobile advertising
+                    platform operated by Google LLC. Including AdMob means the Google Mobile Ads SDK
+                    may be present in the application.
+                  </p>
+                  <p>
+                    The Google Mobile Ads SDK may process certain information in order to serve
+                    advertisements and measure their performance. This may include, but is not
+                    necessarily limited to:
+                  </p>
+                  <ul>
+                    <li>Device or advertising identifiers (such as the Android Advertising ID)</li>
+                    <li>IP address</li>
+                    <li>App interaction and usage data</li>
+                    <li>Diagnostic and crash information</li>
+                    <li>Approximate location where applicable and permitted</li>
+                    <li>Advertising and consent information</li>
+                  </ul>
+                  <p>
+                    Google's privacy policy and advertising policies govern how Google processes
+                    information through AdMob. You can review Google's privacy policy at
+                    <a href="https://policies.google.com/privacy" rel="noopener noreferrer" target="_blank">policies.google.com/privacy</a>.
+                  </p>
+                  <p>
+                    Mini Forge Dev does not publish AdMob ad unit identifiers on this website. The
+                    publisher identifier used in <code>app-ads.txt</code> is disclosed separately
+                    for ad network authorisation purposes.
+                  </p>
+                </div>
+                <div class="anchor-topic" id="ap-external-links">
+                  <h3>External links</h3>
+                  <p>
+                    Anime Pulse may contain links to external websites, anime streaming services or
+                    other third-party resources. When you follow an external link, you leave
+                    Anime Pulse and the linked website's own privacy policy applies.
+                  </p>
+                  <p>
+                    Mini Forge Dev is not responsible for the privacy practices or content of
+                    external websites.
+                  </p>
+                </div>
+              </div>
+            </details>
 
-            <div class="policy-section" id="ap-anime-data">
-              <h2>3. Anime data provider</h2>
-              <p>
-                Anime Pulse obtains anime information — including titles, descriptions, episode
-                schedules, cover images and related metadata — from AniList or other clearly
-                disclosed data sources. When the app fetches this information, your device makes
-                a network request to the data provider's servers. The data provider's own privacy
-                policy governs how they handle those requests.
-              </p>
-              <p>Anime Pulse is not endorsed by or affiliated with AniList.</p>
-              <p>
-                The AniList service and its API are subject to their own terms of use and privacy
-                policy, available at the AniList website.
-              </p>
-            </div>
+            <details class="accordion" id="ap-consent">
+              <summary>Privacy choices and consent</summary>
+              <div class="accordion-body">
+                <p>
+                  Anime Pulse may use Google's User Messaging Platform (UMP) to request advertising
+                  consent and present privacy choices where legally required, such as in regions
+                  covered by the General Data Protection Regulation (GDPR) or the California
+                  Consumer Privacy Act (CCPA) and related regulations.
+                </p>
+                <p>
+                  If consent is requested when you open the app, you will be presented with clear
+                  options before any personalised advertising is shown. You may be able to revisit
+                  your consent choices through the app's settings or privacy options menu.
+                </p>
+                <p>
+                  Where consent is not legally required, standard advertising practices may apply
+                  in accordance with Google's policies.
+                </p>
+              </div>
+            </details>
 
-            <div class="policy-section" id="ap-advertising">
-              <h2>4. Advertising and Google AdMob</h2>
-              <p>
-                Anime Pulse may display advertisements served by Google AdMob, a mobile advertising
-                platform operated by Google LLC. Including AdMob means the Google Mobile Ads SDK
-                may be present in the application.
-              </p>
-              <p>
-                The Google Mobile Ads SDK may process certain information in order to serve
-                advertisements and measure their performance. This may include, but is not
-                necessarily limited to:
-              </p>
-              <ul>
-                <li>Device or advertising identifiers (such as the Android Advertising ID)</li>
-                <li>IP address</li>
-                <li>App interaction and usage data</li>
-                <li>Diagnostic and crash information</li>
-                <li>Approximate location where applicable and permitted</li>
-                <li>Advertising and consent information</li>
-              </ul>
-              <p>
-                Google's privacy policy and advertising policies govern how Google processes
-                information through AdMob. You can review Google's privacy policy at
-                <a href="https://policies.google.com/privacy" rel="noopener noreferrer" target="_blank">policies.google.com/privacy</a>.
-              </p>
-              <p>
-                Mini Forge Dev does not publish AdMob ad unit identifiers on this website. The
-                publisher identifier used in <code>app-ads.txt</code> is disclosed separately
-                for ad network authorisation purposes.
-              </p>
-            </div>
+            <details class="accordion" id="ap-notifications">
+              <summary>Notifications</summary>
+              <div class="accordion-body">
+                <p>
+                  Anime Pulse can send optional episode reminder notifications to alert you when
+                  a favourite anime episode is scheduled to air. This feature is entirely optional.
+                </p>
+                <p>
+                  Episode reminders can be enabled or disabled at any time from within the
+                  Anime Pulse settings screen. You can also manage notification permissions for
+                  Anime Pulse through your device's Android notification settings.
+                </p>
+                <p>
+                  Reminders are scheduled locally on your device using Android's notification
+                  scheduling system. Mini Forge Dev does not use a push notification server to
+                  send episode alerts.
+                </p>
+              </div>
+            </details>
 
-            <div class="policy-section" id="ap-consent">
-              <h2>5. Consent and privacy choices</h2>
-              <p>
-                Anime Pulse may use Google's User Messaging Platform (UMP) to request advertising
-                consent and present privacy choices where legally required, such as in regions
-                covered by the General Data Protection Regulation (GDPR) or the California
-                Consumer Privacy Act (CCPA) and related regulations.
-              </p>
-              <p>
-                If consent is requested when you open the app, you will be presented with clear
-                options before any personalised advertising is shown. You may be able to revisit
-                your consent choices through the app's settings or privacy options menu.
-              </p>
-              <p>
-                Where consent is not legally required, standard advertising practices may apply
-                in accordance with Google's policies.
-              </p>
-            </div>
+            <details class="accordion" id="ap-children">
+              <summary>Children and target audience</summary>
+              <div class="accordion-body">
+                <p>
+                  Anime Pulse is a general-audience application. It is not specifically directed at
+                  children under the age of 13. Users in regulated jurisdictions should be aware of
+                  the applicable age-related requirements of their local laws regarding data privacy.
+                </p>
+                <p>
+                  If you are a parent or guardian and believe that a child has provided personal
+                  information through the app, please contact us at the address below so that
+                  we can take appropriate action.
+                </p>
+              </div>
+            </details>
 
-            <div class="policy-section" id="ap-notifications">
-              <h2>6. Notifications</h2>
-              <p>
-                Anime Pulse can send optional episode reminder notifications to alert you when
-                a favourite anime episode is scheduled to air. This feature is entirely optional.
-              </p>
-              <p>
-                Episode reminders can be enabled or disabled at any time from within the
-                Anime Pulse settings screen. You can also manage notification permissions for
-                Anime Pulse through your device's Android notification settings.
-              </p>
-              <p>
-                Reminders are scheduled locally on your device using Android's notification
-                scheduling system. Mini Forge Dev does not use a push notification server to
-                send episode alerts.
-              </p>
-            </div>
+            <details class="accordion" id="ap-retention">
+              <summary>Data retention and deletion</summary>
+              <div class="accordion-body">
+                <p>
+                  Data stored locally on your device (such as favourites, episode status and
+                  preferences) is retained until you clear the application data or uninstall
+                  Anime Pulse. Mini Forge Dev does not retain personal data on its own servers.
+                </p>
+                <p>
+                  Third-party services such as Google AdMob may retain data in accordance with
+                  their own retention policies.
+                </p>
+                <div class="anchor-topic" id="ap-deletion">
+                  <h3>How to delete your data</h3>
+                  <ul>
+                    <li>
+                      Go to <strong>Android Settings &rarr; Apps &rarr; Anime Pulse &rarr; Storage &rarr;
+                      Clear data</strong>. This removes all locally stored app data including favourites
+                      and preferences.
+                    </li>
+                    <li>
+                      Uninstall Anime Pulse from your device. All locally stored data is removed when
+                      the app is uninstalled.
+                    </li>
+                  </ul>
+                  <p>
+                    For data held by third-party services, please refer to those services' own data
+                    deletion instructions or contact them directly.
+                  </p>
+                </div>
+              </div>
+            </details>
 
-            <div class="policy-section" id="ap-external-links">
-              <h2>7. External links</h2>
-              <p>
-                Anime Pulse may contain links to external websites, anime streaming services or
-                other third-party resources. When you follow an external link, you leave
-                Anime Pulse and the linked website's own privacy policy applies.
-              </p>
-              <p>
-                Mini Forge Dev is not responsible for the privacy practices or content of
-                external websites.
-              </p>
-            </div>
+            <details class="accordion" id="ap-security">
+              <summary>Security and policy changes</summary>
+              <div class="accordion-body">
+                <p>
+                  Anime Pulse stores your data locally on your device and relies on Android's
+                  built-in application sandboxing to protect it from access by other apps. Mini
+                  Forge Dev takes reasonable care in developing the application, but no method of
+                  electronic storage is completely secure.
+                </p>
+                <p>
+                  Keeping your Android device updated and using appropriate device security
+                  features helps protect locally stored data.
+                </p>
+                <div class="anchor-topic" id="ap-changes">
+                  <h3>Policy changes</h3>
+                  <p>
+                    This privacy policy may be updated when Anime Pulse adds or removes features,
+                    changes data handling practices, or integrates new third-party SDKs. The
+                    "Last updated" date at the top of this page reflects the date of the most
+                    recent revision.
+                  </p>
+                  <p>
+                    Significant changes will be noted in the Anime Pulse app update release notes
+                    where practical.
+                  </p>
+                </div>
+              </div>
+            </details>
 
-            <div class="policy-section" id="ap-children">
-              <h2>8. Children and target audience</h2>
-              <p>
-                Anime Pulse is a general-audience application. It is not specifically directed at
-                children under the age of 13. Users in regulated jurisdictions should be aware of
-                the applicable age-related requirements of their local laws regarding data privacy.
-              </p>
-              <p>
-                If you are a parent or guardian and believe that a child has provided personal
-                information through the app, please contact us at the address below so that
-                we can take appropriate action.
-              </p>
-            </div>
+            <details class="accordion" id="ap-contact">
+              <summary>Contact</summary>
+              <div class="accordion-body">
+                <p>
+                  For privacy questions, data requests or any concerns regarding this policy,
+                  please contact Mini Forge Dev by email:
+                </p>
+                <a href="mailto:miniforgedev@gmail.com" class="panel-contact">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <rect x="2" y="4" width="20" height="16" rx="2"/>
+                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                  </svg>
+                  miniforgedev@gmail.com
+                </a>
+              </div>
+            </details>
 
-            <div class="policy-section" id="ap-retention">
-              <h2>9. Data retention</h2>
-              <p>
-                Data stored locally on your device (such as favourites, episode status and
-                preferences) is retained until you clear the application data or uninstall
-                Anime Pulse. Mini Forge Dev does not retain personal data on its own servers.
-              </p>
-              <p>
-                Third-party services such as Google AdMob may retain data in accordance with
-                their own retention policies.
-              </p>
-            </div>
-
-            <div class="policy-section" id="ap-deletion">
-              <h2>10. Data deletion</h2>
-              <p>To delete all locally stored Anime Pulse data from your device, you can:</p>
-              <ul>
-                <li>
-                  Go to <strong>Android Settings &rarr; Apps &rarr; Anime Pulse &rarr; Storage &rarr;
-                  Clear data</strong>. This removes all locally stored app data including favourites
-                  and preferences.
-                </li>
-                <li>
-                  Uninstall Anime Pulse from your device. All locally stored data is removed when
-                  the app is uninstalled.
-                </li>
-              </ul>
-              <p>
-                For data held by third-party services, please refer to those services' own data
-                deletion instructions or contact them directly.
-              </p>
-            </div>
-
-            <div class="policy-section" id="ap-security">
-              <h2>11. Security</h2>
-              <p>
-                Anime Pulse stores your data locally on your device and relies on Android's
-                built-in application sandboxing to protect it from access by other apps. Mini
-                Forge Dev takes reasonable care in developing the application, but no method of
-                electronic storage is completely secure.
-              </p>
-              <p>
-                Keeping your Android device updated and using appropriate device security
-                features helps protect locally stored data.
-              </p>
-            </div>
-
-            <div class="policy-section" id="ap-changes">
-              <h2>12. Policy changes</h2>
-              <p>
-                This privacy policy may be updated when Anime Pulse adds or removes features,
-                changes data handling practices, or integrates new third-party SDKs. The
-                "Last updated" date at the top of this page reflects the date of the most
-                recent revision.
-              </p>
-              <p>
-                Significant changes will be noted in the Anime Pulse app update release notes
-                where practical.
-              </p>
-            </div>
-
-            <div class="policy-section" id="ap-contact">
-              <h2>13. Contact</h2>
-              <p>
-                For privacy questions, data requests or any concerns regarding this policy,
-                please contact Mini Forge Dev by email:
-              </p>
-              <a href="mailto:miniforgedev@gmail.com" class="contact-email" style="margin-top: 0.75rem;">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <rect x="2" y="4" width="20" height="16" rx="2"/>
-                  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
-                </svg>
-                miniforgedev@gmail.com
-              </a>
-            </div>
+            <p class="policy-footnote">
+              This document is provided for informational purposes and does not constitute legal advice.
+            </p>
 
           </section><!-- /anime-pulse -->
 
           <!-- ════════════════════════════════════════
-               LETTER RISE POLICY PANEL
+               LETTER RISE
                ════════════════════════════════════════ -->
-          <section class="app-policy" data-app-panel="letter-rise" aria-label="Letter Rise privacy policy">
+          <section class="app-policy" id="letter-rise" data-app-panel="letter-rise" aria-label="Letter Rise privacy policy">
 
-            <div class="policy-panel-header">
-              <img src="assets/letterrise_logo.jpeg" alt="Letter Rise" class="policy-panel-logo" width="56" height="56">
+            <div class="panel-header">
+              <img src="assets/app-icons/letterrise.webp" alt="" class="panel-logo" width="52" height="52">
               <div>
-                <div class="policy-panel-name">Letter Rise</div>
-                <div class="policy-panel-meta">Effective date: 22 June 2026</div>
+                <h2 class="panel-name">Letter Rise</h2>
+                <p class="panel-meta">Privacy policy · Effective date 22 June 2026</p>
               </div>
             </div>
 
-            <div class="policy-notice">
-              <strong>Note:</strong> This privacy policy may be updated if Letter Rise adds or
-              changes features, especially ads, analytics, online services, or in-app purchases.
+            <div class="glance" aria-label="Privacy at a glance">
+              <div class="glance-item">
+                <h3><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>Account</h3>
+                <p>No account or login — play without providing personal information.</p>
+              </div>
+              <div class="glance-item">
+                <h3><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>On your device</h3>
+                <p>Game progress, settings, themes, and high scores are stored locally only.</p>
+              </div>
+              <div class="glance-item">
+                <h3><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>External services</h3>
+                <p>Google AdMob serves optional rewarded ads and occasional interstitial ads.</p>
+              </div>
+            </div>
+
+            <details class="accordion" id="lr-overview" open>
+              <summary>Overview</summary>
+              <div class="accordion-body">
+                <p>
+                  Letter Rise is a mobile word puzzle game developed and published by Mini Forge Dev
+                  (package name <code>com.sephylon.letterrise</code>). This privacy policy explains
+                  what information is stored on your device and what data third-party services may
+                  process when you use the app.
+                </p>
+                <div class="anchor-topic" id="lr-no-account">
+                  <h3>No account required</h3>
+                  <p>
+                    Letter Rise does not require account registration or login. You can play the game
+                    without providing any personal information to Mini Forge Dev.
+                  </p>
+                </div>
+                <div class="anchor-topic" id="lr-no-purchases">
+                  <h3>No in-app purchases</h3>
+                  <p>
+                    Letter Rise does not currently offer in-app purchases. Themes can be unlocked
+                    by watching optional rewarded ads.
+                  </p>
+                </div>
+              </div>
+            </details>
+
+            <details class="accordion" id="lr-local-data">
+              <summary>Data stored on your device</summary>
+              <div class="accordion-body">
+                <p>
+                  Letter Rise may store the following data locally on your device. This information
+                  is not uploaded to a Letter Rise server.
+                </p>
+                <ul>
+                  <li>Saved game progress</li>
+                  <li>App settings and preferences</li>
+                  <li>Selected theme and unlocked themes</li>
+                  <li>Tutorial completion status</li>
+                  <li>High score</li>
+                  <li>Hint and theme-related preferences</li>
+                </ul>
+              </div>
+            </details>
+
+            <details class="accordion" id="lr-advertising">
+              <summary>Advertising and Google AdMob</summary>
+              <div class="accordion-body">
+                <p>Letter Rise uses Google AdMob to show advertisements. Ad types may include:</p>
+                <ul>
+                  <li>Rewarded ads, which you can optionally watch to unlock themes</li>
+                  <li>Interstitial ads, which may appear occasionally during New Game transitions</li>
+                </ul>
+                <p>
+                  The Google Mobile Ads SDK may collect or process data in order to serve
+                  advertisements and measure their performance. This may include, but is not
+                  necessarily limited to:
+                </p>
+                <ul>
+                  <li>Device identifiers and advertising ID (such as the Android Advertising ID)</li>
+                  <li>App interaction and usage data</li>
+                  <li>Diagnostics and crash information</li>
+                  <li>Approximate location where applicable and permitted</li>
+                  <li>Other data according to Google's policies</li>
+                </ul>
+                <p>
+                  Google's privacy policy governs how Google processes information through AdMob.
+                  You can review Google's privacy policy at
+                  <a href="https://policies.google.com/privacy" rel="noopener noreferrer" target="_blank">policies.google.com/privacy</a>.
+                </p>
+              </div>
+            </details>
+
+            <details class="accordion" id="lr-sharing">
+              <summary>Data sharing</summary>
+              <div class="accordion-body">
+                <p>
+                  Mini Forge Dev does not sell personal data. Letter Rise does not operate its own
+                  backend server for saved gameplay data — all game data is stored locally on your
+                  device.
+                </p>
+                <p>
+                  Third-party services such as Google AdMob may process data in accordance with
+                  their own policies. Mini Forge Dev does not control how Google processes data
+                  through the AdMob SDK.
+                </p>
+              </div>
+            </details>
+
+            <details class="accordion" id="lr-children">
+              <summary>Children's privacy</summary>
+              <div class="accordion-body">
+                <p>
+                  Letter Rise is not specifically directed at children under the age of 13. Because
+                  the app uses Google AdMob, which may collect advertising-related data, it is not
+                  designed as a children's app under COPPA or similar regulations.
+                </p>
+              </div>
+            </details>
+
+            <details class="accordion" id="lr-deletion">
+              <summary>Data deletion</summary>
+              <div class="accordion-body">
+                <p>
+                  Because Letter Rise stores game data locally on your device, you can delete it by:
+                </p>
+                <ul>
+                  <li>
+                    Going to <strong>Android Settings &rarr; Apps &rarr; Letter Rise &rarr; Storage &rarr;
+                    Clear data</strong>. This removes all locally stored game data including progress,
+                    settings, and unlocked themes.
+                  </li>
+                  <li>
+                    Uninstalling Letter Rise from your device. All locally stored data is removed
+                    when the app is uninstalled.
+                  </li>
+                </ul>
+                <p>
+                  For data held by third-party services such as Google AdMob, please refer to
+                  those services' own data deletion instructions or contact them directly.
+                </p>
+              </div>
+            </details>
+
+            <details class="accordion" id="lr-changes">
+              <summary>Changes to this policy</summary>
+              <div class="accordion-body">
+                <p>
+                  This privacy policy may be updated if Letter Rise's features change, especially
+                  if ads, analytics, online services, or in-app purchases are added or modified.
+                  The effective date at the top of this page reflects the date of the most recent revision.
+                </p>
+              </div>
+            </details>
+
+            <details class="accordion" id="lr-contact">
+              <summary>Contact</summary>
+              <div class="accordion-body">
+                <p>For privacy questions, please contact Mini Forge Dev by email:</p>
+                <a href="mailto:miniforgedev@gmail.com" class="panel-contact">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <rect x="2" y="4" width="20" height="16" rx="2"/>
+                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                  </svg>
+                  miniforgedev@gmail.com
+                </a>
+              </div>
+            </details>
+
+            <p class="policy-footnote">
               This document is provided for informational purposes and does not constitute legal advice.
-            </div>
-
-            <div class="policy-toc">
-              <h2>Contents</h2>
-              <ol>
-                <li><a href="#lr-overview">Overview</a></li>
-                <li><a href="#lr-local-data">Information stored locally</a></li>
-                <li><a href="#lr-advertising">Advertising and Google AdMob</a></li>
-                <li><a href="#lr-no-account">No account required</a></li>
-                <li><a href="#lr-no-purchases">No in-app purchases</a></li>
-                <li><a href="#lr-sharing">Data sharing</a></li>
-                <li><a href="#lr-children">Children's privacy</a></li>
-                <li><a href="#lr-deletion">Data deletion</a></li>
-                <li><a href="#lr-changes">Changes to this policy</a></li>
-                <li><a href="#lr-contact">Contact</a></li>
-              </ol>
-            </div>
-
-            <div class="policy-section" id="lr-overview">
-              <h2>1. Overview</h2>
-              <p>
-                Letter Rise is a mobile word puzzle game developed and published by Sephylon
-                (<code>com.sephylon.letterrise</code>). This privacy policy explains what
-                information is stored on your device and what data third-party services may
-                process when you use the app.
-              </p>
-            </div>
-
-            <div class="policy-section" id="lr-local-data">
-              <h2>2. Information stored locally</h2>
-              <p>
-                Letter Rise may store the following data locally on your device. This information
-                is not uploaded to a Letter Rise server.
-              </p>
-              <ul>
-                <li>Saved game progress</li>
-                <li>App settings and preferences</li>
-                <li>Selected theme and unlocked themes</li>
-                <li>Tutorial completion status</li>
-                <li>High score</li>
-                <li>Hint and theme-related preferences</li>
-              </ul>
-              <p>
-                This local game data is stored on the device and is not uploaded to a Letter Rise server.
-              </p>
-            </div>
-
-            <div class="policy-section" id="lr-advertising">
-              <h2>3. Advertising and Google AdMob</h2>
-              <p>Letter Rise uses Google AdMob to show advertisements. Ad types may include:</p>
-              <ul>
-                <li>Rewarded ads, which you can optionally watch to unlock themes</li>
-                <li>Interstitial ads, which may appear occasionally during New Game transitions</li>
-              </ul>
-              <p>
-                The Google Mobile Ads SDK may collect or process data in order to serve
-                advertisements and measure their performance. This may include, but is not
-                necessarily limited to:
-              </p>
-              <ul>
-                <li>Device identifiers and advertising ID (such as the Android Advertising ID)</li>
-                <li>App interaction and usage data</li>
-                <li>Diagnostics and crash information</li>
-                <li>Approximate location where applicable and permitted</li>
-                <li>Other data according to Google's policies</li>
-              </ul>
-              <p>
-                Google's privacy policy governs how Google processes information through AdMob.
-                You can review Google's privacy policy at
-                <a href="https://policies.google.com/privacy" rel="noopener noreferrer" target="_blank">policies.google.com/privacy</a>.
-              </p>
-            </div>
-
-            <div class="policy-section" id="lr-no-account">
-              <h2>4. No account required</h2>
-              <p>
-                Letter Rise does not require account registration or login. You can play the game
-                without providing any personal information to Sephylon.
-              </p>
-            </div>
-
-            <div class="policy-section" id="lr-no-purchases">
-              <h2>5. No in-app purchases</h2>
-              <p>
-                Letter Rise does not currently offer in-app purchases. Themes can be unlocked
-                by watching optional rewarded ads.
-              </p>
-            </div>
-
-            <div class="policy-section" id="lr-sharing">
-              <h2>6. Data sharing</h2>
-              <p>
-                Sephylon does not sell personal data. Letter Rise does not operate its own backend
-                server for saved gameplay data — all game data is stored locally on your device.
-              </p>
-              <p>
-                Third-party services such as Google AdMob may process data in accordance with
-                their own policies. Sephylon does not control how Google processes data through
-                the AdMob SDK.
-              </p>
-            </div>
-
-            <div class="policy-section" id="lr-children">
-              <h2>7. Children's privacy</h2>
-              <p>
-                Letter Rise is not specifically directed at children under the age of 13. Because
-                the app uses Google AdMob, which may collect advertising-related data, it is not
-                designed as a children's app under COPPA or similar regulations.
-              </p>
-            </div>
-
-            <div class="policy-section" id="lr-deletion">
-              <h2>8. Data deletion</h2>
-              <p>
-                Because Letter Rise stores game data locally on your device, you can delete it by:
-              </p>
-              <ul>
-                <li>
-                  Going to <strong>Android Settings &rarr; Apps &rarr; Letter Rise &rarr; Storage &rarr;
-                  Clear data</strong>. This removes all locally stored game data including progress,
-                  settings, and unlocked themes.
-                </li>
-                <li>
-                  Uninstalling Letter Rise from your device. All locally stored data is removed
-                  when the app is uninstalled.
-                </li>
-              </ul>
-              <p>
-                For data held by third-party services such as Google AdMob, please refer to
-                those services' own data deletion instructions or contact them directly.
-              </p>
-            </div>
-
-            <div class="policy-section" id="lr-changes">
-              <h2>9. Changes to this policy</h2>
-              <p>
-                This privacy policy may be updated if Letter Rise's features change, especially
-                if ads, analytics, online services, or in-app purchases are added or modified.
-                The effective date at the top of this page reflects the date of the most recent revision.
-              </p>
-            </div>
-
-            <div class="policy-section" id="lr-contact">
-              <h2>10. Contact</h2>
-              <p>For privacy questions, contact:</p>
-              <a href="mailto:sephylon09@gmail.com" class="contact-email" style="margin-top: 0.75rem;">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <rect x="2" y="4" width="20" height="16" rx="2"/>
-                  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
-                </svg>
-                sephylon09@gmail.com
-              </a>
-            </div>
+            </p>
 
           </section><!-- /letter-rise -->
 
           <!-- ════════════════════════════════════════
-               LETTERFORGE POLICY PANEL
+               LETTERFORGE
                ════════════════════════════════════════ -->
-          <section class="app-policy" data-app-panel="letterforge" aria-label="LetterForge privacy policy">
+          <section class="app-policy" id="letterforge" data-app-panel="letterforge" aria-label="LetterForge privacy policy">
 
-            <div class="policy-panel-header">
-              <img src="assets/letterforge_logo.png" alt="LetterForge" class="policy-panel-logo" width="56" height="56">
+            <div class="panel-header">
+              <img src="assets/app-icons/letterforge.webp" alt="" class="panel-logo" width="52" height="52">
               <div>
-                <div class="policy-panel-name">LetterForge</div>
-                <div class="policy-panel-meta">Last updated: 22 June 2026</div>
+                <h2 class="panel-name">LetterForge</h2>
+                <p class="panel-meta">Privacy policy · Last updated 22 June 2026</p>
               </div>
             </div>
 
-            <div class="policy-notice">
-              <strong>Note:</strong> This privacy policy should be reviewed whenever LetterForge
-              adds or removes third-party SDKs or data-processing features. This document is
-              provided for informational purposes and does not constitute legal advice.
+            <div class="glance" aria-label="Privacy at a glance">
+              <div class="glance-item">
+                <h3><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>Account</h3>
+                <p>No account, registration, or login — core gameplay works offline.</p>
+              </div>
+              <div class="glance-item">
+                <h3><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>On your device</h3>
+                <p>Progress, coins, XP, achievements, and settings are stored locally only.</p>
+              </div>
+              <div class="glance-item">
+                <h3><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>External services</h3>
+                <p>Google AdMob serves rewarded and interstitial ads, with consent where required.</p>
+              </div>
             </div>
 
-            <div class="policy-toc">
-              <h2>Contents</h2>
-              <ol>
-                <li><a href="#lf-overview">Overview</a></li>
-                <li><a href="#lf-offline">Offline gameplay and no account</a></li>
-                <li><a href="#lf-local-data">Information stored locally</a></li>
-                <li><a href="#lf-advertising">Advertising and Google AdMob</a></li>
-                <li><a href="#lf-consent">Consent and privacy choices</a></li>
-                <li><a href="#lf-permissions">What the app does not access</a></li>
-                <li><a href="#lf-sharing">Data sharing</a></li>
-                <li><a href="#lf-children">Children and target audience</a></li>
-                <li><a href="#lf-deletion">Data deletion</a></li>
-                <li><a href="#lf-security">Security</a></li>
-                <li><a href="#lf-changes">Policy changes</a></li>
-                <li><a href="#lf-contact">Contact</a></li>
-              </ol>
-            </div>
+            <details class="accordion" id="lf-overview" open>
+              <summary>Overview</summary>
+              <div class="accordion-body">
+                <p>
+                  LetterForge (package name <code>com.sephylon.letterforge</code>) is an Android word
+                  puzzle application developed and published by Mini Forge Dev. This privacy policy
+                  explains what information is stored on your device, what data third-party
+                  services may process, and what choices you have regarding your privacy.
+                </p>
+                <p>
+                  LetterForge is designed to minimise data collection. Your gameplay data stays
+                  on your device. Where third-party services are used, they are disclosed here
+                  along with their purpose.
+                </p>
+                <div class="anchor-topic" id="lf-offline">
+                  <h3>Offline gameplay and no account</h3>
+                  <p>
+                    LetterForge does not require an account, registration, or login of any kind.
+                    You can play all game modes, complete daily challenges, earn coins and XP,
+                    and track your progress without providing any personal information to
+                    Mini Forge Dev.
+                  </p>
+                  <p>
+                    The core gameplay is available offline. LetterForge does not provide cloud
+                    sync. Your progress is stored locally on your device and is not backed up
+                    to a remote server operated by Mini Forge Dev.
+                  </p>
+                </div>
+              </div>
+            </details>
 
-            <div class="policy-section" id="lf-overview">
-              <h2>1. Overview</h2>
-              <p>
-                LetterForge (<code>com.sephylon.letterforge</code>) is an Android word puzzle
-                application developed and published by Mini Forge Dev. This privacy policy
-                explains what information is stored on your device, what data third-party
-                services may process, and what choices you have regarding your privacy.
-              </p>
-              <p>
-                LetterForge is designed to minimise data collection. Your gameplay data stays
-                on your device. Where third-party services are used, they are disclosed here
-                along with their purpose.
-              </p>
-            </div>
+            <details class="accordion" id="lf-local-data">
+              <summary>Data stored on your device</summary>
+              <div class="accordion-body">
+                <p>
+                  LetterForge may store the following types of data locally on your device.
+                  This information is not transmitted to Mini Forge Dev servers.
+                </p>
+                <ul>
+                  <li>Game progress and current puzzle state</li>
+                  <li>Daily challenge completion status</li>
+                  <li>Coins and XP totals</li>
+                  <li>Achievements and statistics</li>
+                  <li>App settings and preferences</li>
+                  <li>Game history</li>
+                </ul>
+                <p>
+                  All locally stored data can be removed by clearing app data through Android
+                  Settings or by uninstalling LetterForge. See the
+                  <a href="#lf-deletion">Data deletion</a> section for instructions.
+                </p>
+              </div>
+            </details>
 
-            <div class="policy-section" id="lf-offline">
-              <h2>2. Offline gameplay and no account</h2>
-              <p>
-                LetterForge does not require an account, registration, or login of any kind.
-                You can play all game modes, complete daily challenges, earn coins and XP,
-                and track your progress without providing any personal information to
-                Mini Forge Dev.
-              </p>
-              <p>
-                The core gameplay is available offline. LetterForge does not provide cloud
-                sync. Your progress is stored locally on your device and is not backed up
-                to a remote server operated by Mini Forge Dev.
-              </p>
-            </div>
+            <details class="accordion" id="lf-advertising">
+              <summary>Advertising and Google AdMob</summary>
+              <div class="accordion-body">
+                <p>
+                  LetterForge uses Google AdMob to serve advertisements. Ad types include:
+                </p>
+                <ul>
+                  <li>
+                    <strong>Rewarded ads</strong> — optional ads you may choose to watch in
+                    order to earn hints or other in-game assistance. The reward is granted only
+                    after the ad reward is earned.
+                  </li>
+                  <li>
+                    <strong>Interstitial ads</strong> — full-screen ads that may appear at
+                    natural transition points during gameplay.
+                  </li>
+                </ul>
+                <p>
+                  The Google Mobile Ads SDK may process certain information in order to serve
+                  advertisements and measure their performance. This may include, but is not
+                  necessarily limited to:
+                </p>
+                <ul>
+                  <li>Device identifiers and advertising ID (such as the Android Advertising ID)</li>
+                  <li>IP address and approximate location derived from IP</li>
+                  <li>App interaction and usage data</li>
+                  <li>Diagnostics, crash, and performance information</li>
+                  <li>Advertising and consent information</li>
+                </ul>
+                <p>
+                  These advertising-related data types may be used by Google for advertising,
+                  analytics, fraud prevention, security, and SDK performance monitoring.
+                  Data is transmitted securely where the AdMob SDK communicates with Google.
+                </p>
+                <p>
+                  Google's privacy policy governs how Google processes information through AdMob.
+                  You can review it at
+                  <a href="https://policies.google.com/privacy" rel="noopener noreferrer" target="_blank">policies.google.com/privacy</a>.
+                </p>
+              </div>
+            </details>
 
-            <div class="policy-section" id="lf-local-data">
-              <h2>3. Information stored locally</h2>
-              <p>
-                LetterForge may store the following types of data locally on your device.
-                This information is not transmitted to Mini Forge Dev servers.
-              </p>
-              <ul>
-                <li>Game progress and current puzzle state</li>
-                <li>Daily challenge completion status</li>
-                <li>Coins and XP totals</li>
-                <li>Achievements and statistics</li>
-                <li>App settings and preferences</li>
-                <li>Game history</li>
-              </ul>
-              <p>
-                All locally stored data can be removed by clearing app data through Android
-                Settings or by uninstalling LetterForge. See the
-                <a href="#lf-deletion">Data deletion</a> section for instructions.
-              </p>
-            </div>
+            <details class="accordion" id="lf-consent">
+              <summary>Privacy choices and consent</summary>
+              <div class="accordion-body">
+                <p>
+                  LetterForge may use Google's User Messaging Platform (UMP) to request
+                  advertising consent and present privacy choices where legally required, such
+                  as in regions covered by GDPR, CCPA, and related regulations. You may also
+                  manage advertising preferences through your Android device settings.
+                </p>
+              </div>
+            </details>
 
-            <div class="policy-section" id="lf-advertising">
-              <h2>4. Advertising and Google AdMob</h2>
-              <p>
-                LetterForge uses Google AdMob to serve advertisements. Ad types include:
-              </p>
-              <ul>
-                <li>
-                  <strong>Rewarded ads</strong> — optional ads you may choose to watch in
-                  order to earn hints or other in-game assistance. The reward is granted only
-                  after the ad reward is earned.
-                </li>
-                <li>
-                  <strong>Interstitial ads</strong> — full-screen ads that may appear at
-                  natural transition points during gameplay.
-                </li>
-              </ul>
-              <p>
-                The Google Mobile Ads SDK may process certain information in order to serve
-                advertisements and measure their performance. This may include, but is not
-                necessarily limited to:
-              </p>
-              <ul>
-                <li>Device identifiers and advertising ID (such as the Android Advertising ID)</li>
-                <li>IP address and approximate location derived from IP</li>
-                <li>App interaction and usage data</li>
-                <li>Diagnostics, crash, and performance information</li>
-                <li>Advertising and consent information</li>
-              </ul>
-              <p>
-                These advertising-related data types may be used by Google for advertising,
-                analytics, fraud prevention, security, and SDK performance monitoring.
-                Data is transmitted securely where the AdMob SDK communicates with Google.
-              </p>
-              <p>
-                Google's privacy policy governs how Google processes information through AdMob.
-                You can review it at
-                <a href="https://policies.google.com/privacy" rel="noopener noreferrer" target="_blank">policies.google.com/privacy</a>.
-              </p>
-            </div>
+            <details class="accordion" id="lf-permissions">
+              <summary>Data sharing and what the app does not access</summary>
+              <div class="accordion-body">
+                <p>
+                  LetterForge does not request and does not use precise location, contacts,
+                  camera, microphone, SMS, call logs, or payment information. The app does not
+                  collect or sell gameplay history to third parties.
+                </p>
+                <div class="anchor-topic" id="lf-sharing">
+                  <h3>Data sharing</h3>
+                  <p>
+                    Mini Forge Dev does not sell personal data. LetterForge does not operate its
+                    own backend server for saved gameplay data. Third-party services such as
+                    Google AdMob may process data in accordance with their own policies.
+                  </p>
+                </div>
+              </div>
+            </details>
 
-            <div class="policy-section" id="lf-consent">
-              <h2>5. Consent and privacy choices</h2>
-              <p>
-                LetterForge may use Google's User Messaging Platform (UMP) to request
-                advertising consent and present privacy choices where legally required, such
-                as in regions covered by GDPR, CCPA, and related regulations. You may also
-                manage advertising preferences through your Android device settings.
-              </p>
-            </div>
+            <details class="accordion" id="lf-children">
+              <summary>Children and target audience</summary>
+              <div class="accordion-body">
+                <p>
+                  LetterForge is a general-audience application. It is not specifically directed
+                  at children under the age of 13. Because the app uses Google AdMob, which
+                  may collect advertising-related data, it is not designed as a children's app
+                  under COPPA or similar regulations.
+                </p>
+              </div>
+            </details>
 
-            <div class="policy-section" id="lf-permissions">
-              <h2>6. What the app does not access</h2>
-              <p>
-                LetterForge does not request and does not use precise location, contacts,
-                camera, microphone, SMS, call logs, or payment information. The app does not
-                collect or sell gameplay history to third parties.
-              </p>
-            </div>
+            <details class="accordion" id="lf-deletion">
+              <summary>Data deletion</summary>
+              <div class="accordion-body">
+                <p>To delete all locally stored LetterForge data from your device, you can:</p>
+                <ul>
+                  <li>
+                    Go to <strong>Android Settings &rarr; Apps &rarr; LetterForge &rarr; Storage &rarr;
+                    Clear data</strong>. This removes all locally stored app data including progress,
+                    coins, XP, achievements, and settings.
+                  </li>
+                  <li>
+                    Uninstall LetterForge from your device. All locally stored data is removed
+                    when the app is uninstalled.
+                  </li>
+                </ul>
+              </div>
+            </details>
 
-            <div class="policy-section" id="lf-sharing">
-              <h2>7. Data sharing</h2>
-              <p>
-                Mini Forge Dev does not sell personal data. LetterForge does not operate its
-                own backend server for saved gameplay data. Third-party services such as
-                Google AdMob may process data in accordance with their own policies.
-              </p>
-            </div>
+            <details class="accordion" id="lf-security">
+              <summary>Security and policy changes</summary>
+              <div class="accordion-body">
+                <p>
+                  LetterForge stores your data locally and relies on Android's built-in
+                  application sandboxing to protect it. Mini Forge Dev takes reasonable care
+                  in developing the application, but no method of electronic storage is
+                  completely secure.
+                </p>
+                <div class="anchor-topic" id="lf-changes">
+                  <h3>Policy changes</h3>
+                  <p>
+                    This privacy policy may be updated when LetterForge adds or removes features,
+                    changes data-handling practices, or integrates new third-party SDKs. The
+                    "Last updated" date at the top of this panel reflects the date of the most
+                    recent revision.
+                  </p>
+                </div>
+              </div>
+            </details>
 
-            <div class="policy-section" id="lf-children">
-              <h2>8. Children and target audience</h2>
-              <p>
-                LetterForge is a general-audience application. It is not specifically directed
-                at children under the age of 13. Because the app uses Google AdMob, which
-                may collect advertising-related data, it is not designed as a children's app
-                under COPPA or similar regulations.
-              </p>
-            </div>
+            <details class="accordion" id="lf-contact">
+              <summary>Contact</summary>
+              <div class="accordion-body">
+                <p>
+                  For privacy questions, data requests, or any concerns regarding this policy,
+                  please contact Mini Forge Dev by email:
+                </p>
+                <a href="mailto:miniforgedev@gmail.com" class="panel-contact">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <rect x="2" y="4" width="20" height="16" rx="2"/>
+                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                  </svg>
+                  miniforgedev@gmail.com
+                </a>
+              </div>
+            </details>
 
-            <div class="policy-section" id="lf-deletion">
-              <h2>9. Data deletion</h2>
-              <p>To delete all locally stored LetterForge data from your device, you can:</p>
-              <ul>
-                <li>
-                  Go to <strong>Android Settings &rarr; Apps &rarr; LetterForge &rarr; Storage &rarr;
-                  Clear data</strong>. This removes all locally stored app data including progress,
-                  coins, XP, achievements, and settings.
-                </li>
-                <li>
-                  Uninstall LetterForge from your device. All locally stored data is removed
-                  when the app is uninstalled.
-                </li>
-              </ul>
-            </div>
-
-            <div class="policy-section" id="lf-security">
-              <h2>10. Security</h2>
-              <p>
-                LetterForge stores your data locally and relies on Android's built-in
-                application sandboxing to protect it. Mini Forge Dev takes reasonable care
-                in developing the application, but no method of electronic storage is
-                completely secure.
-              </p>
-            </div>
-
-            <div class="policy-section" id="lf-changes">
-              <h2>11. Policy changes</h2>
-              <p>
-                This privacy policy may be updated when LetterForge adds or removes features,
-                changes data-handling practices, or integrates new third-party SDKs. The
-                "Last updated" date at the top of this panel reflects the date of the most
-                recent revision.
-              </p>
-            </div>
-
-            <div class="policy-section" id="lf-contact">
-              <h2>12. Contact</h2>
-              <p>
-                For privacy questions, data requests, or any concerns regarding this policy,
-                please contact Mini Forge Dev by email:
-              </p>
-              <a href="mailto:miniforgedev@gmail.com" class="contact-email" style="margin-top: 0.75rem;">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <rect x="2" y="4" width="20" height="16" rx="2"/>
-                  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
-                </svg>
-                miniforgedev@gmail.com
-              </a>
-            </div>
+            <p class="policy-footnote">
+              This document is provided for informational purposes and does not constitute legal advice.
+            </p>
 
           </section><!-- /letterforge -->
 
           <!-- ════════════════════════════════════════
-               EMOJI GUESS POLICY PANEL
+               EMOJI GUESS
                ════════════════════════════════════════ -->
-          <section class="app-policy" data-app-panel="emoji-guess" aria-label="Emoji Guess privacy policy">
+          <section class="app-policy" id="emoji-guess" data-app-panel="emoji-guess" aria-label="Emoji Guess privacy policy">
 
-            <div class="policy-panel-header">
-              <img src="assets/emoji_guess_logo.png" alt="Emoji Guess" class="policy-panel-logo" width="56" height="56">
+            <div class="panel-header">
+              <img src="assets/app-icons/emojiguess.webp" alt="" class="panel-logo" width="52" height="52">
               <div>
-                <div class="policy-panel-name">Emoji Guess</div>
-                <div class="policy-panel-meta">Last updated: 7 July 2026</div>
+                <h2 class="panel-name">Emoji Guess</h2>
+                <p class="panel-meta">Privacy policy · Last updated 7 July 2026</p>
               </div>
             </div>
 
-            <div class="policy-notice">
-              <strong>Note:</strong> This privacy policy should be reviewed whenever Emoji Guess
-              adds or removes third-party SDKs or data-processing features. This document is
-              provided for informational purposes and does not constitute legal advice.
+            <div class="glance" aria-label="Privacy at a glance">
+              <div class="glance-item">
+                <h3><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>Account</h3>
+                <p>No account, registration, or login — core gameplay works offline.</p>
+              </div>
+              <div class="glance-item">
+                <h3><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>On your device</h3>
+                <p>Progress, unlocked stages, coins, hints, and preferences are stored locally only.</p>
+              </div>
+              <div class="glance-item">
+                <h3><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>External services</h3>
+                <p>Google AdMob may serve rewarded and interstitial ads if ads are enabled.</p>
+              </div>
             </div>
 
-            <div class="policy-toc">
-              <h2>Contents</h2>
-              <ol>
-                <li><a href="#eg-overview">Overview</a></li>
-                <li><a href="#eg-offline">Offline gameplay and no account</a></li>
-                <li><a href="#eg-local-data">Information stored locally</a></li>
-                <li><a href="#eg-advertising">Advertising and Google AdMob</a></li>
-                <li><a href="#eg-consent">Consent and privacy choices</a></li>
-                <li><a href="#eg-permissions">What the app does not access</a></li>
-                <li><a href="#eg-sharing">Data sharing</a></li>
-                <li><a href="#eg-children">Children and target audience</a></li>
-                <li><a href="#eg-retention">Data retention</a></li>
-                <li><a href="#eg-deletion">Data deletion</a></li>
-                <li><a href="#eg-security">Security</a></li>
-                <li><a href="#eg-changes">Policy changes</a></li>
-                <li><a href="#eg-contact">Contact</a></li>
-              </ol>
-            </div>
+            <details class="accordion" id="eg-overview" open>
+              <summary>Overview</summary>
+              <div class="accordion-body">
+                <p>
+                  Emoji Guess is an Android emoji puzzle game developed and published by
+                  Mini Forge Dev. It is an entertainment puzzle game in which you guess words,
+                  movies, food, countries, and animals from emoji clues. This privacy policy
+                  explains what information is stored on your device, what data third-party
+                  services may process, and what choices you have regarding your privacy.
+                </p>
+                <p>
+                  Emoji Guess is designed to minimise data collection. Your gameplay data stays
+                  on your device. Where third-party services are used, they are disclosed here
+                  along with their purpose.
+                </p>
+                <div class="anchor-topic" id="eg-offline">
+                  <h3>Offline gameplay and no account</h3>
+                  <p>
+                    Emoji Guess does not require an account, registration, or login of any kind.
+                    No personal profile is created. You can play puzzles, unlock stages, earn
+                    coins, and track your progress without providing any personal information
+                    to Mini Forge Dev.
+                  </p>
+                  <p>
+                    The core gameplay is available offline. Emoji Guess does not provide cloud
+                    sync. Your progress is stored locally on your device and is not backed up
+                    to a remote server operated by Mini Forge Dev.
+                  </p>
+                </div>
+              </div>
+            </details>
 
-            <div class="policy-section" id="eg-overview">
-              <h2>1. Overview</h2>
-              <p>
-                Emoji Guess is an Android emoji puzzle game developed and published by
-                Mini Forge Dev. It is an entertainment puzzle game in which you guess words,
-                movies, food, countries, and animals from emoji clues. This privacy policy
-                explains what information is stored on your device, what data third-party
-                services may process, and what choices you have regarding your privacy.
-              </p>
-              <p>
-                Emoji Guess is designed to minimise data collection. Your gameplay data stays
-                on your device. Where third-party services are used, they are disclosed here
-                along with their purpose.
-              </p>
-            </div>
+            <details class="accordion" id="eg-local-data">
+              <summary>Data stored on your device</summary>
+              <div class="accordion-body">
+                <p>
+                  Emoji Guess may store the following types of data locally on your device.
+                  This information is not transmitted to Mini Forge Dev servers.
+                </p>
+                <ul>
+                  <li>Game progress and unlocked stages</li>
+                  <li>Coin and hint balances</li>
+                  <li>App settings and preferences</li>
+                  <li>Sound and haptics preferences</li>
+                </ul>
+                <p>
+                  All locally stored data can be removed by clearing app data through Android
+                  Settings or by uninstalling Emoji Guess. See the
+                  <a href="#eg-deletion">Data deletion</a> section for instructions.
+                </p>
+              </div>
+            </details>
 
-            <div class="policy-section" id="eg-offline">
-              <h2>2. Offline gameplay and no account</h2>
-              <p>
-                Emoji Guess does not require an account, registration, or login of any kind.
-                No personal profile is created. You can play puzzles, unlock stages, earn
-                coins, and track your progress without providing any personal information
-                to Mini Forge Dev.
-              </p>
-              <p>
-                The core gameplay is available offline. Emoji Guess does not provide cloud
-                sync. Your progress is stored locally on your device and is not backed up
-                to a remote server operated by Mini Forge Dev.
-              </p>
-            </div>
+            <details class="accordion" id="eg-advertising">
+              <summary>Advertising and Google AdMob</summary>
+              <div class="accordion-body">
+                <p>
+                  Emoji Guess may display advertisements served by Google AdMob, a mobile
+                  advertising platform operated by Google LLC, if ads are enabled in the app.
+                  Ad types may include:
+                </p>
+                <ul>
+                  <li>
+                    <strong>Rewarded ads</strong> — optional ads you may choose to watch in
+                    order to earn hints or coins. The reward is granted only after the ad
+                    reward is earned.
+                  </li>
+                  <li>
+                    <strong>Interstitial ads</strong> — full-screen ads that may appear at
+                    natural transition points during gameplay.
+                  </li>
+                </ul>
+                <p>
+                  The Google Mobile Ads SDK may process certain information in order to serve
+                  advertisements and measure their performance. This may include, but is not
+                  necessarily limited to:
+                </p>
+                <ul>
+                  <li>Device identifiers and advertising ID (such as the Android Advertising ID)</li>
+                  <li>IP address and approximate location derived from IP</li>
+                  <li>App interaction and usage data</li>
+                  <li>Diagnostics, crash, and performance information</li>
+                  <li>Advertising and consent information</li>
+                </ul>
+                <p>
+                  Google's privacy policy governs how Google processes information through AdMob.
+                  You can review it at
+                  <a href="https://policies.google.com/privacy" rel="noopener noreferrer" target="_blank">policies.google.com/privacy</a>.
+                </p>
+              </div>
+            </details>
 
-            <div class="policy-section" id="eg-local-data">
-              <h2>3. Information stored locally</h2>
-              <p>
-                Emoji Guess may store the following types of data locally on your device.
-                This information is not transmitted to Mini Forge Dev servers.
-              </p>
-              <ul>
-                <li>Game progress and unlocked stages</li>
-                <li>Coin and hint balances</li>
-                <li>App settings and preferences</li>
-                <li>Sound and haptics preferences</li>
-              </ul>
-              <p>
-                All locally stored data can be removed by clearing app data through Android
-                Settings or by uninstalling Emoji Guess. See the
-                <a href="#eg-deletion">Data deletion</a> section for instructions.
-              </p>
-            </div>
+            <details class="accordion" id="eg-consent">
+              <summary>Privacy choices and consent</summary>
+              <div class="accordion-body">
+                <p>
+                  Emoji Guess may use Google's User Messaging Platform (UMP) to request
+                  advertising consent and present privacy choices where legally required, such
+                  as in regions covered by GDPR, CCPA, and related regulations. You may also
+                  manage advertising preferences through your Android device settings.
+                </p>
+                <p>
+                  If consent is requested when you open the app, you will be presented with clear
+                  options before any personalised advertising is shown. You may be able to revisit
+                  your consent choices through the app's settings or privacy options menu.
+                </p>
+              </div>
+            </details>
 
-            <div class="policy-section" id="eg-advertising">
-              <h2>4. Advertising and Google AdMob</h2>
-              <p>
-                Emoji Guess may display advertisements served by Google AdMob, a mobile
-                advertising platform operated by Google LLC, if ads are enabled in the app.
-                Ad types may include:
-              </p>
-              <ul>
-                <li>
-                  <strong>Rewarded ads</strong> — optional ads you may choose to watch in
-                  order to earn hints or coins. The reward is granted only after the ad
-                  reward is earned.
-                </li>
-                <li>
-                  <strong>Interstitial ads</strong> — full-screen ads that may appear at
-                  natural transition points during gameplay.
-                </li>
-              </ul>
-              <p>
-                The Google Mobile Ads SDK may process certain information in order to serve
-                advertisements and measure their performance. This may include, but is not
-                necessarily limited to:
-              </p>
-              <ul>
-                <li>Device identifiers and advertising ID (such as the Android Advertising ID)</li>
-                <li>IP address and approximate location derived from IP</li>
-                <li>App interaction and usage data</li>
-                <li>Diagnostics, crash, and performance information</li>
-                <li>Advertising and consent information</li>
-              </ul>
-              <p>
-                Google's privacy policy governs how Google processes information through AdMob.
-                You can review it at
-                <a href="https://policies.google.com/privacy" rel="noopener noreferrer" target="_blank">policies.google.com/privacy</a>.
-              </p>
-            </div>
+            <details class="accordion" id="eg-permissions">
+              <summary>Data sharing and what the app does not access</summary>
+              <div class="accordion-body">
+                <p>
+                  Emoji Guess does not request and does not use precise location, contacts,
+                  camera, microphone, SMS, call logs, or payment information. The app does not
+                  collect or sell gameplay history to third parties.
+                </p>
+                <div class="anchor-topic" id="eg-sharing">
+                  <h3>Data sharing</h3>
+                  <p>
+                    Mini Forge Dev does not sell personal data. Emoji Guess does not operate its
+                    own backend server for saved gameplay data. Third-party services such as
+                    Google AdMob may process data in accordance with their own policies.
+                  </p>
+                </div>
+              </div>
+            </details>
 
-            <div class="policy-section" id="eg-consent">
-              <h2>5. Consent and privacy choices</h2>
-              <p>
-                Emoji Guess may use Google's User Messaging Platform (UMP) to request
-                advertising consent and present privacy choices where legally required, such
-                as in regions covered by GDPR, CCPA, and related regulations. You may also
-                manage advertising preferences through your Android device settings.
-              </p>
-              <p>
-                If consent is requested when you open the app, you will be presented with clear
-                options before any personalised advertising is shown. You may be able to revisit
-                your consent choices through the app's settings or privacy options menu.
-              </p>
-            </div>
+            <details class="accordion" id="eg-children">
+              <summary>Children and target audience</summary>
+              <div class="accordion-body">
+                <p>
+                  Emoji Guess is a general-audience application. It is not specifically directed
+                  at children under the age of 13. Because the app may use Google AdMob, which
+                  may collect advertising-related data, it is not designed as a children's app
+                  under COPPA or similar regulations.
+                </p>
+              </div>
+            </details>
 
-            <div class="policy-section" id="eg-permissions">
-              <h2>6. What the app does not access</h2>
-              <p>
-                Emoji Guess does not request and does not use precise location, contacts,
-                camera, microphone, SMS, call logs, or payment information. The app does not
-                collect or sell gameplay history to third parties.
-              </p>
-            </div>
+            <details class="accordion" id="eg-retention">
+              <summary>Data retention and deletion</summary>
+              <div class="accordion-body">
+                <p>
+                  Data stored locally on your device (such as game progress, unlocked stages,
+                  coins, hints, and preferences) is retained until you clear the app data,
+                  reset your progress, or uninstall Emoji Guess. Mini Forge Dev does not
+                  retain personal data on its own servers.
+                </p>
+                <p>
+                  Third-party services such as Google AdMob may retain data in accordance with
+                  their own retention policies.
+                </p>
+                <div class="anchor-topic" id="eg-deletion">
+                  <h3>How to delete your data</h3>
+                  <ul>
+                    <li>
+                      Go to <strong>Android Settings &rarr; Apps &rarr; Emoji Guess &rarr; Storage &rarr;
+                      Clear data</strong>. This removes all locally stored app data including progress,
+                      unlocked stages, coins, hints, and settings.
+                    </li>
+                    <li>
+                      Uninstall Emoji Guess from your device. All locally stored data is removed
+                      when the app is uninstalled.
+                    </li>
+                  </ul>
+                  <p>
+                    For data held by third-party services such as Google AdMob, please refer to
+                    those services' own data deletion instructions or contact them directly.
+                  </p>
+                </div>
+              </div>
+            </details>
 
-            <div class="policy-section" id="eg-sharing">
-              <h2>7. Data sharing</h2>
-              <p>
-                Mini Forge Dev does not sell personal data. Emoji Guess does not operate its
-                own backend server for saved gameplay data. Third-party services such as
-                Google AdMob may process data in accordance with their own policies.
-              </p>
-            </div>
+            <details class="accordion" id="eg-security">
+              <summary>Security and policy changes</summary>
+              <div class="accordion-body">
+                <p>
+                  Emoji Guess stores your data locally and relies on Android's built-in
+                  application sandboxing to protect it. Mini Forge Dev takes reasonable care
+                  in developing the application, but no method of electronic storage is
+                  completely secure.
+                </p>
+                <div class="anchor-topic" id="eg-changes">
+                  <h3>Policy changes</h3>
+                  <p>
+                    This privacy policy may be updated when Emoji Guess adds or removes features,
+                    changes data-handling practices, or integrates new third-party SDKs. The
+                    "Last updated" date at the top of this panel reflects the date of the most
+                    recent revision.
+                  </p>
+                </div>
+              </div>
+            </details>
 
-            <div class="policy-section" id="eg-children">
-              <h2>8. Children and target audience</h2>
-              <p>
-                Emoji Guess is a general-audience application. It is not specifically directed
-                at children under the age of 13. Because the app may use Google AdMob, which
-                may collect advertising-related data, it is not designed as a children's app
-                under COPPA or similar regulations.
-              </p>
-            </div>
+            <details class="accordion" id="eg-contact">
+              <summary>Contact</summary>
+              <div class="accordion-body">
+                <p>
+                  For privacy questions, data requests, or any concerns regarding this policy,
+                  please contact Mini Forge Dev by email:
+                </p>
+                <a href="mailto:miniforgedev@gmail.com" class="panel-contact">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <rect x="2" y="4" width="20" height="16" rx="2"/>
+                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                  </svg>
+                  miniforgedev@gmail.com
+                </a>
+              </div>
+            </details>
 
-            <div class="policy-section" id="eg-retention">
-              <h2>9. Data retention</h2>
-              <p>
-                Data stored locally on your device (such as game progress, unlocked stages,
-                coins, hints, and preferences) is retained until you clear the app data,
-                reset your progress, or uninstall Emoji Guess. Mini Forge Dev does not
-                retain personal data on its own servers.
-              </p>
-              <p>
-                Third-party services such as Google AdMob may retain data in accordance with
-                their own retention policies.
-              </p>
-            </div>
-
-            <div class="policy-section" id="eg-deletion">
-              <h2>10. Data deletion</h2>
-              <p>To delete all locally stored Emoji Guess data from your device, you can:</p>
-              <ul>
-                <li>
-                  Go to <strong>Android Settings &rarr; Apps &rarr; Emoji Guess &rarr; Storage &rarr;
-                  Clear data</strong>. This removes all locally stored app data including progress,
-                  unlocked stages, coins, hints, and settings.
-                </li>
-                <li>
-                  Uninstall Emoji Guess from your device. All locally stored data is removed
-                  when the app is uninstalled.
-                </li>
-              </ul>
-              <p>
-                For data held by third-party services such as Google AdMob, please refer to
-                those services' own data deletion instructions or contact them directly.
-              </p>
-            </div>
-
-            <div class="policy-section" id="eg-security">
-              <h2>11. Security</h2>
-              <p>
-                Emoji Guess stores your data locally and relies on Android's built-in
-                application sandboxing to protect it. Mini Forge Dev takes reasonable care
-                in developing the application, but no method of electronic storage is
-                completely secure.
-              </p>
-            </div>
-
-            <div class="policy-section" id="eg-changes">
-              <h2>12. Policy changes</h2>
-              <p>
-                This privacy policy may be updated when Emoji Guess adds or removes features,
-                changes data-handling practices, or integrates new third-party SDKs. The
-                "Last updated" date at the top of this panel reflects the date of the most
-                recent revision.
-              </p>
-            </div>
-
-            <div class="policy-section" id="eg-contact">
-              <h2>13. Contact</h2>
-              <p>
-                For privacy questions, data requests, or any concerns regarding this policy,
-                please contact Mini Forge Dev by email:
-              </p>
-              <a href="mailto:miniforgedev@gmail.com" class="contact-email" style="margin-top: 0.75rem;">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <rect x="2" y="4" width="20" height="16" rx="2"/>
-                  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
-                </svg>
-                miniforgedev@gmail.com
-              </a>
-            </div>
+            <p class="policy-footnote">
+              This document is provided for informational purposes and does not constitute legal advice.
+            </p>
 
           </section><!-- /emoji-guess -->
 
           <!-- ════════════════════════════════════════
-               GUESS THE TIME POLICY PANEL
+               GUESS THE TIME
                ════════════════════════════════════════ -->
-          <section class="app-policy" data-app-panel="guess-the-time" aria-label="Guess The Time privacy policy">
+          <section class="app-policy" id="guess-the-time" data-app-panel="guess-the-time" aria-label="Guess The Time privacy policy">
 
-            <div class="policy-panel-header">
-              <img src="assets/guessthetime_logo.png" alt="Guess The Time" class="policy-panel-logo" width="56" height="56">
+            <div class="panel-header">
+              <img src="assets/app-icons/guessthetime.webp" alt="" class="panel-logo" width="52" height="52">
               <div>
-                <div class="policy-panel-name">Guess The Time</div>
-                <div class="policy-panel-meta">Last updated: 8 July 2026</div>
+                <h2 class="panel-name">Guess The Time</h2>
+                <p class="panel-meta">Privacy policy · Last updated 8 July 2026</p>
               </div>
             </div>
 
-            <div class="policy-notice">
-              <strong>Note:</strong> This privacy policy should be reviewed whenever Guess The Time
-              adds or removes third-party SDKs or data-processing features. This document is
-              provided for informational purposes and does not constitute legal advice.
+            <div class="glance" aria-label="Privacy at a glance">
+              <div class="glance-item">
+                <h3><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>Account</h3>
+                <p>No account — rooms use shareable codes and an optional display name.</p>
+              </div>
+              <div class="glance-item">
+                <h3><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>On your device</h3>
+                <p>Recent scores, your nickname, and settings are stored locally.</p>
+              </div>
+              <div class="glance-item">
+                <h3><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>External services</h3>
+                <p>Live rooms exchange gameplay data online; Google AdMob may serve ads.</p>
+              </div>
             </div>
 
-            <div class="policy-toc">
-              <h2>Contents</h2>
-              <ol>
-                <li><a href="#gt-overview">Overview</a></li>
-                <li><a href="#gt-no-account">No account required</a></li>
-                <li><a href="#gt-local-data">Information stored locally</a></li>
-                <li><a href="#gt-multiplayer">Multiplayer rooms and gameplay data</a></li>
-                <li><a href="#gt-advertising">Advertising and Google AdMob</a></li>
-                <li><a href="#gt-consent">Consent and privacy choices</a></li>
-                <li><a href="#gt-permissions">What the app does not access</a></li>
-                <li><a href="#gt-sharing">Data sharing</a></li>
-                <li><a href="#gt-children">Children and target audience</a></li>
-                <li><a href="#gt-retention">Data retention</a></li>
-                <li><a href="#gt-deletion">Data deletion</a></li>
-                <li><a href="#gt-security">Security</a></li>
-                <li><a href="#gt-changes">Policy changes</a></li>
-                <li><a href="#gt-contact">Contact</a></li>
-              </ol>
-            </div>
-
-            <div class="policy-section" id="gt-overview">
-              <h2>1. Overview</h2>
+            <div class="callout">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+              </svg>
               <p>
-                Guess The Time is an Android multiplayer guessing game developed and published by
-                Mini Forge Dev. In it, you create or join a room, invite friends, and guess the
-                hidden time across multiple rounds while scores are compared. This privacy policy
-                explains what information is stored on your device, what data is used to support
-                multiplayer gameplay, what data third-party services may process, and what choices
-                you have regarding your privacy.
-              </p>
-              <p>
-                Guess The Time is designed to minimise data collection. Where third-party services
-                are used, they are disclosed here along with their purpose.
+                <strong>Multiplayer visibility:</strong> your chosen display name, guesses, and
+                scores are shared with the other players in your room to run the game. Avoid
+                entering personal information in your display name.
               </p>
             </div>
 
-            <div class="policy-section" id="gt-no-account">
-              <h2>2. No account required</h2>
-              <p>
-                Guess The Time does not require an account, registration, or login of any kind.
-                No personal profile is created. You can create or join rooms, play rounds, and
-                compare scores without providing any personal information to Mini Forge Dev.
-              </p>
-              <p>
-                Because the game is multiplayer, an active internet connection is needed to create
-                or join a room and to play rounds with other players in real time. Single-device
-                actions such as changing settings do not require a connection.
-              </p>
-            </div>
+            <details class="accordion" id="gt-overview" open>
+              <summary>Overview</summary>
+              <div class="accordion-body">
+                <p>
+                  Guess The Time is an Android multiplayer guessing game developed and published by
+                  Mini Forge Dev. In it, you create or join a room, invite friends, and guess the
+                  hidden time across multiple rounds while scores are compared. This privacy policy
+                  explains what information is stored on your device, what data is used to support
+                  multiplayer gameplay, what data third-party services may process, and what choices
+                  you have regarding your privacy.
+                </p>
+                <p>
+                  Guess The Time is designed to minimise data collection. Where third-party services
+                  are used, they are disclosed here along with their purpose.
+                </p>
+                <div class="anchor-topic" id="gt-no-account">
+                  <h3>No account required</h3>
+                  <p>
+                    Guess The Time does not require an account, registration, or login of any kind.
+                    No personal profile is created. You can create or join rooms, play rounds, and
+                    compare scores without providing any personal information to Mini Forge Dev.
+                  </p>
+                  <p>
+                    Because the game is multiplayer, an active internet connection is needed to create
+                    or join a room and to play rounds with other players in real time. Single-device
+                    actions such as changing settings do not require a connection.
+                  </p>
+                </div>
+              </div>
+            </details>
 
-            <div class="policy-section" id="gt-local-data">
-              <h2>3. Information stored locally</h2>
-              <p>
-                Guess The Time may store the following types of data locally on your device.
-                This information is not transmitted to Mini Forge Dev servers except as needed to
-                support multiplayer gameplay, as described below.
-              </p>
-              <ul>
-                <li>Room and game progress, including current round state</li>
-                <li>Scores and round results from your recent games</li>
-                <li>A display name or nickname you choose, if you set one</li>
-                <li>App settings and preferences</li>
-                <li>Sound and haptics preferences</li>
-              </ul>
-              <p>
-                All locally stored data can be removed by clearing app data through Android
-                Settings or by uninstalling Guess The Time. See the
-                <a href="#gt-deletion">Data deletion</a> section for instructions.
-              </p>
-            </div>
+            <details class="accordion" id="gt-multiplayer">
+              <summary>Multiplayer rooms and gameplay data</summary>
+              <div class="accordion-body">
+                <p>
+                  Guess The Time is a multiplayer game. When you create or join a room, certain
+                  room-related information is exchanged only to support gameplay. This may include:
+                </p>
+                <ul>
+                  <li>Room codes or invitation links used to join a shared game</li>
+                  <li>A display name or nickname you choose for the room</li>
+                  <li>Your guesses, round results, and scores for the current game</li>
+                  <li>Round and turn state needed to keep all players in sync</li>
+                </ul>
+                <p>
+                  This information is used only to run the shared game — such as joining rooms,
+                  playing rounds, comparing scores, and sending invitations — and is not used to
+                  build advertising or marketing profiles. Please avoid entering personal
+                  information into your display name, as it may be visible to other players in the
+                  same room.
+                </p>
+              </div>
+            </details>
 
-            <div class="policy-section" id="gt-multiplayer">
-              <h2>4. Multiplayer rooms and gameplay data</h2>
-              <p>
-                Guess The Time is a multiplayer game. When you create or join a room, certain
-                room-related information is exchanged only to support gameplay. This may include:
-              </p>
-              <ul>
-                <li>Room codes or invitation links used to join a shared game</li>
-                <li>A display name or nickname you choose for the room</li>
-                <li>Your guesses, round results, and scores for the current game</li>
-                <li>Round and turn state needed to keep all players in sync</li>
-              </ul>
-              <p>
-                This information is used only to run the shared game — such as joining rooms,
-                playing rounds, comparing scores, and sending invitations — and is not used to
-                build advertising or marketing profiles. Please avoid entering personal
-                information into your display name, as it may be visible to other players in the
-                same room.
-              </p>
-            </div>
+            <details class="accordion" id="gt-local-data">
+              <summary>Data stored on your device</summary>
+              <div class="accordion-body">
+                <p>
+                  Guess The Time may store the following types of data locally on your device.
+                  This information is not transmitted to Mini Forge Dev servers except as needed to
+                  support multiplayer gameplay, as described above.
+                </p>
+                <ul>
+                  <li>Room and game progress, including current round state</li>
+                  <li>Scores and round results from your recent games</li>
+                  <li>A display name or nickname you choose, if you set one</li>
+                  <li>App settings and preferences</li>
+                  <li>Sound and haptics preferences</li>
+                </ul>
+                <p>
+                  All locally stored data can be removed by clearing app data through Android
+                  Settings or by uninstalling Guess The Time. See the
+                  <a href="#gt-deletion">Data deletion</a> section for instructions.
+                </p>
+              </div>
+            </details>
 
-            <div class="policy-section" id="gt-advertising">
-              <h2>5. Advertising and Google AdMob</h2>
-              <p>
-                Guess The Time may display advertisements served by Google AdMob, a mobile
-                advertising platform operated by Google LLC, if ads are enabled in the app.
-                Ad types may include:
-              </p>
-              <ul>
-                <li>
-                  <strong>Rewarded ads</strong> — optional ads you may choose to watch in
-                  order to earn in-game rewards. The reward is granted only after the ad
-                  reward is earned.
-                </li>
-                <li>
-                  <strong>Interstitial ads</strong> — full-screen ads that may appear at
-                  natural transition points, such as between rounds or games.
-                </li>
-              </ul>
-              <p>
-                The Google Mobile Ads SDK may process certain information in order to serve
-                advertisements and measure their performance. This may include, but is not
-                necessarily limited to:
-              </p>
-              <ul>
-                <li>Device identifiers and advertising ID (such as the Android Advertising ID)</li>
-                <li>IP address and approximate location derived from IP</li>
-                <li>App interaction and usage data</li>
-                <li>Diagnostics, crash, and performance information</li>
-                <li>Advertising and consent information</li>
-              </ul>
-              <p>
-                Google's privacy policy governs how Google processes information through AdMob.
-                You can review it at
-                <a href="https://policies.google.com/privacy" rel="noopener noreferrer" target="_blank">policies.google.com/privacy</a>.
-              </p>
-            </div>
+            <details class="accordion" id="gt-advertising">
+              <summary>Advertising and Google AdMob</summary>
+              <div class="accordion-body">
+                <p>
+                  Guess The Time may display advertisements served by Google AdMob, a mobile
+                  advertising platform operated by Google LLC, if ads are enabled in the app.
+                  Ad types may include:
+                </p>
+                <ul>
+                  <li>
+                    <strong>Rewarded ads</strong> — optional ads you may choose to watch in
+                    order to earn in-game rewards. The reward is granted only after the ad
+                    reward is earned.
+                  </li>
+                  <li>
+                    <strong>Interstitial ads</strong> — full-screen ads that may appear at
+                    natural transition points, such as between rounds or games.
+                  </li>
+                </ul>
+                <p>
+                  The Google Mobile Ads SDK may process certain information in order to serve
+                  advertisements and measure their performance. This may include, but is not
+                  necessarily limited to:
+                </p>
+                <ul>
+                  <li>Device identifiers and advertising ID (such as the Android Advertising ID)</li>
+                  <li>IP address and approximate location derived from IP</li>
+                  <li>App interaction and usage data</li>
+                  <li>Diagnostics, crash, and performance information</li>
+                  <li>Advertising and consent information</li>
+                </ul>
+                <p>
+                  Google's privacy policy governs how Google processes information through AdMob.
+                  You can review it at
+                  <a href="https://policies.google.com/privacy" rel="noopener noreferrer" target="_blank">policies.google.com/privacy</a>.
+                </p>
+              </div>
+            </details>
 
-            <div class="policy-section" id="gt-consent">
-              <h2>6. Consent and privacy choices</h2>
-              <p>
-                Guess The Time may use Google's User Messaging Platform (UMP) to request
-                advertising consent and present privacy choices where legally required, such
-                as in regions covered by GDPR, CCPA, and related regulations. You may also
-                manage advertising preferences through your Android device settings.
-              </p>
-              <p>
-                If consent is requested when you open the app, you will be presented with clear
-                options before any personalised advertising is shown. You may be able to revisit
-                your consent choices through the app's settings or privacy options menu.
-              </p>
-            </div>
+            <details class="accordion" id="gt-consent">
+              <summary>Privacy choices and consent</summary>
+              <div class="accordion-body">
+                <p>
+                  Guess The Time may use Google's User Messaging Platform (UMP) to request
+                  advertising consent and present privacy choices where legally required, such
+                  as in regions covered by GDPR, CCPA, and related regulations. You may also
+                  manage advertising preferences through your Android device settings.
+                </p>
+                <p>
+                  If consent is requested when you open the app, you will be presented with clear
+                  options before any personalised advertising is shown. You may be able to revisit
+                  your consent choices through the app's settings or privacy options menu.
+                </p>
+              </div>
+            </details>
 
-            <div class="policy-section" id="gt-permissions">
-              <h2>7. What the app does not access</h2>
-              <p>
-                Guess The Time does not request and does not use precise location, contacts,
-                camera, microphone, SMS, call logs, or payment information. Invitations are sent
-                using shareable room codes or links rather than by accessing your contacts. The
-                app does not collect or sell gameplay history to third parties.
-              </p>
-            </div>
+            <details class="accordion" id="gt-permissions">
+              <summary>Data sharing and what the app does not access</summary>
+              <div class="accordion-body">
+                <p>
+                  Guess The Time does not request and does not use precise location, contacts,
+                  camera, microphone, SMS, call logs, or payment information. Invitations are sent
+                  using shareable room codes or links rather than by accessing your contacts. The
+                  app does not collect or sell gameplay history to third parties.
+                </p>
+                <div class="anchor-topic" id="gt-sharing">
+                  <h3>Data sharing</h3>
+                  <p>
+                    Mini Forge Dev does not sell personal data. Room and gameplay information is used
+                    only to support multiplayer play between the participants in a room, as described
+                    in <a href="#gt-multiplayer">Multiplayer rooms and gameplay data</a>. Third-party
+                    services such as Google AdMob may process data in accordance with their own
+                    policies.
+                  </p>
+                </div>
+              </div>
+            </details>
 
-            <div class="policy-section" id="gt-sharing">
-              <h2>8. Data sharing</h2>
-              <p>
-                Mini Forge Dev does not sell personal data. Room and gameplay information is used
-                only to support multiplayer play between the participants in a room, as described
-                in <a href="#gt-multiplayer">Multiplayer rooms and gameplay data</a>. Third-party
-                services such as Google AdMob may process data in accordance with their own
-                policies.
-              </p>
-            </div>
+            <details class="accordion" id="gt-children">
+              <summary>Children and target audience</summary>
+              <div class="accordion-body">
+                <p>
+                  Guess The Time is a general-audience application. It is not specifically directed
+                  at children under the age of 13. Because the app may use Google AdMob, which
+                  may collect advertising-related data, it is not designed as a children's app
+                  under COPPA or similar regulations.
+                </p>
+              </div>
+            </details>
 
-            <div class="policy-section" id="gt-children">
-              <h2>9. Children and target audience</h2>
-              <p>
-                Guess The Time is a general-audience application. It is not specifically directed
-                at children under the age of 13. Because the app may use Google AdMob, which
-                may collect advertising-related data, it is not designed as a children's app
-                under COPPA or similar regulations.
-              </p>
-            </div>
+            <details class="accordion" id="gt-retention">
+              <summary>Data retention and deletion</summary>
+              <div class="accordion-body">
+                <p>
+                  Data stored locally on your device (such as game progress, scores, a display name,
+                  and preferences) is retained until you clear the app data, reset your progress, or
+                  uninstall Guess The Time. Mini Forge Dev does not retain personal data on its own
+                  servers, and room data used for live gameplay is only kept as needed to run the
+                  current game.
+                </p>
+                <p>
+                  Third-party services such as Google AdMob may retain data in accordance with
+                  their own retention policies.
+                </p>
+                <div class="anchor-topic" id="gt-deletion">
+                  <h3>How to delete your data</h3>
+                  <ul>
+                    <li>
+                      Go to <strong>Android Settings &rarr; Apps &rarr; Guess The Time &rarr; Storage &rarr;
+                      Clear data</strong>. This removes all locally stored app data including room and
+                      game progress, scores, a display name, and settings.
+                    </li>
+                    <li>
+                      Uninstall Guess The Time from your device. All locally stored data is removed
+                      when the app is uninstalled.
+                    </li>
+                  </ul>
+                  <p>
+                    For data held by third-party services such as Google AdMob, please refer to
+                    those services' own data deletion instructions or contact them directly.
+                  </p>
+                </div>
+              </div>
+            </details>
 
-            <div class="policy-section" id="gt-retention">
-              <h2>10. Data retention</h2>
-              <p>
-                Data stored locally on your device (such as game progress, scores, a display name,
-                and preferences) is retained until you clear the app data, reset your progress, or
-                uninstall Guess The Time. Mini Forge Dev does not retain personal data on its own
-                servers, and room data used for live gameplay is only kept as needed to run the
-                current game.
-              </p>
-              <p>
-                Third-party services such as Google AdMob may retain data in accordance with
-                their own retention policies.
-              </p>
-            </div>
+            <details class="accordion" id="gt-security">
+              <summary>Security and policy changes</summary>
+              <div class="accordion-body">
+                <p>
+                  Guess The Time stores your data locally and relies on Android's built-in
+                  application sandboxing to protect it. Mini Forge Dev takes reasonable care
+                  in developing the application, but no method of electronic storage or
+                  transmission is completely secure.
+                </p>
+                <div class="anchor-topic" id="gt-changes">
+                  <h3>Policy changes</h3>
+                  <p>
+                    This privacy policy may be updated when Guess The Time adds or removes features,
+                    changes data-handling practices, or integrates new third-party SDKs. The
+                    "Last updated" date at the top of this panel reflects the date of the most
+                    recent revision.
+                  </p>
+                </div>
+              </div>
+            </details>
 
-            <div class="policy-section" id="gt-deletion">
-              <h2>11. Data deletion</h2>
-              <p>To delete all locally stored Guess The Time data from your device, you can:</p>
-              <ul>
-                <li>
-                  Go to <strong>Android Settings &rarr; Apps &rarr; Guess The Time &rarr; Storage &rarr;
-                  Clear data</strong>. This removes all locally stored app data including room and
-                  game progress, scores, a display name, and settings.
-                </li>
-                <li>
-                  Uninstall Guess The Time from your device. All locally stored data is removed
-                  when the app is uninstalled.
-                </li>
-              </ul>
-              <p>
-                For data held by third-party services such as Google AdMob, please refer to
-                those services' own data deletion instructions or contact them directly.
-              </p>
-            </div>
+            <details class="accordion" id="gt-contact">
+              <summary>Contact</summary>
+              <div class="accordion-body">
+                <p>
+                  For privacy questions, data requests, or any concerns regarding this policy,
+                  please contact Mini Forge Dev by email:
+                </p>
+                <a href="mailto:miniforgedev@gmail.com" class="panel-contact">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <rect x="2" y="4" width="20" height="16" rx="2"/>
+                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                  </svg>
+                  miniforgedev@gmail.com
+                </a>
+              </div>
+            </details>
 
-            <div class="policy-section" id="gt-security">
-              <h2>12. Security</h2>
-              <p>
-                Guess The Time stores your data locally and relies on Android's built-in
-                application sandboxing to protect it. Mini Forge Dev takes reasonable care
-                in developing the application, but no method of electronic storage or
-                transmission is completely secure.
-              </p>
-            </div>
-
-            <div class="policy-section" id="gt-changes">
-              <h2>13. Policy changes</h2>
-              <p>
-                This privacy policy may be updated when Guess The Time adds or removes features,
-                changes data-handling practices, or integrates new third-party SDKs. The
-                "Last updated" date at the top of this panel reflects the date of the most
-                recent revision.
-              </p>
-            </div>
-
-            <div class="policy-section" id="gt-contact">
-              <h2>14. Contact</h2>
-              <p>
-                For privacy questions, data requests, or any concerns regarding this policy,
-                please contact Mini Forge Dev by email:
-              </p>
-              <a href="mailto:miniforgedev@gmail.com" class="contact-email" style="margin-top: 0.75rem;">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <rect x="2" y="4" width="20" height="16" rx="2"/>
-                  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
-                </svg>
-                miniforgedev@gmail.com
-              </a>
-            </div>
+            <p class="policy-footnote">
+              This document is provided for informational purposes and does not constitute legal advice.
+            </p>
 
           </section><!-- /guess-the-time -->
 
           <!-- ════════════════════════════════════════
-               FOODFIT SCAN POLICY PANEL
+               FOODFIT SCAN
                ════════════════════════════════════════ -->
-          <section class="app-policy" data-app-panel="foodfit-scan" aria-label="FoodFit Scan privacy policy">
+          <section class="app-policy" id="foodfit-scan" data-app-panel="foodfit-scan" aria-label="FoodFit Scan privacy policy">
 
-            <div class="policy-panel-header">
-              <img src="assets/foodfit_logo.png" alt="FoodFit Scan" class="policy-panel-logo" width="56" height="56">
+            <div class="panel-header">
+              <img src="assets/app-icons/foodfit.webp" alt="" class="panel-logo" width="52" height="52">
               <div>
-                <div class="policy-panel-name">FoodFit Scan</div>
-                <div class="policy-panel-meta">Last updated: 10 July 2026</div>
+                <h2 class="panel-name">FoodFit Scan</h2>
+                <p class="panel-meta">Privacy policy · Last updated 10 July 2026</p>
               </div>
             </div>
 
-            <div class="policy-notice">
-              <strong>Note:</strong> This privacy policy should be reviewed whenever FoodFit Scan
-              adds or removes third-party SDKs or data-processing features. This document is
-              provided for informational purposes and does not constitute legal advice.
+            <div class="glance" aria-label="Privacy at a glance">
+              <div class="glance-item">
+                <h3><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>Account</h3>
+                <p>No account, registration, or login — no personal profile is created.</p>
+              </div>
+              <div class="glance-item">
+                <h3><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>On your device</h3>
+                <p>Scan history, nutrition goals, allergen preferences, and cached products stay local.</p>
+              </div>
+              <div class="glance-item">
+                <h3><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>External services</h3>
+                <p>Product data comes from Open Food Facts and a product search index; AdMob may serve ads.</p>
+              </div>
             </div>
 
-            <div class="policy-toc">
-              <h2>Contents</h2>
-              <ol>
-                <li><a href="#ff-overview">Overview</a></li>
-                <li><a href="#ff-account">No account required</a></li>
-                <li><a href="#ff-camera">Camera permission and barcode scanning</a></li>
-                <li><a href="#ff-food-data">Food product data sources</a></li>
-                <li><a href="#ff-local-data">Information stored locally</a></li>
-                <li><a href="#ff-advertising">Advertising and Google AdMob</a></li>
-                <li><a href="#ff-consent">Consent and privacy choices</a></li>
-                <li><a href="#ff-medical">Not medical advice</a></li>
-                <li><a href="#ff-sharing">Data sharing</a></li>
-                <li><a href="#ff-children">Children and target audience</a></li>
-                <li><a href="#ff-retention">Data retention</a></li>
-                <li><a href="#ff-deletion">Data deletion</a></li>
-                <li><a href="#ff-security">Security</a></li>
-                <li><a href="#ff-changes">Policy changes</a></li>
-                <li><a href="#ff-contact">Contact</a></li>
-              </ol>
-            </div>
-
-            <div class="policy-section" id="ff-overview">
-              <h2>1. Overview</h2>
+            <div class="callout">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>
+              </svg>
               <p>
-                FoodFit Scan is an Android food barcode and nutrition scanner application
-                developed and published by Mini Forge Dev. You can scan or search packaged
-                food to check nutrition details, allergens, additives, NOVA group, and how
-                well a product fits your nutrition goals. This privacy policy explains what
-                information is stored on your device, what data third-party services may
-                process, and what choices you have regarding your privacy.
-              </p>
-              <p>
-                FoodFit Scan is designed to minimise data collection. Your food history,
-                nutrition goals, and preferences stay on your device. Where third-party
-                services are used, they are disclosed here along with their purpose.
+                <strong>Not medical advice:</strong> nutrition, allergen, and suitability results are
+                informational only and may be incomplete or out of date. Always check the physical
+                product label — especially for allergens — and consult a qualified healthcare
+                professional for dietary or medical decisions.
               </p>
             </div>
 
-            <div class="policy-section" id="ff-account">
-              <h2>2. No account required</h2>
-              <p>
-                FoodFit Scan does not require an account, registration, or login of any kind.
-                No personal profile is created. You can scan products, search foods, set
-                nutrition goals, and manage allergen and additive preferences without
-                providing any personal information to Mini Forge Dev.
-              </p>
-            </div>
+            <details class="accordion" id="ff-overview" open>
+              <summary>Overview</summary>
+              <div class="accordion-body">
+                <p>
+                  FoodFit Scan is an Android food barcode and nutrition scanner application
+                  developed and published by Mini Forge Dev. You can scan or search packaged
+                  food to check nutrition details, allergens, additives, NOVA group, and how
+                  well a product fits your nutrition goals. This privacy policy explains what
+                  information is stored on your device, what data third-party services may
+                  process, and what choices you have regarding your privacy.
+                </p>
+                <p>
+                  FoodFit Scan is designed to minimise data collection. Your food history,
+                  nutrition goals, and preferences stay on your device. Where third-party
+                  services are used, they are disclosed here along with their purpose.
+                </p>
+                <div class="anchor-topic" id="ff-account">
+                  <h3>No account required</h3>
+                  <p>
+                    FoodFit Scan does not require an account, registration, or login of any kind.
+                    No personal profile is created. You can scan products, search foods, set
+                    nutrition goals, and manage allergen and additive preferences without
+                    providing any personal information to Mini Forge Dev.
+                  </p>
+                </div>
+              </div>
+            </details>
 
-            <div class="policy-section" id="ff-camera">
-              <h2>3. Camera permission and barcode scanning</h2>
-              <p>
-                FoodFit Scan requests the camera permission only for barcode scanning. The
-                camera image is processed on your device to detect the product barcode.
-                Camera frames are not recorded, stored, or transmitted to Mini Forge Dev
-                servers.
-              </p>
-              <p>
-                You can deny or revoke the camera permission at any time through Android
-                Settings and continue to use the app by searching for products manually.
-              </p>
-            </div>
+            <details class="accordion" id="ff-camera">
+              <summary>Camera permission and barcode scanning</summary>
+              <div class="accordion-body">
+                <p>
+                  FoodFit Scan requests the camera permission only for barcode scanning. The
+                  camera image is processed on your device to detect the product barcode.
+                  Camera frames are not recorded, stored, or transmitted to Mini Forge Dev
+                  servers.
+                </p>
+                <p>
+                  You can deny or revoke the camera permission at any time through Android
+                  Settings and continue to use the app by searching for products manually.
+                </p>
+              </div>
+            </details>
 
-            <div class="policy-section" id="ff-food-data">
-              <h2>4. Food product data sources</h2>
-              <p>
-                When you scan a barcode or search for a product, the product barcode or your
-                search query is used to look up food information from Open Food Facts and/or
-                the app's product search index. When the app fetches this information, your
-                device makes a network request to the data provider's servers. The data
-                provider's own privacy policy governs how they handle those requests.
-              </p>
-              <p>
-                Open Food Facts is an independent, collaborative food products database. Its
-                terms of use and privacy policy are available at the Open Food Facts website.
-                FoodFit Scan is not endorsed by or affiliated with Open Food Facts.
-              </p>
-            </div>
+            <details class="accordion" id="ff-local-data">
+              <summary>Data stored on your device</summary>
+              <div class="accordion-body">
+                <p>
+                  FoodFit Scan may store the following types of data locally on your device.
+                  This information is not transmitted to Mini Forge Dev servers.
+                </p>
+                <ul>
+                  <li>Food history of products you have scanned or viewed</li>
+                  <li>Cached product details for faster and offline viewing</li>
+                  <li>Nutrition goals you have set</li>
+                  <li>Allergen and additive preferences</li>
+                  <li>App settings and preferences</li>
+                </ul>
+                <p>
+                  All locally stored data can be removed by deleting your history in the app,
+                  clearing app data through Android Settings, or uninstalling FoodFit Scan.
+                  See the <a href="#ff-deletion">Data deletion</a> section for instructions.
+                </p>
+              </div>
+            </details>
 
-            <div class="policy-section" id="ff-local-data">
-              <h2>5. Information stored locally</h2>
-              <p>
-                FoodFit Scan may store the following types of data locally on your device.
-                This information is not transmitted to Mini Forge Dev servers.
-              </p>
-              <ul>
-                <li>Food history of products you have scanned or viewed</li>
-                <li>Cached product details for faster and offline viewing</li>
-                <li>Nutrition goals you have set</li>
-                <li>Allergen and additive preferences</li>
-                <li>App settings and preferences</li>
-              </ul>
-              <p>
-                All locally stored data can be removed by deleting your history in the app,
-                clearing app data through Android Settings, or uninstalling FoodFit Scan.
-                See the <a href="#ff-deletion">Data deletion</a> section for instructions.
-              </p>
-            </div>
+            <details class="accordion" id="ff-food-data">
+              <summary>Product data and advertising</summary>
+              <div class="accordion-body">
+                <h3>Food product data sources</h3>
+                <p>
+                  When you scan a barcode or search for a product, the product barcode or your
+                  search query is used to look up food information from Open Food Facts and/or
+                  the app's product search index. When the app fetches this information, your
+                  device makes a network request to the data provider's servers. The data
+                  provider's own privacy policy governs how they handle those requests.
+                </p>
+                <p>
+                  Open Food Facts is an independent, collaborative food products database. Its
+                  terms of use and privacy policy are available at the Open Food Facts website.
+                  FoodFit Scan is not endorsed by or affiliated with Open Food Facts.
+                </p>
+                <div class="anchor-topic" id="ff-advertising">
+                  <h3>Advertising and Google AdMob</h3>
+                  <p>
+                    FoodFit Scan may display advertisements served by Google AdMob, a mobile
+                    advertising platform operated by Google LLC, if ads are enabled in the app.
+                  </p>
+                  <p>
+                    The Google Mobile Ads SDK may process certain information in order to serve
+                    advertisements and measure their performance. This may include, but is not
+                    necessarily limited to:
+                  </p>
+                  <ul>
+                    <li>Device identifiers and advertising ID (such as the Android Advertising ID)</li>
+                    <li>IP address and approximate location derived from IP</li>
+                    <li>App interaction and usage data</li>
+                    <li>Diagnostics, crash, and performance information</li>
+                    <li>Advertising and consent information</li>
+                  </ul>
+                  <p>
+                    Google's privacy policy governs how Google processes information through AdMob.
+                    You can review it at
+                    <a href="https://policies.google.com/privacy" rel="noopener noreferrer" target="_blank">policies.google.com/privacy</a>.
+                  </p>
+                </div>
+              </div>
+            </details>
 
-            <div class="policy-section" id="ff-advertising">
-              <h2>6. Advertising and Google AdMob</h2>
-              <p>
-                FoodFit Scan may display advertisements served by Google AdMob, a mobile
-                advertising platform operated by Google LLC, if ads are enabled in the app.
-              </p>
-              <p>
-                The Google Mobile Ads SDK may process certain information in order to serve
-                advertisements and measure their performance. This may include, but is not
-                necessarily limited to:
-              </p>
-              <ul>
-                <li>Device identifiers and advertising ID (such as the Android Advertising ID)</li>
-                <li>IP address and approximate location derived from IP</li>
-                <li>App interaction and usage data</li>
-                <li>Diagnostics, crash, and performance information</li>
-                <li>Advertising and consent information</li>
-              </ul>
-              <p>
-                Google's privacy policy governs how Google processes information through AdMob.
-                You can review it at
-                <a href="https://policies.google.com/privacy" rel="noopener noreferrer" target="_blank">policies.google.com/privacy</a>.
-              </p>
-            </div>
+            <details class="accordion" id="ff-consent">
+              <summary>Privacy choices and consent</summary>
+              <div class="accordion-body">
+                <p>
+                  FoodFit Scan may use Google's User Messaging Platform (UMP) to request
+                  advertising consent and present privacy choices where legally required, such
+                  as in regions covered by GDPR, CCPA, and related regulations. You may also
+                  manage advertising preferences through your Android device settings.
+                </p>
+                <p>
+                  If consent is requested when you open the app, you will be presented with clear
+                  options before any personalised advertising is shown. You may be able to revisit
+                  your consent choices through the app's settings or privacy options menu.
+                </p>
+              </div>
+            </details>
 
-            <div class="policy-section" id="ff-consent">
-              <h2>7. Consent and privacy choices</h2>
-              <p>
-                FoodFit Scan may use Google's User Messaging Platform (UMP) to request
-                advertising consent and present privacy choices where legally required, such
-                as in regions covered by GDPR, CCPA, and related regulations. You may also
-                manage advertising preferences through your Android device settings.
-              </p>
-              <p>
-                If consent is requested when you open the app, you will be presented with clear
-                options before any personalised advertising is shown. You may be able to revisit
-                your consent choices through the app's settings or privacy options menu.
-              </p>
-            </div>
+            <details class="accordion" id="ff-medical">
+              <summary>Not medical advice</summary>
+              <div class="accordion-body">
+                <p>
+                  FoodFit Scan does not provide medical advice. Nutrition details, allergen and
+                  additive information, NOVA group classifications, and nutrition suitability
+                  indicators are provided for general information only. Product data may be
+                  incomplete or out of date, so always check the physical product label —
+                  especially for allergens. Consult a qualified healthcare professional for
+                  dietary or medical decisions.
+                </p>
+              </div>
+            </details>
 
-            <div class="policy-section" id="ff-medical">
-              <h2>8. Not medical advice</h2>
-              <p>
-                FoodFit Scan does not provide medical advice. Nutrition details, allergen and
-                additive information, NOVA group classifications, and nutrition suitability
-                indicators are provided for general information only. Product data may be
-                incomplete or out of date, so always check the physical product label —
-                especially for allergens. Consult a qualified healthcare professional for
-                dietary or medical decisions.
-              </p>
-            </div>
+            <details class="accordion" id="ff-sharing">
+              <summary>Data sharing</summary>
+              <div class="accordion-body">
+                <p>
+                  Mini Forge Dev does not sell personal data. FoodFit Scan does not operate its
+                  own backend server for your food history, goals, or preferences. Third-party
+                  services such as Open Food Facts and Google AdMob may process data in
+                  accordance with their own policies.
+                </p>
+              </div>
+            </details>
 
-            <div class="policy-section" id="ff-sharing">
-              <h2>9. Data sharing</h2>
-              <p>
-                Mini Forge Dev does not sell personal data. FoodFit Scan does not operate its
-                own backend server for your food history, goals, or preferences. Third-party
-                services such as Open Food Facts and Google AdMob may process data in
-                accordance with their own policies.
-              </p>
-            </div>
+            <details class="accordion" id="ff-children">
+              <summary>Children and target audience</summary>
+              <div class="accordion-body">
+                <p>
+                  FoodFit Scan is a general-audience application. It is not specifically directed
+                  at children under the age of 13. Because the app may use Google AdMob, which
+                  may collect advertising-related data, it is not designed as a children's app
+                  under COPPA or similar regulations.
+                </p>
+              </div>
+            </details>
 
-            <div class="policy-section" id="ff-children">
-              <h2>10. Children and target audience</h2>
-              <p>
-                FoodFit Scan is a general-audience application. It is not specifically directed
-                at children under the age of 13. Because the app may use Google AdMob, which
-                may collect advertising-related data, it is not designed as a children's app
-                under COPPA or similar regulations.
-              </p>
-            </div>
+            <details class="accordion" id="ff-retention">
+              <summary>Data retention and deletion</summary>
+              <div class="accordion-body">
+                <p>
+                  Data stored locally on your device (such as food history, cached products,
+                  nutrition goals, allergen and additive preferences, and settings) is retained
+                  until you delete your history in the app, clear the app data, or uninstall
+                  FoodFit Scan. Mini Forge Dev does not retain personal data on its own servers.
+                </p>
+                <p>
+                  Third-party services such as Google AdMob may retain data in accordance with
+                  their own retention policies.
+                </p>
+                <div class="anchor-topic" id="ff-deletion">
+                  <h3>How to delete your data</h3>
+                  <ul>
+                    <li>
+                      Delete your food history from within the app, where a history deletion
+                      option is provided.
+                    </li>
+                    <li>
+                      Go to <strong>Android Settings &rarr; Apps &rarr; FoodFit Scan &rarr; Storage &rarr;
+                      Clear data</strong>. This removes all locally stored app data including food
+                      history, cached products, nutrition goals, preferences, and settings.
+                    </li>
+                    <li>
+                      Uninstall FoodFit Scan from your device. All locally stored data is removed
+                      when the app is uninstalled.
+                    </li>
+                  </ul>
+                  <p>
+                    For data held by third-party services such as Google AdMob, please refer to
+                    those services' own data deletion instructions or contact them directly.
+                  </p>
+                </div>
+              </div>
+            </details>
 
-            <div class="policy-section" id="ff-retention">
-              <h2>11. Data retention</h2>
-              <p>
-                Data stored locally on your device (such as food history, cached products,
-                nutrition goals, allergen and additive preferences, and settings) is retained
-                until you delete your history in the app, clear the app data, or uninstall
-                FoodFit Scan. Mini Forge Dev does not retain personal data on its own servers.
-              </p>
-              <p>
-                Third-party services such as Google AdMob may retain data in accordance with
-                their own retention policies.
-              </p>
-            </div>
+            <details class="accordion" id="ff-security">
+              <summary>Security and policy changes</summary>
+              <div class="accordion-body">
+                <p>
+                  FoodFit Scan stores your data locally and relies on Android's built-in
+                  application sandboxing to protect it. Mini Forge Dev takes reasonable care
+                  in developing the application, but no method of electronic storage is
+                  completely secure.
+                </p>
+                <div class="anchor-topic" id="ff-changes">
+                  <h3>Policy changes</h3>
+                  <p>
+                    This privacy policy may be updated when FoodFit Scan adds or removes features,
+                    changes data-handling practices, or integrates new third-party SDKs. The
+                    "Last updated" date at the top of this panel reflects the date of the most
+                    recent revision.
+                  </p>
+                </div>
+              </div>
+            </details>
 
-            <div class="policy-section" id="ff-deletion">
-              <h2>12. Data deletion</h2>
-              <p>To delete locally stored FoodFit Scan data from your device, you can:</p>
-              <ul>
-                <li>
-                  Delete your food history from within the app, where a history deletion
-                  option is provided.
-                </li>
-                <li>
-                  Go to <strong>Android Settings &rarr; Apps &rarr; FoodFit Scan &rarr; Storage &rarr;
-                  Clear data</strong>. This removes all locally stored app data including food
-                  history, cached products, nutrition goals, preferences, and settings.
-                </li>
-                <li>
-                  Uninstall FoodFit Scan from your device. All locally stored data is removed
-                  when the app is uninstalled.
-                </li>
-              </ul>
-              <p>
-                For data held by third-party services such as Google AdMob, please refer to
-                those services' own data deletion instructions or contact them directly.
-              </p>
-            </div>
+            <details class="accordion" id="ff-contact">
+              <summary>Contact</summary>
+              <div class="accordion-body">
+                <p>
+                  For privacy questions, data requests, or any concerns regarding this policy,
+                  please contact Mini Forge Dev by email:
+                </p>
+                <a href="mailto:miniforgedev@gmail.com" class="panel-contact">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <rect x="2" y="4" width="20" height="16" rx="2"/>
+                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                  </svg>
+                  miniforgedev@gmail.com
+                </a>
+              </div>
+            </details>
 
-            <div class="policy-section" id="ff-security">
-              <h2>13. Security</h2>
-              <p>
-                FoodFit Scan stores your data locally and relies on Android's built-in
-                application sandboxing to protect it. Mini Forge Dev takes reasonable care
-                in developing the application, but no method of electronic storage is
-                completely secure.
-              </p>
-            </div>
-
-            <div class="policy-section" id="ff-changes">
-              <h2>14. Policy changes</h2>
-              <p>
-                This privacy policy may be updated when FoodFit Scan adds or removes features,
-                changes data-handling practices, or integrates new third-party SDKs. The
-                "Last updated" date at the top of this panel reflects the date of the most
-                recent revision.
-              </p>
-            </div>
-
-            <div class="policy-section" id="ff-contact">
-              <h2>15. Contact</h2>
-              <p>
-                For privacy questions, data requests, or any concerns regarding this policy,
-                please contact Mini Forge Dev by email:
-              </p>
-              <a href="mailto:miniforgedev@gmail.com" class="contact-email" style="margin-top: 0.75rem;">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <rect x="2" y="4" width="20" height="16" rx="2"/>
-                  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
-                </svg>
-                miniforgedev@gmail.com
-              </a>
-            </div>
+            <p class="policy-footnote">
+              This document is provided for informational purposes and does not constitute legal advice.
+            </p>
 
           </section><!-- /foodfit-scan -->
 
-        </div><!-- /.app-switcher-container -->
+        </div><!-- /data-switcher -->
 
       </div>
     </div>
 
   </main>
 
+  <!-- ══════════════════ FOOTER ══════════════════ -->
   <footer class="site-footer" aria-label="Site footer">
     <div class="container">
       <div class="footer-main">
+
         <div class="footer-brand">
-          <a href="/" class="footer-logo-link">Mini Forge Dev</a>
-          <p class="footer-tagline">Small apps. Carefully forged.</p>
+          <a href="/" class="brand" aria-label="Mini Forge Dev — home">
+            <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+              <path fill="var(--accent)" d="M5.2 10.5 H21 C25.6 10.5 28.6 12.4 29.8 15.4 C27.1 16.9 23.9 17.5 20.8 17.5 H5.2 Q3 17.5 3 15.3 V12.7 Q3 10.5 5.2 10.5 Z"/>
+              <path fill="var(--accent)" opacity="0.82" d="M11.8 17.5 H18.6 L17.8 22 H12.6 Z"/>
+              <rect fill="var(--accent)" opacity="0.55" x="8" y="22" width="14.5" height="4.3" rx="1.7"/>
+              <path fill="var(--ember)" d="M25.8 1.4 L26.9 3.8 L29.3 4.9 L26.9 6 L25.8 8.4 L24.7 6 L22.3 4.9 L24.7 3.8 Z"/>
+            </svg>
+            <span class="brand-name">Mini Forge <em>Dev</em></span>
+          </a>
+          <p class="footer-tagline">
+            Small apps, carefully forged. Focused Android games and tools from an independent studio.
+          </p>
         </div>
-        <nav class="footer-nav" aria-label="Footer navigation">
-          <div class="footer-col">
-            <h2 class="footer-col-title">Apps</h2>
-            <ul>
-              <li><a href="/#apps">Anime Pulse</a></li>
-              <li><a href="/#apps">Letter Rise</a></li>
-              <li><a href="/#apps">LetterForge</a></li>
-              <li><a href="/#apps">Emoji Guess</a></li>
-              <li><a href="/#apps">Guess The Time</a></li>
-              <li><a href="/#apps">FoodFit Scan</a></li>
-            </ul>
-          </div>
-          <div class="footer-col">
-            <h2 class="footer-col-title">Legal</h2>
-            <ul>
-              <li><a href="privacy-policy.html" aria-current="page">Privacy Policy</a></li>
-            </ul>
-          </div>
-          <div class="footer-col">
-            <h2 class="footer-col-title">Help</h2>
-            <ul>
-              <li><a href="support.html">Support</a></li>
-              <li><a href="mailto:miniforgedev@gmail.com">Contact</a></li>
-            </ul>
-          </div>
+
+        <nav class="footer-col" aria-label="Apps">
+          <h2 class="footer-col-title">Apps</h2>
+          <ul data-footer-apps>
+            <li><a href="/#app-anime-pulse">Anime Pulse</a></li>
+            <li><a href="/#app-letter-rise">Letter Rise</a></li>
+            <li><a href="/#app-letterforge">LetterForge</a></li>
+            <li><a href="/#app-emoji-guess">Emoji Guess</a></li>
+            <li><a href="/#app-guess-the-time">Guess The Time</a></li>
+            <li><a href="/#app-foodfit-scan">FoodFit Scan</a></li>
+          </ul>
         </nav>
+
+        <nav class="footer-col" aria-label="Legal">
+          <h2 class="footer-col-title">Legal</h2>
+          <ul>
+            <li><a href="privacy-policy.html" aria-current="page">Privacy Policy</a></li>
+            <li><a href="app-ads.txt">app-ads.txt</a></li>
+          </ul>
+        </nav>
+
+        <nav class="footer-col" aria-label="Help">
+          <h2 class="footer-col-title">Help</h2>
+          <ul>
+            <li><a href="support.html">Support</a></li>
+            <li><a href="/#contact">Contact</a></li>
+            <li><a href="mailto:miniforgedev@gmail.com">Email us</a></li>
+          </ul>
+        </nav>
+
       </div>
+
       <div class="footer-bottom">
-        <p class="footer-copy">&copy; <span id="footer-year"></span> Mini Forge Dev. All rights reserved.</p>
-        <p class="footer-disclaimer">Anime Pulse is an independent application and is not endorsed by or affiliated with AniList or any anime publisher.</p>
+        <p class="footer-copy">&copy; <span id="footer-year">2026</span> Mini Forge Dev. All rights reserved.</p>
+        <p class="footer-disclaimer">
+          Anime Pulse is an independent application and is not endorsed by or affiliated with
+          AniList or any anime publisher. Google Play is a trademark of Google LLC.
+        </p>
       </div>
     </div>
   </footer>
 
   <script src="script.js"></script>
-  <script src="assets/app-switcher.js"></script>
+  <script src="assets/apps-data.js"></script>
+  <script src="assets/app-renderer.js"></script>
+  <script src="assets/theme.js"></script>
 
 </body>
 </html>
