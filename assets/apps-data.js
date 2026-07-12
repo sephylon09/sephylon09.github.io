@@ -85,5 +85,19 @@ window.MFD_APPS = [
     privacyHash: "foodfit-scan",
     supportHash: "foodfit-scan",
     packageId: null
+  },
+  {
+    id: "match-the-color",
+    name: "Match The Color",
+    category: "Multiplayer Color Matching Game",
+    kind: "game",
+    description: "Memorize a target color, recreate it as closely as possible, and compete across multiple rounds. Play solo or create a room and challenge friends.",
+    logo: "assets/matchthecolor_logo.png",
+    optimizedLogo: "assets/app-icons/matchthecolor.webp",
+    status: "coming-soon",
+    playUrl: null,
+    privacyHash: "match-the-color",
+    supportHash: "match-the-color",
+    packageId: null
   }
 ];
